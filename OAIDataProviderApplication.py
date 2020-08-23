@@ -1,9 +1,16 @@
+# Alex Priscu
+# Program that takes in OAI-PMH Request verbs and provides Responses.
+# OAI Data Provider Application
+# 11 August 2020
+
 #!/usr/bin/python3
 
+# Imports
 import os
 import xmltodict
 from dicttoxml import dicttoxml
-from dict2xml import dict2xml
+from dict2xml import dict2xml 
+
 import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
@@ -12,20 +19,36 @@ import cgi
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
-form = cgi.FieldStorage()
+#form = cgi.FieldStorage()
 
-query = form["verb"].value
+#query = form["verb"].value
 
+query = 'ListIdentifiers'
+baseURL = "www.heriport.com"
 print ("Content-type: text/xml\n")
 
-baseURL = "www.heriport.com"
-
 if (query == 'GetRecord'):
+    """Get a record for a metadataPrefix and identifier.
+
+    metadataPrefix - identifies metadata set to retrieve
+    identifier - repository-unique identifier of record
     
-    metadataPrefix = form.getvalue ("metadataPrefix", "")
-    identifier = form.getvalue ("identifier", "")
-        
-     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+    Should raise error.CannotDisseminateFormatError if
+    metadataPrefix is unknown or not supported by identifier.
+    
+    Should raise error.IdDoesNotExistError if identifier is
+    unknown or illegal.
+
+    Returns a header, metadata, about tuple describing the record.
+    """
+    
+    #metadataPrefix = form.getvalue ("metadataPrefix", "")
+    #identifier = form.getvalue ("identifier", "")
+    
+    metadataPrefix = "oai_dc"
+    identifier = "1"
+            
+    verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
@@ -75,13 +98,40 @@ if (query == 'GetRecord'):
     strResp = ''.join([str(elem) for elem in response])
     
     print(strResp)
-    
+  
+elif (query == 'Identify'):
+    """Retrieve information about the repository.
+
+    Returns an Identify object describing the repository.
+    """
+    print ("<OAI-PMH> fill in Identify response according to protocol...</OAI-PMH>")
+  
 elif (query == 'ListIdentifiers'):
+    """Get a list of header information on records.
+
+        metadataPrefix - identifies metadata set to retrieve
+        set - set identifier; only return headers in set (optional)
+        from_ - only retrieve headers from from_ date forward (optional)
+        until - only retrieve headers with dates up to and including
+                until date (optional)
+
+        Should raise error.CannotDisseminateFormatError if metadataPrefix
+        is not supported by the repository.
+
+        Should raise error.NoSetHierarchyError if the repository does not
+        support sets.
+        
+        Returns an iterable of headers.
+        """
+  #  metadataPrefix = form.getvalue ("metadataPrefix", "")
+  #  set = form.getvalue ("set", "")
+  #  frm = form.getvalue ("from", "")
+  #  until = form.getvalue ("until", "")
     
-    metadataPrefix = form.getvalue ("metadataPrefix", "")
-    set = form.getvalue ("set", "")
-    frm = form.getvalue ("from", "")
-    until = form.getvalue ("until", "")
+    metadataPrefix = "oai_dc"
+    set = "Sci"
+    frm = str(datetime.now())
+    until = str(datetime.now())
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -149,11 +199,26 @@ elif (query == 'ListIdentifiers'):
             
         responseEnd = " </ListIdentifiers>\n</OAI-PMH>"
         print(responseEnd)
-        break    
+        break
 
 elif (query == 'ListMetadataFormats'):
+    """List metadata formats supported by repository or record.
+
+    identifier - identify record for which we want to know all
+                    supported metadata formats. if absent, list all metadata
+                    formats supported by repository. (optional)
+
+    Should raise error.IdDoesNotExistError if record with
+    identifier does not exist.
     
-    identifier = form.getvalue ("identifier", "")
+    Should raise error.NoMetadataFormatsError if no formats are
+    available for the indicated record.
+
+    Returns an iterable of metadataPrefix, schema, metadataNamespace
+    tuples (each entry in the tuple is a string).
+    """
+    
+    identifier = "1"
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -220,14 +285,35 @@ elif (query == 'ListMetadataFormats'):
             
         responseEnd = " </ListMetadataFormats>\n</OAI-PMH>"
         print(responseEnd)
-        break    
+        break
 
 elif (query == 'ListRecords'):
+    """Get a list of header, metadata and about information on records.
+
+    metadataPrefix - identifies metadata set to retrieve
+    set - set identifier; only return records in set (optional)
+    from_ - only retrieve records from from_ date forward (optional)
+    until - only retrieve records with dates up to and including
+            until date (optional)
+
+    Should raise error.CannotDisseminateFormatError if metadataPrefix
+    is not supported by the repository.
+
+    Should raise error.NoSetHierarchyError if the repository does not
+    support sets.
+
+    Returns an iterable of header, metadata, about tuples.
+    """
     
-    metadataPrefix = form.getvalue ("metadataPrefix", "")
-    set = form.getvalue ("set", "")
-    frm = form.getvalue ("from", "")
-    until = form.getvalue ("until", "")
+    #metadataPrefix = form.getvalue ("metadataPrefix", "")
+    #set = form.getvalue ("set", "")
+    #frm = form.getvalue ("from", "")
+    #until = form.getvalue ("until", "")
+    
+    metadataPrefix = "oai_dc"
+    set = "Sci"
+    frm = str(datetime.now())
+    until = str(datetime.now())
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n <responseDate>"
@@ -300,5 +386,14 @@ elif (query == 'ListRecords'):
         print(responseEnd)
         break        
 
+elif (query == 'ListSets'):    
+    """Get a list of sets in the repository.
+
+    Should raise error.NoSetHierarchyError if the repository does not
+    support sets.
+
+    Returns an iterable of setSpec, setName tuples (strings)."""
+
 else:
+# Error handling
     print ("Error")
