@@ -52,6 +52,11 @@ if (query == 'GetRecord'):
         part1 = part1[39:len(part1)-3]
         part2 = split[1]
         data = part1+part2
+        
+    else:
+        part1 = split[0]
+        part1 = part1[39:len(part1)-3]
+        data = part1
     
     data = "    <metadata>"+"\n      "+data+"    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
@@ -122,6 +127,11 @@ elif (query == 'ListRecords'):
                 part1 = part1[39:len(part1)-3]
                 part2 = split[1]
                 data = part1+part2
+            
+            else:
+                part1 = split[0]
+                part1 = part1[39:len(part1)-3]
+                data = part1
 
             data = "    <metadata>\n"+data+"    </metadata>"
             

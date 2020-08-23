@@ -20,7 +20,7 @@ import xml.etree.ElementTree as ET
 
 #query = form["verb"].value
 
-query = 'GetRecord'
+query = 'ListRecords'
 baseURL = "www.heriport.com"
 print ("Content-type: text/xml\n")
 
@@ -74,7 +74,12 @@ if (query == 'GetRecord'):
         part1 = part1[39:len(part1)-3]
         part2 = split[1]
         data = part1+part2
-    
+        
+    else:
+        part1 = split[0]
+        part1 = part1[39:len(part1)-3]
+        data = part1
+        
     data = "    <metadata>"+"\n      "+data+"    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
     headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>\n    </header>\n"
@@ -353,7 +358,11 @@ elif (query == 'ListRecords'):
                 part1 = part1[39:len(part1)-3]
                 part2 = split[1]
                 data = part1+part2
-
+            else:
+                part1 = split[0]
+                part1 = part1[39:len(part1)-3]
+                data = part1
+            
             data = "    <metadata>\n"+data+"    </metadata>"
             
             headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
