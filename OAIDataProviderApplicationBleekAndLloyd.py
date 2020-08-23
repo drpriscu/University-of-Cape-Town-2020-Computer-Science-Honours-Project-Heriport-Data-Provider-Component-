@@ -2,8 +2,6 @@
 
 import os
 import xmltodict
-from dicttoxml import dicttoxml
-from dict2xml import dict2xml
 import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
@@ -69,7 +67,7 @@ if (query == 'GetRecord'):
     record.append(data)
     strRec = ''.join([str(elem) for elem in record]) 
 
-    responseEnd = "\n  <record>\n </GetRecord>\n</OAI-PMH>"
+    responseEnd = "\n  </record>\n </GetRecord>\n</OAI-PMH>"
     response.append(strRec)
     response.append(responseEnd)
     strResp = ''.join([str(elem) for elem in response])

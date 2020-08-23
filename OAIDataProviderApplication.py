@@ -8,9 +8,6 @@
 # Imports
 import os
 import xmltodict
-from dicttoxml import dicttoxml
-from dict2xml import dict2xml 
-
 import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
