@@ -25,7 +25,7 @@ if (query == 'GetRecord'):
     metadataPrefix = form.getvalue ("metadataPrefix", "")
     identifier = form.getvalue ("identifier", "")
         
-     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+    verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
@@ -242,7 +242,7 @@ elif (query == 'ListRecords'):
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(1,3):
+        for i in range(1,2058):
             
             identifier = str(i)
             
