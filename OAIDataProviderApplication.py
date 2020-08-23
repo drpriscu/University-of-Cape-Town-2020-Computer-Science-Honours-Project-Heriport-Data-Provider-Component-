@@ -23,7 +23,7 @@ import xml.etree.ElementTree as ET
 
 #query = form["verb"].value
 
-query = 'ListIdentifiers'
+query = 'GetRecord'
 baseURL = "www.heriport.com"
 print ("Content-type: text/xml\n")
 
@@ -328,7 +328,7 @@ elif (query == 'ListRecords'):
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(1,3):
+        for i in range(1,2058):
             
             identifier = str(i)
             
