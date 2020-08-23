@@ -221,7 +221,7 @@ elif (query == 'ListMetadataFormats'):
         responseEnd = "</ListIdentifiers> \n</OAI-PMH>"
         print(responseEnd)
         break    
-   
+
 elif (query == 'ListRecords'):
     
     metadataPrefix = form.getvalue ("metadataPrefix", "")
