@@ -25,14 +25,14 @@ if (query == 'GetRecord'):
     metadataPrefix = form.getvalue ("metadataPrefix", "")
     identifier = form.getvalue ("identifier", "")
         
-    verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-    verbResponseDate = "<responseDate>"
+     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+    verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
     
-    verbRequest = "<request verb=\"GetRecord\" identifier=\""
-    verbRequest += identifier+"\"\n         metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+baseURL+"</request>\n<GetRecord>"
+    verbRequest = "\n  <request verb=\"GetRecord\" identifier=\""
+    verbRequest += identifier+"\"\n           metadataPrefix=\""
+    verbRequest += metadataPrefix+"\">"+baseURL+"</request>\n  <GetRecord>\n   <record>"
     
     response = []
     response.append(verbResponseHeader)
@@ -51,13 +51,13 @@ if (query == 'GetRecord'):
     
     if len(split) == 2:
         part1 = split[0]
-        part1 = part1[0:len(part1)-3]
+        part1 = part1[39:len(part1)-3]
         part2 = split[1]
         data = part1+part2
     
-    data = "<metadata>"+data+"</metadata>"
-    headerIdentifier = "<header>\n  <identifier>"+identifier+"</identifier>"
-    headerDatestamp = "\n  <datestamp>"+str(datetime.now())+"</datestamp>\n</header>"
+    data = "    <metadata>"+"\n      "+data+"    </metadata>"
+    headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
+    headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>\n    </header>\n"
     
     header = []
     header.append(headerIdentifier)
@@ -69,7 +69,7 @@ if (query == 'GetRecord'):
     record.append(data)
     strRec = ''.join([str(elem) for elem in record]) 
 
-    responseEnd = "</GetRecord> \n</OAI-PMH>"
+    responseEnd = "\n  <record>\n </GetRecord>\n</OAI-PMH>"
     response.append(strRec)
     response.append(responseEnd)
     strResp = ''.join([str(elem) for elem in response])
@@ -84,14 +84,14 @@ elif (query == 'ListIdentifiers'):
     until = form.getvalue ("until", "")
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-    verbResponseDate = "<responseDate>"
+    verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
             
-    verbRequest = "<request verb=\"ListIdentifiers\" from=\""
-    verbRequest += frm+"\"\n         metadataPrefix=\""
-    verbRequest += metadataPrefix+"\"\n         set=\""
-    verbRequest += set+"\">"+baseURL+"</request>\n<ListIdentifiers>"
+    verbRequest = "\n  <request verb=\"ListIdentifiers\" from=\""
+    verbRequest += frm+"\"\n           metadataPrefix=\""
+    verbRequest += metadataPrefix+"\"\n           set=\""
+    verbRequest += set+"\">"+baseURL+"</request>\n  <ListIdentifiers>"
             
     path = 'stories/'
     
@@ -124,11 +124,11 @@ elif (query == 'ListIdentifiers'):
                 part1 = split[0]
                 datestamp = part1
 
-            headerIdentifier = " <header>\n  <identifier>"+identifier+"</identifier>"
-            headerDatestamp = "\n  <datestamp>"+str(datestamp)+"</datestamp>"
+            headerIdentifier = "\n   <header>\n    <identifier>"+identifier+"</identifier>"
+            headerDatestamp = "\n    <datestamp>"+str(datestamp)+"</datestamp>"
             
-            headerSetSpec = "<setSpec>"+set+"</setSpec>"
-            headerSetSpec +=  "\n</header>"
+            headerSetSpec = "\n    <setSpec>"+set+"</setSpec>"
+            headerSetSpec +=  "\n   </header>"
             
             header = []
             header.append(headerIdentifier)
@@ -147,7 +147,7 @@ elif (query == 'ListIdentifiers'):
             
             print(strResp)
             
-        responseEnd = "</ListIdentifiers> \n</OAI-PMH>"
+        responseEnd = " </ListIdentifiers>\n</OAI-PMH>"
         print(responseEnd)
         break    
 
@@ -156,13 +156,13 @@ elif (query == 'ListMetadataFormats'):
     identifier = form.getvalue ("identifier", "")
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-    verbResponseDate = "<responseDate>"
+    verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
             
-    verbRequest = "<request verb=\"ListMetadataFormats\"\n identifier=\""
+    verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n identifier=\""
     verbRequest += identifier+"\">\n"
-    verbRequest += baseURL+"</request>\n<ListMetadataFormats>"
+    verbRequest += baseURL+"</request>\n  <ListMetadataFormats>"
             
     path = 'stories/'
     
@@ -191,7 +191,7 @@ elif (query == 'ListMetadataFormats'):
             
             if len(split) == 2:
                 splitString = "\<datestamp>"
-                split = data.split(splitString)
+                split = split[1].split(splitString)
                 part1 = split[0]
                 datestamp = part1
 
@@ -218,7 +218,7 @@ elif (query == 'ListMetadataFormats'):
             
             print(strResp)
             
-        responseEnd = "</ListIdentifiers> \n</OAI-PMH>"
+        responseEnd = " </ListMetadataFormats>\n</OAI-PMH>"
         print(responseEnd)
         break    
 
@@ -230,19 +230,19 @@ elif (query == 'ListRecords'):
     until = form.getvalue ("until", "")
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-    verbResponseDate = "<responseDate>"
+    verbResponseDate = "\n <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
             
-    verbRequest = "<request verb=\"ListRecords\" from=\""
-    verbRequest += frm+"\"\n         set=\""
-    verbRequest += set+"\"\n         metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+"\n"baseURL+"</request>\n<ListRecords>"
+    verbRequest = "\n <request verb=\"ListRecords\" from=\""
+    verbRequest += frm+"\"\n          set=\""
+    verbRequest += set+"\"\n          metadataPrefix=\""
+    verbRequest += metadataPrefix+"\">"+"\n"+baseURL+"</request>\n <ListRecords>\n"
             
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(1,2058):
+        for i in range(1,3):
             
             identifier = str(i)
             
@@ -267,17 +267,17 @@ elif (query == 'ListRecords'):
             
             if len(split) == 2:
                 part1 = split[0]
-                part1 = part1[0:len(part1)-3]
+                part1 = part1[39:len(part1)-3]
                 part2 = split[1]
                 data = part1+part2
 
-            data = "<metadata>"+data+"</metadata>"
+            data = "    <metadata>\n"+data+"    </metadata>"
             
-            headerIdentifier = "<record>\n  <header>\n  <identifier>"+identifier+"</identifier>"
-            headerDatestamp = "\n  <datestamp>"+str(datetime.now())+"</datestamp>"
-            headerSetSpec = "<setSpec>"+set+"</setSpec>"
+            headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
+            headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
+            headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
         
-            headerSetSpec +=  "\n</header>"
+            headerSetSpec +=  "\n    </header>\n"
             
             header = []
             header.append(headerIdentifier)
@@ -288,7 +288,7 @@ elif (query == 'ListRecords'):
             record = []
             record.append(strHead)
             record.append(data)
-            record.append("</record>")
+            record.append("\n  </record>")
             strRec = ''.join([str(elem) for elem in record]) 
             
             response.append(strRec)
@@ -296,7 +296,7 @@ elif (query == 'ListRecords'):
             
             print(strResp)
             
-        responseEnd = "</ListRecords> \n</OAI-PMH>"
+        responseEnd = " </ListRecords> \n</OAI-PMH>"
         print(responseEnd)
         break        
 
