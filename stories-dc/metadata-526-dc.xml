@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:descriptions>The human heart is believed to fall down at death. A star likewise falls. (L V.-22. 5731 rev.-5733 rev., note).</dc:descriptions>
-  <dc:descriptions>When people are about to die, their heart does not 'stand' as it did but falls like the star.</dc:descriptions>
+  <dc:descriptions>The human heart is believed to fall down at death. A star likewise falls. (L V.</dc:descriptions>
+  <dc:descriptions>22. 5731 rev.</dc:descriptions>
+  <dc:descriptions>5733 rev., note). When people are about to die, their heart does not 'stand' as it did but falls like the star.</dc:descriptions>
   <dc:identifiers>526</dc:identifiers>
   <dc:title>Falling stars</dc:title>
 </oai_dc:dc>
