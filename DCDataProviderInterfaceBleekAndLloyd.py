@@ -33,7 +33,9 @@ def convert(fileName,dictData):
         if (type(valDict) == dict):
             n = valDict.values()
             dictData[x] = n 
-            dictData[x] = "".join(dictData[x])
+            dictData[x] = " ".join(str(v) for v in dictData[x])
+            dictData[x] = list(dictData[x].split("-"))
+
            
             for i in valDict.values():
                 if type(i) == list:
@@ -51,7 +53,7 @@ def convert(fileName,dictData):
     
         if (type(valDict) == list):
             valDict = str(valDict)
-                 
+    
     metadata = simpledc.tostring(dictData)
     record = []
     newFileName = "stories-dc/"+fileName
@@ -64,7 +66,7 @@ def convert(fileName,dictData):
 path = 'stories/'
 
 for root, directories, filenames in os.walk(path):
-    for i in range(0,2058):
+    for i in range(1,2058):
         directory_path = os.path.join(root, str(i))
         print('stories/'+str(i))
         if directory_path == 'stories/'+str(i):
