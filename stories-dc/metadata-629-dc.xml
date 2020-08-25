@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:descriptions>!kuerre</dc:descriptions>
-  <dc:descriptions>!kuerre About the  bird and what people say when it flutters its wings.</dc:descriptions>
+  <dc:descriptions>!kuerre-!kuerre</dc:descriptions>
+  <dc:descriptions>About the  bird and what people say when it flutters its wings.</dc:descriptions>
   <dc:identifiers>629</dc:identifiers>
-  <dc:title>!kuerre</dc:title>
-  <dc:title>!kuerre The  (a bird)</dc:title>
+  <dc:title>!kuerre-!kuerre</dc:title>
+  <dc:title>The  (a bird)</dc:title>
 </oai_dc:dc>
