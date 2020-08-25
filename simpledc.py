@@ -85,11 +85,11 @@ creator = rule_factory('creators', 'creator')
 
 dates = rule_factory('dates', 'date')
 
-description = rule_factory('description', 'descriptions')
+description = rule_factory('description', 'description')
 
 formats = rule_factory('formats', 'format')
 
-identifier = rule_factory('identifier', 'identifiers')
+identifier = rule_factory('identifier', 'identifier')
 
 language = rule_factory('languages', 'language')
 
@@ -105,4 +105,4 @@ subject = rule_factory('subjects', 'subject')
 
 title = rule_factory('title', 'title')
 
-type = rule_factory('type', 'type')
+type = rule_factory('types', 'types')

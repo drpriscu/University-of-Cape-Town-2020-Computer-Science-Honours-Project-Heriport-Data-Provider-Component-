@@ -46,7 +46,7 @@ if (query == 'GetRecord'):
         print(fileName)
         print("File Error")
         
-    splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
+    splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
     split = data.split(splitString)
     
     if len(split) == 2:
@@ -123,7 +123,7 @@ elif (query == 'ListRecords'):
                 print(fileName)
                 print("File Error")
 
-            splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
+            splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
                             
             split = data.split(splitString)
             

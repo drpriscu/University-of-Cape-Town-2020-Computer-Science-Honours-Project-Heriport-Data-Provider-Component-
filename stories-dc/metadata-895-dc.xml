@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:descriptions>An illness which scratches and affects the throat which does not cause death.</dc:descriptions>
-  <dc:identifiers>895</dc:identifiers>
+  <dc:description>An illness which scratches and affects the throat which does not cause death.</dc:description>
+  <dc:identifier>895</dc:identifier>
   <dc:title>!hamman</dc:title>
   <dc:title>xu An eruptive illness called</dc:title>
 </oai_dc:dc>

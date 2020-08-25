@@ -59,7 +59,6 @@ def convert(fileName,dictData):
         if (type(valDict) == list):
             valDict = str(valDict)
     
-    # Remove non-ascii characters
     for x in dictData.keys():
         tempList = []
         if (dictData[x] != None):

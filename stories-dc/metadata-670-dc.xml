@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:descriptions>Personal information about a man called kkuirri</dc:descriptions>
-  <dc:descriptions>ttu (|han kass'o's uncle) who was killed by a white man over some missing oxen.</dc:descriptions>
-  <dc:identifiers>670</dc:identifiers>
+  <dc:description>Personal information about a man called kkuirri</dc:description>
+  <dc:description>ttu (|han kass'o's uncle) who was killed by a white man over some missing oxen.</dc:description>
+  <dc:identifier>670</dc:identifier>
   <dc:title>Note on kkuirri</dc:title>
   <dc:title>ttu</dc:title>
 </oai_dc:dc>
