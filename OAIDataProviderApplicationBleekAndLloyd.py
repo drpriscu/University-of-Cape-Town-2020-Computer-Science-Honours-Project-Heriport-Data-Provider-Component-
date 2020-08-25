@@ -18,7 +18,7 @@ print ("Content-type: text/xml\n")
 
 baseURL = "www.heriport.com"
 
-if (query == 'GetRecord'):
+if (query == 'ListRecords'):
     
     metadataPrefix = form.getvalue ("metadataPrefix", "")
     identifier = form.getvalue ("identifier", "")
@@ -41,8 +41,11 @@ if (query == 'GetRecord'):
     try:
         with open(fileName) as file:
             data = file.read()
-    except:
-        print("Error")
+            file.close()
+    except Exception as e:
+                print(e)
+                print(fileName)
+                print("File Error")
         
     splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
     split = data.split(splitString)
@@ -94,7 +97,7 @@ elif (query == 'ListRecords'):
     verbRequest = "\n <request verb=\"ListRecords\" from=\""
     verbRequest += frm+"\"\n          set=\""
     verbRequest += set+"\"\n          metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+"\n"+baseURL+"</request>\n <ListRecords>\n"
+    verbRequest += metadataPrefix+"\">"+"\n          "+baseURL+"</request>\n <ListRecords>\n"
             
     path = 'stories/'
     
@@ -115,8 +118,11 @@ elif (query == 'ListRecords'):
             try:
                 with open(fileName) as file:
                     data = file.read()
-            except:
-                print("Error")
+                    file.close()
+            except Exception as e:
+                print(e)
+                print(fileName)
+                print("File Error")
                 
             splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
                             

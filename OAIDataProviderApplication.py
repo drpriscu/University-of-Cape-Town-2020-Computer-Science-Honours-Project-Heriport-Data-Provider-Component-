@@ -63,8 +63,11 @@ if (query == 'GetRecord'):
     try:
         with open(fileName) as file:
             data = file.read()
-    except:
-        print("Error")
+            file.close()
+    except Exception as e:
+                print(e)
+                print(fileName)
+                print("File Error")
         
     splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
     split = data.split(splitString)
@@ -160,12 +163,15 @@ elif (query == 'ListIdentifiers'):
                 response.append(verbRequest)
   
             fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
-            
+
             try:
                 with open(fileName) as file:
                     data = file.read()
-            except:
-                print("Error")
+                    file.close()
+            except Exception as e:
+                print(e)
+                print(fileName)
+                print("File Error")
                 
             splitString = "<datestamp>"
             split = data.split(splitString)
@@ -248,10 +254,12 @@ elif (query == 'ListMetadataFormats'):
             fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
             
             try:
-                with open(fileName) as file:
-                    data = file.read()
-            except:
-                print("Error")
+                with open(fileName) as file:data = file.read()
+            file.close()
+            except Exception as e:
+                print(e)
+                print(fileName)
+                print("File Error")
                 
             splitString = "<datestamp>"
             split = data.split(splitString)
@@ -325,12 +333,12 @@ elif (query == 'ListRecords'):
     verbRequest = "\n <request verb=\"ListRecords\" from=\""
     verbRequest += frm+"\"\n          set=\""
     verbRequest += set+"\"\n          metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+"\n"+baseURL+"</request>\n <ListRecords>\n"
+    verbRequest += metadataPrefix+"\">"+"\n          "+baseURL+"</request>\n <ListRecords>\n"
             
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(1,2058):
+        for i in range(5,7):
             
             identifier = str(i)
             
@@ -346,8 +354,11 @@ elif (query == 'ListRecords'):
             try:
                 with open(fileName) as file:
                     data = file.read()
-            except:
-                print("Error")
+                    file.close()
+            except Exception as e:
+                print(e)
+                print(fileName)
+                print("File Error")
                 
             splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
                             
