@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:descriptions>Name, etc., of a Bushman at the Amsterdam Battery, in 1879 (L VII.-1. 6046g). Words. Given by Xu gwai (L VII.-1. 6046g-6046j).</dc:descriptions>
-  <dc:descriptions>Also known as Jantje George.</dc:descriptions>
+  <dc:descriptions>Name, etc., of a Bushman at the Amsterdam Battery, in 1879 (L VII.</dc:descriptions>
+  <dc:descriptions>1. 6046g). Words. Given by Xu gwai (L VII.</dc:descriptions>
+  <dc:descriptions>1. 6046g</dc:descriptions>
+  <dc:descriptions>6046j). Also known as Jantje George.</dc:descriptions>
   <dc:identifiers>573</dc:identifiers>
   <dc:title>Amsterdam Battery, near Cape Town: July 15/79</dc:title>
 </oai_dc:dc>
