@@ -254,8 +254,9 @@ elif (query == 'ListMetadataFormats'):
             fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
             
             try:
-                with open(fileName) as file:data = file.read()
-            file.close()
+                with open(fileName) as file:
+                    data = file.read()
+                    file.close()
             except Exception as e:
                 print(e)
                 print(fileName)

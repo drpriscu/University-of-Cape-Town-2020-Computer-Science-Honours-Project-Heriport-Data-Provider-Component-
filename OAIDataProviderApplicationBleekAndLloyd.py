@@ -43,9 +43,9 @@ if (query == 'ListRecords'):
             data = file.read()
             file.close()
     except Exception as e:
-                print(e)
-                print(fileName)
-                print("File Error")
+        print(e)
+        print(fileName)
+        print("File Error")
         
     splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
     split = data.split(splitString)
@@ -123,7 +123,7 @@ elif (query == 'ListRecords'):
                 print(e)
                 print(fileName)
                 print("File Error")
-                
+
             splitString = "<dc:identifiers>"+identifier+"</dc:identifiers>"
                             
             split = data.split(splitString)
