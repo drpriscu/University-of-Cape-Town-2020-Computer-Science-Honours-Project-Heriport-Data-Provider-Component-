@@ -18,7 +18,7 @@ print ("Content-type: text/xml\n")
 
 baseURL = "www.heriport.com"
 
-if (query == 'ListRecords'):
+if (query == 'GetRecord'):
     
     metadataPrefix = form.getvalue ("metadataPrefix", "")
     identifier = form.getvalue ("identifier", "")
@@ -41,7 +41,6 @@ if (query == 'ListRecords'):
     try:
         with open(fileName) as file:
             data = file.read()
-            file.close()
     except Exception as e:
         print(e)
         print(fileName)
@@ -113,7 +112,7 @@ elif (query == 'ListRecords'):
                 response.append(verbResponseDate)
                 response.append(verbRequest)
   
-            fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
+            fileName = "stories-dc/metadata-"+identifier+"-dc.xml"
             
             try:
                 with open(fileName) as file:
