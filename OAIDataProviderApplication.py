@@ -4,7 +4,6 @@
 # 11 August 2020
 
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 # Imports
 import os
@@ -342,7 +341,7 @@ elif (query == 'ListRecords'):
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(5,7):
+        for i in range(1,2058):
             identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
             
             response = []

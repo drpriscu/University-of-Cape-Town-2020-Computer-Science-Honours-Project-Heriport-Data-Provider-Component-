@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import os
 import xmltodict
@@ -104,9 +103,8 @@ elif (query == 'ListRecords'):
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(5,7):
-            
-            identifier = str(i)
+        for i in range(1,2058):
+            identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
             
             response = []
             
@@ -165,7 +163,7 @@ elif (query == 'ListRecords'):
             
         responseEnd = " </ListRecords> \n</OAI-PMH>"
         print(responseEnd)
-        break      
+        break     
 
 else:
     print ("Error")
