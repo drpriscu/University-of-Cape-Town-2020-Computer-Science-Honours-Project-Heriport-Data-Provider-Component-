@@ -10,7 +10,8 @@ import re
 import string
 
 def remove_non_ascii(text):
-    return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
+    return ''.join('\\u%04x' % ord(c) for c in text)
+    #return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
 
 def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
