@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import xmltodict
 import pprint
@@ -8,10 +10,7 @@ import simpledc
 import re
 import string
 
-def remove_non_ascii(text):
-    return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
-
-def convert(fileName,dictData):
+def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
 
     new = "description"
@@ -20,13 +19,9 @@ def convert(fileName,dictData):
         dictData[new] = dictData.pop(old)
     except:
         pass
-
-    new = "identifier"
-    old = "id"
-    try:
-        dictData[new] = dictData.pop(old)
-    except:
-        pass
+    
+    identifier = serverURL
+    dictData["identifier"] = identifier
     
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
@@ -41,7 +36,6 @@ def convert(fileName,dictData):
             dictData[x] = " ".join(str(v) for v in dictData[x])
             dictData[x] = list(dictData[x].split("-"))
 
-           
             for i in valDict.values():
                 if type(i) == list:
                     dictData[x] = ' '.join([str(elem) for elem in i]) 
@@ -54,39 +48,34 @@ def convert(fileName,dictData):
 
                 if type(valDict[i]) is not type(None):
                     dictData[x] = list(min(valDict[0].values()).split("-"))
-
     
         if (type(valDict) == list):
             valDict = str(valDict)
     
-    for x in dictData.keys():
-        tempList = []
-        if (dictData[x] != None):
-            for i in dictData[x]:
-                i = remove_non_ascii(str(i))
-                tempList.append(i)
-                dictData[x] = tempList
-    
     metadata = simpledc.tostring(dictData)
-    record = []
-    newFileName = "stories-dc/"+fileName
-    newFile = open(newFileName, "w")
-    newFile.write(metadata)
-    newFile.close()
-    print("Successfully created file: "+fileName)
-    record.append(metadata)  
+    
+    dcFilePath = directoryPath+"/"+dcFileName
+    
+    try:
+        dcFile = open(dcFilePath, "w")
+        dcFile.write(metadata)
+        dcFile.close()
+    except Exception as e:
+                print(e)
+    
+    print("Successfully created file: "+dcFileName)
 
 path = 'stories/'
 
 for root, directories, filenames in os.walk(path):
     for i in range(1,2058):
-        directory_path = os.path.join(root, str(i))
-        print('stories/'+str(i))
-        if directory_path == 'stories/'+str(i):
-                filePath = directory_path +'/metadata.xml'
+        directoryPath = os.path.join(root, str(i))
+        if (directoryPath == 'stories/'+str(i)):
+                filePath = directoryPath +'/metadata.xml'
                 with open(filePath) as file:
                     dictData = dict(xmltodict.parse(file.read(), dict_constructor=dict))
-                    fileName = "metadata-"+str(i)+"-dc.xml"
-                    convert(fileName,dictData)
+                    dcFileName = "metadata-"+str(i)+"-dc.xml"
+                    serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
+                    convert(directoryPath, serverURL, dcFileName, dictData)
     print("Successfully converted files.")                
     break

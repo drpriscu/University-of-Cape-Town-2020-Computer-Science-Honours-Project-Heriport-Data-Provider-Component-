@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import os
 import xmltodict
@@ -16,7 +17,7 @@ query = form["verb"].value
 
 print ("Content-type: text/xml\n")
 
-baseURL = "www.heriport.com"
+serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"
 
 if (query == 'GetRecord'):
     
@@ -30,21 +31,23 @@ if (query == 'GetRecord'):
     
     verbRequest = "\n  <request verb=\"GetRecord\" identifier=\""
     verbRequest += identifier+"\"\n           metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+baseURL+"</request>\n  <GetRecord>\n   <record>"
+    verbRequest += metadataPrefix+"\">"+serverURL+"</request>\n  <GetRecord>\n   <record>"
     
     response = []
     response.append(verbResponseHeader)
     response.append(verbResponseDate)
     response.append(verbRequest)
     
-    fileName = "stories-dc/metadata-"+identifier+"-dc.xml"
+    splitString = "stories/"
+    split = identifier.split(splitString)
+    dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+    
     try:
-        with open(fileName) as file:
-            data = file.read()
+        with open(dcFilePath) as dcFile:
+            data = dcFile.read()
+            dcFile.close()
     except Exception as e:
-        print(e)
-        print(fileName)
-        print("File Error")
+                print(e)
         
     splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
     split = data.split(splitString)
@@ -96,12 +99,12 @@ elif (query == 'ListRecords'):
     verbRequest = "\n <request verb=\"ListRecords\" from=\""
     verbRequest += frm+"\"\n          set=\""
     verbRequest += set+"\"\n          metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+"\n          "+baseURL+"</request>\n <ListRecords>\n"
+    verbRequest += metadataPrefix+"\">"+"\n          "+serverURL+"</request>\n <ListRecords>\n"
             
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(1,2058):
+        for i in range(5,7):
             
             identifier = str(i)
             
@@ -112,19 +115,17 @@ elif (query == 'ListRecords'):
                 response.append(verbResponseDate)
                 response.append(verbRequest)
   
-            fileName = "stories-dc/metadata-"+identifier+"-dc.xml"
-            
+            splitString = "stories/"
+            split = identifier.split(splitString)
+            dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
             try:
-                with open(fileName) as file:
-                    data = file.read()
-                    file.close()
+                with open(dcFilePath) as dcFile:
+                    data = dcFile.read()
+                    dcFile.close()
             except Exception as e:
                 print(e)
-                print(fileName)
-                print("File Error")
-
+            
             splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
-                            
             split = data.split(splitString)
             
             if len(split) == 2:
@@ -132,12 +133,11 @@ elif (query == 'ListRecords'):
                 part1 = part1[39:len(part1)-3]
                 part2 = split[1]
                 data = part1+part2
-            
             else:
                 part1 = split[0]
                 part1 = part1[39:len(part1)-3]
                 data = part1
-
+            
             data = "    <metadata>\n"+data+"    </metadata>"
             
             headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
@@ -165,7 +165,7 @@ elif (query == 'ListRecords'):
             
         responseEnd = " </ListRecords> \n</OAI-PMH>"
         print(responseEnd)
-        break        
+        break      
 
 else:
     print ("Error")

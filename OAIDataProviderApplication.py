@@ -3,7 +3,8 @@
 # OAI Data Provider Application
 # 11 August 2020
 
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # Imports
 import os
@@ -21,7 +22,7 @@ import xml.etree.ElementTree as ET
 #query = form["verb"].value
 
 query = 'ListRecords'
-baseURL = "www.heriport.com"
+serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
 if (query == 'GetRecord'):
@@ -43,7 +44,7 @@ if (query == 'GetRecord'):
     #identifier = form.getvalue ("identifier", "")
     
     metadataPrefix = "oai_dc"
-    identifier = "1"
+    identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/6"
             
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -52,22 +53,24 @@ if (query == 'GetRecord'):
     
     verbRequest = "\n  <request verb=\"GetRecord\" identifier=\""
     verbRequest += identifier+"\"\n           metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+baseURL+"</request>\n  <GetRecord>\n   <record>"
+    verbRequest += metadataPrefix+"\">"+serverURL+"</request>\n  <GetRecord>\n   <record>"
     
     response = []
     response.append(verbResponseHeader)
     response.append(verbResponseDate)
     response.append(verbRequest)
     
-    fileName = "stories-dc/metadata-"+identifier+"-dc.xml"
+    splitString = "stories/"
+    split = identifier.split(splitString)
+    dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+    print(dcFilePath)
+    
     try:
-        with open(fileName) as file:
-            data = file.read()
-            file.close()
+        with open(dcFilePath) as dcFile:
+            data = dcFile.read()
+            dcFile.close()
     except Exception as e:
                 print(e)
-                print(fileName)
-                print("File Error")
         
     splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
     split = data.split(splitString)
@@ -77,7 +80,7 @@ if (query == 'GetRecord'):
         part1 = part1[39:len(part1)-3]
         part2 = split[1]
         data = part1+part2
-        
+       
     else:
         part1 = split[0]
         part1 = part1[39:len(part1)-3]
@@ -146,7 +149,7 @@ elif (query == 'ListIdentifiers'):
     verbRequest = "\n  <request verb=\"ListIdentifiers\" from=\""
     verbRequest += frm+"\"\n           metadataPrefix=\""
     verbRequest += metadataPrefix+"\"\n           set=\""
-    verbRequest += set+"\">"+baseURL+"</request>\n  <ListIdentifiers>"
+    verbRequest += set+"\">"+serverURL+"</request>\n  <ListIdentifiers>"
             
     path = 'stories/'
     
@@ -235,7 +238,7 @@ elif (query == 'ListMetadataFormats'):
             
     verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n identifier=\""
     verbRequest += identifier+"\">\n"
-    verbRequest += baseURL+"</request>\n  <ListMetadataFormats>"
+    verbRequest += serverURL+"</request>\n  <ListMetadataFormats>"
             
     path = 'stories/'
     
@@ -334,14 +337,13 @@ elif (query == 'ListRecords'):
     verbRequest = "\n <request verb=\"ListRecords\" from=\""
     verbRequest += frm+"\"\n          set=\""
     verbRequest += set+"\"\n          metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+"\n          "+baseURL+"</request>\n <ListRecords>\n"
+    verbRequest += metadataPrefix+"\">"+"\n          "+serverURL+"</request>\n <ListRecords>\n"
             
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
         for i in range(5,7):
-            
-            identifier = str(i)
+            identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
             
             response = []
             
@@ -350,19 +352,17 @@ elif (query == 'ListRecords'):
                 response.append(verbResponseDate)
                 response.append(verbRequest)
   
-            fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
-            
+            splitString = "stories/"
+            split = identifier.split(splitString)
+            dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
             try:
-                with open(fileName) as file:
-                    data = file.read()
-                    file.close()
+                with open(dcFilePath) as dcFile:
+                    data = dcFile.read()
+                    dcFile.close()
             except Exception as e:
                 print(e)
-                print(fileName)
-                print("File Error")
-                
+            
             splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
-                            
             split = data.split(splitString)
             
             if len(split) == 2:
