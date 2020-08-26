@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import os
 import xmltodict
@@ -9,6 +8,9 @@ from xmlutils import Rules, dump_etree_helper, etree_to_string
 import simpledc
 import re
 import string
+
+def remove_non_ascii(text):
+    return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
 
 def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
@@ -51,6 +53,14 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     
         if (type(valDict) == list):
             valDict = str(valDict)
+      
+    for x in dictData.keys():
+        tempList = []
+        if (dictData[x] != None):
+            for i in dictData[x]:
+                i = remove_non_ascii(str(i))
+                tempList.append(i)
+                dictData[x] = tempList 
     
     metadata = simpledc.tostring(dictData)
     
