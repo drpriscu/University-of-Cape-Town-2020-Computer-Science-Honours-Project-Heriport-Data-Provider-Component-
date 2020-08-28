@@ -62,7 +62,6 @@ if (query == 'GetRecord'):
     splitString = "stories/"
     split = identifier.split(splitString)
     dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-    print(dcFilePath)
     
     try:
         with open(dcFilePath) as dcFile:
@@ -87,11 +86,13 @@ if (query == 'GetRecord'):
         
     data = "    <metadata>"+"\n      "+data+"    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
-    headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>\n    </header>\n"
+    headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
+    headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
     
     header = []
     header.append(headerIdentifier)
     header.append(headerDatestamp)
+    header.append(headerSet)
     strHead = ''.join([str(elem) for elem in header]) 
 
     record = []
@@ -136,7 +137,7 @@ elif (query == 'ListIdentifiers'):
   #  until = form.getvalue ("until", "")
     
     metadataPrefix = "oai_dc"
-    set = "Sci"
+    set = "stories"
     frm = str(datetime.now())
     until = str(datetime.now())
     
@@ -324,9 +325,9 @@ elif (query == 'ListRecords'):
     #until = form.getvalue ("until", "")
     
     metadataPrefix = "oai_dc"
-    set = "Sci"
-    frm = str(datetime.now())
-    until = str(datetime.now())
+    set = "stories"
+    frm = "2020-08-27"
+    until = "2020-08-28"
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n <responseDate>"
@@ -354,6 +355,7 @@ elif (query == 'ListRecords'):
             splitString = "stories/"
             split = identifier.split(splitString)
             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+            
             try:
                 with open(dcFilePath) as dcFile:
                     data = dcFile.read()
@@ -361,47 +363,74 @@ elif (query == 'ListRecords'):
             except Exception as e:
                 print(e)
             
-            splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
+            splitString = "<dc:date>"
             split = data.split(splitString)
+            splitString = "</dc:date>"
+            split = split[1].split(splitString)
+            recordDate = split[0]
             
-            if len(split) == 2:
-                part1 = split[0]
-                part1 = part1[39:len(part1)-3]
-                part2 = split[1]
-                data = part1+part2
-            else:
-                part1 = split[0]
-                part1 = part1[39:len(part1)-3]
-                data = part1
+            recordDateObject = datetime.strptime(recordDate, "%Y-%m-%d")
+            frmDateObject = datetime.strptime(frm, "%Y-%m-%d")
+            untilDateObject = datetime.strptime(until, "%Y-%m-%d")
             
-            data = "    <metadata>\n"+data+"    </metadata>"
+            if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
+                splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
+                split = data.split(splitString)
+                
+                if len(split) == 2:
+                    part1 = split[0]
+                    part1 = part1[39:len(part1)-3]
+                    part2 = split[1]
+                    data = part1+part2
+                else:
+                    part1 = split[0]
+                    part1 = part1[39:len(part1)-3]
+                    data = part1
+                
+                splitString = "<oai_dc:dc"
+                split = data.split(splitString)
+                splitString = "<dc:date>"
+                split = split[1].split(splitString)
+                oaidc = split[0]
+                oaidc = oaidc[1:len(oaidc)-3]
+                
+                splitString = "oai_dc.xsd\">"
+                split = data.split(splitString)
+                data = split[1]
+                
+                data = "    <metadata>"+data+"    </metadata>"
+                about = "\n    <about>\n      <oai_dc:dc>\n"+oaidc+"\n      <\oai_dc:dc>\n    </about>"
+                
+                headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
+                headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
+                headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
             
-            headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
-            headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
-            headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
-        
-            headerSetSpec +=  "\n    </header>\n"
-            
-            header = []
-            header.append(headerIdentifier)
-            header.append(headerDatestamp)
-            header.append(headerSetSpec)
-            strHead = ''.join([str(elem) for elem in header]) 
+                headerSetSpec +=  "\n    </header>\n"
+                
+                header = []
+                header.append(headerIdentifier)
+                header.append(headerDatestamp)
+                header.append(headerSetSpec)
+                strHead = ''.join([str(elem) for elem in header]) 
 
-            record = []
-            record.append(strHead)
-            record.append(data)
-            record.append("\n  </record>")
-            strRec = ''.join([str(elem) for elem in record]) 
+                record = []
+                record.append(strHead)
+                record.append(data)
+                record.append(about)
+                record.append("\n  </record>")
+                strRec = ''.join([str(elem) for elem in record]) 
+                
+                response.append(strRec)
+                strResp = ''.join([str(elem) for elem in response]) 
+                
+                print(strResp)
             
-            response.append(strRec)
-            strResp = ''.join([str(elem) for elem in response]) 
-            
-            print(strResp)
-            
+            else:
+                pass
+                    
         responseEnd = " </ListRecords> \n</OAI-PMH>"
         print(responseEnd)
-        break        
+        break      
 
 elif (query == 'ListSets'):    
     """Get a list of sets in the repository.

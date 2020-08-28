@@ -83,7 +83,7 @@ coverage = rule_factory('coverage', 'coverage')
 
 creator = rule_factory('creators', 'creator')
 
-dates = rule_factory('dates', 'date')
+date = rule_factory('date', 'date')
 
 description = rule_factory('description', 'description')
 

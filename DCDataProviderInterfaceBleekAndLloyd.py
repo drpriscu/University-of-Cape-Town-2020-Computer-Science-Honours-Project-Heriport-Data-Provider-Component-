@@ -8,10 +8,12 @@ from xmlutils import Rules, dump_etree_helper, etree_to_string
 import simpledc
 import re
 import string
+import unicodedata
+from datetime import datetime
 
 def remove_non_ascii(text):
-    return ''.join('\\u%04x' % ord(c) for c in text)
-    #return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
+    text = text.replace('–',"-")
+    return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore')
 
 def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
@@ -26,9 +28,14 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     identifier = serverURL
     dictData["identifier"] = identifier
     
+    date = str(datetime.now())
+    dateSplit = date.split(" ")
+    date = dateSplit[0]
+    dictData["date"] = date
+    
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
-                dictData[keys] = list(dictData[keys].split("-"))
+                dictData[keys] = list(dictData[keys].split("+"))
                 
     for x in dictData:
         valDict = dictData[x]
@@ -37,12 +44,12 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
             n = valDict.values()
             dictData[x] = n 
             dictData[x] = " ".join(str(v) for v in dictData[x])
-            dictData[x] = list(dictData[x].split("-"))
+            dictData[x] = list(dictData[x].split("+"))
 
             for i in valDict.values():
                 if type(i) == list:
                     dictData[x] = ' '.join([str(elem) for elem in i]) 
-                    dictData[x] = list(dictData[x].split("-"))
+                    dictData[x] = list(dictData[x].split("+"))
                    
         if (type(valDict) == list and type(valDict[0]) == dict):
             for i in range(0,len(valDict)):
@@ -50,7 +57,7 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
                 valDictNew['kw'] = "None"
 
                 if type(valDict[i]) is not type(None):
-                    dictData[x] = list(min(valDict[0].values()).split("-"))
+                    dictData[x] = list(min(valDict[0].values()).split("+"))
     
         if (type(valDict) == list):
             valDict = str(valDict)
