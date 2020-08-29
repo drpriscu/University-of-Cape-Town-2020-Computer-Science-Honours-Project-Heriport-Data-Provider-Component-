@@ -20,7 +20,7 @@ import xml.etree.ElementTree as ET
 
 #query = form["verb"].value
 
-query = 'ListRecords'
+query = 'GetRecord'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
@@ -44,6 +44,7 @@ if (query == 'GetRecord'):
     
     metadataPrefix = "oai_dc"
     identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/6"
+    set = "stories"
             
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -81,10 +82,10 @@ if (query == 'GetRecord'):
        
     else:
         part1 = split[0]
-        part1 = part1[39:len(part1)-3]
+        part1 = part1[39:len(part1)-1]
         data = part1
-        
-    data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
+    
+    data = "    <metadata>\n      "+data+"\n    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
     headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
     headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"

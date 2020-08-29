@@ -22,6 +22,7 @@ if (query == 'GetRecord'):
     
     metadataPrefix = form.getvalue ("metadataPrefix", "")
     identifier = form.getvalue ("identifier", "")
+    set = "stories"
         
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -37,17 +38,6 @@ if (query == 'GetRecord'):
     response.append(verbResponseDate)
     response.append(verbRequest)
     
-    splitString = "stories/"
-    split = identifier.split(splitString)
-    dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-    
-    try:
-        with open(dcFilePath) as dcFile:
-            data = dcFile.read()
-            dcFile.close()
-    except Exception as e:
-                print(e)
-        
     splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
     split = data.split(splitString)
     
@@ -56,13 +46,13 @@ if (query == 'GetRecord'):
         part1 = part1[39:len(part1)-3]
         part2 = split[1]
         data = part1+part2
-        
+       
     else:
         part1 = split[0]
-        part1 = part1[39:len(part1)-3]
+        part1 = part1[39:len(part1)-1]
         data = part1
     
-    data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
+    data = "    <metadata>\n      "+data+"\n    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
     headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
     headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
