@@ -84,7 +84,7 @@ if (query == 'GetRecord'):
         part1 = part1[39:len(part1)-3]
         data = part1
         
-    data = "    <metadata>"+"\n      "+data+"    </metadata>"
+    data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
     headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
     headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
@@ -327,7 +327,7 @@ elif (query == 'ListRecords'):
     metadataPrefix = "oai_dc"
     set = "stories"
     frm = "2020-08-27"
-    until = "2020-08-28"
+    until = "2020-08-29"
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n <responseDate>"
@@ -342,7 +342,7 @@ elif (query == 'ListRecords'):
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
-        for i in range(1,3):
+        for i in range(1,2058):
             identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
             
             response = []
@@ -368,7 +368,7 @@ elif (query == 'ListRecords'):
             splitString = "</dc:date>"
             split = split[1].split(splitString)
             recordDate = split[0]
-            
+                  
             recordDateObject = datetime.strptime(recordDate, "%Y-%m-%d")
             frmDateObject = datetime.strptime(frm, "%Y-%m-%d")
             untilDateObject = datetime.strptime(until, "%Y-%m-%d")
@@ -381,8 +381,8 @@ elif (query == 'ListRecords'):
                 split = split[1].split(splitString)
                 oaidc = split[0]
                 oaidc = oaidc[1:len(oaidc)-3]
-                                
-                data = "    <metadata>"+data+"    </metadata>"
+                                    
+                data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
                 about = "\n    <about>\n      <oai_dc:dc "+oaidc+"\n      </oai_dc:dc>\n    </about>"
                 
                 headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"

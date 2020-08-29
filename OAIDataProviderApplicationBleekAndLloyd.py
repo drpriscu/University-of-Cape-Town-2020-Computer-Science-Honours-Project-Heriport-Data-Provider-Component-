@@ -62,7 +62,7 @@ if (query == 'GetRecord'):
         part1 = part1[39:len(part1)-3]
         data = part1
     
-    data = "    <metadata>"+"\n      "+data+"    </metadata>"
+    data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
     headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
     headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
@@ -145,7 +145,7 @@ elif (query == 'ListRecords'):
                 oaidc = split[0]
                 oaidc = oaidc[1:len(oaidc)-3]
                 
-                data = "    <metadata>"+data+"    </metadata>"
+                data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
                 about = "\n    <about>\n      <oai_dc:dc "+oaidc+"\n      </oai_dc:dc>\n    </about>"
                 
                 headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"

@@ -2,6 +2,6 @@
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:date>2020-08-29</dc:date>
   <dc:description>An insert containing an address to an old woman in which she is asked where she grew up as a child and what the place's name is. It asks her who her friends (or companions) were, and what her people's names are.</dc:description>
-  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/727</dc:identifier>
+  <dc:identifier>stories/727</dc:identifier>
   <dc:title>Oh old woman! At what place did you grow up?</dc:title>
 </oai_dc:dc>

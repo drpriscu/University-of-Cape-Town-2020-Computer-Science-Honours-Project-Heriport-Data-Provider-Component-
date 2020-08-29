@@ -64,7 +64,7 @@ def convert(directoryPath, dcFileName, dictData):
     # Map values in dicitonary to list type values
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
-                dictData[keys] = list(dictData[keys].split("-"))
+                dictData[keys] = list(dictData[keys].split("+"))
     
     # Remove dict type values in dicitonary to type of list values
     for x in dictData:
@@ -74,12 +74,12 @@ def convert(directoryPath, dcFileName, dictData):
             n = valDict.values()
             dictData[x] = n # List of value stored in dict value
             dictData[x] = " ".join(str(v) for v in dictData[x])
-            dictData[x] = list(dictData[x].split("-"))
+            dictData[x] = list(dictData[x].split("+"))
             
             for i in valDict.values():
                 if type(i) == list:
                     dictData[x] = ' '.join([str(elem) for elem in i]) 
-                    dictData[x] = list(dictData[x].split("-"))
+                    dictData[x] = list(dictData[x].split("+"))
                             
         if (type(valDict) == list and type(valDict[0]) == dict):
             # Convert inner dict value to a list
@@ -88,7 +88,7 @@ def convert(directoryPath, dcFileName, dictData):
                 valDictNew['kw'] = "None"
                 
                 if type(valDict[i]) is not type(None):
-                    dictData[x] = list(min(valDict[0].values()).split("-"))
+                    dictData[x] = list(min(valDict[0].values()).split("+"))
     
         if (type(valDict) == list):
             valDict = str(valDict)
