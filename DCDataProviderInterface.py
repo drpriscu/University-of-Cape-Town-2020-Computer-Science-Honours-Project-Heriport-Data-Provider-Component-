@@ -4,7 +4,6 @@
 # 27 July 2020
 
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 # Imports
 import os
@@ -13,11 +12,34 @@ import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
 import simpledc
-import cgi
+import re
+import string
+import unicodedata
+from datetime import datetime
+
+    #return ''.join('\\u%04x' % ord(c) for c in text)
+    #return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore')
+    #return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
+    #"<UTF_encoded>"
+    #"</UTF_encoded>"
+    #return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
+    #removeCharacters = ["-"]
+    #text = text.replace(removeCharacters,"puta")
+    #text = re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
+    #return text.replace("puta","-")
+    #removeCharacters = ["-", "_"]
+    
+    #text = text.replace(removeCharacters,"")
+    
+    #for character in removeCharacters:
+        #text = text.replace(removeCharacters,"")
+        
+    #return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
 
 def remove_non_ascii(text):
-    return re.sub(f'[^{re.escape(string.printable)}]', ' ', text)
-
+    text = text.replace('–',"-")
+    return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore')
+    
 # Takes in a dictionary of XML data and outputs a DC formatted XML file.
 def convert(directoryPath, dcFileName, dictData):
     dictData = dictData['item'] 
@@ -33,6 +55,11 @@ def convert(directoryPath, dcFileName, dictData):
     
     identifier = str(directoryPath)
     dictData["identifier"] = identifier
+    
+    date = str(datetime.now())
+    dateSplit = date.split(" ")
+    date = dateSplit[0]
+    dictData["date"] = date
 
     # Map values in dicitonary to list type values
     for keys in dictData:

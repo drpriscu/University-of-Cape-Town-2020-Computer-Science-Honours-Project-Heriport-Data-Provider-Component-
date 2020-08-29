@@ -14,7 +14,7 @@ form = cgi.FieldStorage()
 
 query = form["verb"].value
 
-print ("Content-type: text/xml; charset=utf-8")
+print ("Content-type: text/xml\n")
 
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"
 
@@ -137,18 +137,6 @@ elif (query == 'ListRecords'):
             untilDateObject = datetime.strptime(until, "%Y-%m-%d")
             
             if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
-                splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
-                split = data.split(splitString)
-                
-                if len(split) == 2:
-                    part1 = split[0]
-                    part1 = part1[39:len(part1)-3]
-                    part2 = split[1]
-                    data = part1+part2
-                else:
-                    part1 = split[0]
-                    part1 = part1[39:len(part1)-3]
-                    data = part1
                 
                 splitString = "<oai_dc:dc"
                 split = data.split(splitString)
@@ -157,12 +145,8 @@ elif (query == 'ListRecords'):
                 oaidc = split[0]
                 oaidc = oaidc[1:len(oaidc)-3]
                 
-                splitString = "oai_dc.xsd\">"
-                split = data.split(splitString)
-                data = split[1]
-                
                 data = "    <metadata>"+data+"    </metadata>"
-                about = "\n    <about>\n      <oai_dc:dc>\n"+oaidc+"\n      <\oai_dc:dc>\n    </about>"
+                about = "\n    <about>\n      <oai_dc:dc "+oaidc+"\n      </oai_dc:dc>\n    </about>"
                 
                 headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
                 headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
