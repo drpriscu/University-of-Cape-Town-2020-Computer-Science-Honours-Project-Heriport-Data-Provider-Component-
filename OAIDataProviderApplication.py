@@ -20,7 +20,7 @@ import xml.etree.ElementTree as ET
 
 #query = form["verb"].value
 
-query = 'GetRecord'
+query = 'ListRecords'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
@@ -101,7 +101,7 @@ if (query == 'GetRecord'):
     record.append(data)
     strRec = ''.join([str(elem) for elem in record]) 
 
-    responseEnd = "\n  <record>\n </GetRecord>\n</OAI-PMH>"
+    responseEnd = "\n  </record>\n </GetRecord>\n</OAI-PMH>"
     response.append(strRec)
     response.append(responseEnd)
     strResp = ''.join([str(elem) for elem in response])
@@ -328,7 +328,7 @@ elif (query == 'ListRecords'):
     metadataPrefix = "oai_dc"
     set = "stories"
     frm = "2020-08-27"
-    until = "2020-08-29"
+    until = "2020-08-30"
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n <responseDate>"
@@ -376,15 +376,12 @@ elif (query == 'ListRecords'):
             
             if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
                 
-                splitString = "<oai_dc:dc"
-                split = data.split(splitString)
-                splitString = "<dc:date>"
-                split = split[1].split(splitString)
-                oaidc = split[0]
-                oaidc = oaidc[1:len(oaidc)-3]
-                                    
                 data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
-                about = "\n    <about>\n      <oai_dc:dc "+oaidc+"\n      </oai_dc:dc>\n    </about>"
+                about = "\n    <about>"
+                provenance = "       xmlns=\"http://www.openarchives.org/OAI/2.0/provenance\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/provenance\n       http://www.openarchives.org/OAI/2.0/provenance.xsd\">"
+                
+                about += "\n      <provenance>\n"+provenance+"\n      </provenance>"
+                about += "\n    </about>"
                 
                 headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
                 headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"

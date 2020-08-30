@@ -38,6 +38,17 @@ if (query == 'GetRecord'):
     response.append(verbResponseDate)
     response.append(verbRequest)
     
+    splitString = "stories/"
+    split = identifier.split(splitString)
+    dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+    
+    try:
+        with open(dcFilePath) as dcFile:
+            data = dcFile.read()
+            dcFile.close()
+    except Exception as e:
+                print(e)
+        
     splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
     split = data.split(splitString)
     
@@ -127,16 +138,13 @@ elif (query == 'ListRecords'):
             untilDateObject = datetime.strptime(until, "%Y-%m-%d")
             
             if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
-                
-                splitString = "<oai_dc:dc"
-                split = data.split(splitString)
-                splitString = "<dc:date>"
-                split = split[1].split(splitString)
-                oaidc = split[0]
-                oaidc = oaidc[1:len(oaidc)-3]
-                
+                                
                 data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
-                about = "\n    <about>\n      <oai_dc:dc "+oaidc+"\n      </oai_dc:dc>\n    </about>"
+                about = "\n    <about>"
+                provenance = "       xmlns=\"http://www.openarchives.org/OAI/2.0/provenance\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/provenance\n       http://www.openarchives.org/OAI/2.0/provenance.xsd\">"
+                
+                about += "\n      <provenance>\n"+provenance+"\n      </provenance>"
+                about += "\n    </about>"
                 
                 headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
                 headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
