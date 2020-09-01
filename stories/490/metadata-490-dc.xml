@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Dia!kwain's grandfather (!xugen-ddi) told him that game was once tame. The game acted as oxen do and allowed the people to stroke them, but a person called Chaser-of-food was in the habit of stroking the Quagga and then beating it, making it run away. Dia!kwain's grandfather was in the habit of frightening and beating away the game because he did not want the animals to stand still and be killed.</dc:description>
-  <dc:identifier>stories/490</dc:identifier>
+  <dc:creator>Dia!kwain (David Hoesar) (V)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Dia!kwain's grandfather (!xugen-ddi) told him that game was once tame. The game acted as oxen do and allowed the people to stroke them, but a person called Chaser-of-food was in the habit of stroking the Quagga and then beating it, making it run away. Dia!kwain's grandfather was in the habit of frightening and beating away the game because he did not want the animals to stand still and be killed. 1) p.5456v: this story was told to Dia!kwain by his paternal grandfather (!xugen-ddi), 2) This story is found in Book V-19.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/490</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Game once tame: why it grew wild</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

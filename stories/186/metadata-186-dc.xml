@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Besides a short account of the first portion of this remarkable myth (L II.-1. 278-284), we have one connected account of it (L II.-2. 305-323). The two Lions come upon a Tortoise. The Lion called !gu swallows the Tortoise down whole while it is still alive. The Tortoise talks from the front of the Lion's head and tells the men that they must burn the Lions because they are man-eaters. The men chase the Lions with fire. The other Lion reprimands !gu for not sharing the Tortoise and eating him whole, which has resulted in their misfortune.</dc:description>
-  <dc:identifier>stories/186</dc:identifier>
-  <dc:title>The two Lions: pointers to the Southern Cross The Lion and the Tortoise (continued from )</dc:title>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>The two Lions come upon a Tortoise. The Lion called !gu swallows the Tortoise down whole while it is still alive. The Tortoise talks from the front of the Lion's head and tells the men that they must burn the Lions because they are man-eaters. The men chase the Lions with fire. The other Lion reprimands !gu for not sharing the Tortoise and eating him whole, which has resulted in their misfortune.  Besides a short account of the first portion of this remarkable myth (L II.-1. 278-284), we have one connected account of it (L II.-2. 305-323). 1) This story features the two Lions of the previous story: see also The two Lions: pointers to the Southern Cross and The Lion and the Muishond and The Lion star and other stars, 2) This story is found in Book II-2.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/186</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
+  <dc:title>The Lion and the Tortoise (continued from The two Lions: pointers to the Southern Cross)</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

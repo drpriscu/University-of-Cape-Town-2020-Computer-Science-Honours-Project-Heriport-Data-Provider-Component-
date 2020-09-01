@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Very little of this story has been translated. 'the living things which move about in the world. all came out of one hole': Kafirs, Englishmen, !koranna, Boers, Bastards, Orlams, Bushmen all 'passed out' (through the hole, presumably). The rest is harder to piece together.</dc:description>
-  <dc:identifier>stories/1147</dc:identifier>
+  <dc:creator>Piet Lynx</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Very little of this story has been translated. 'the living things which move about in the world. all came out of one hole': Kafirs, Englishmen, !koranna, Boers, Bastards, Orlams, Bushmen all 'passed out' (through the hole, presumably). The rest is harder to piece together. 1) Piet Lynx heard this story from his father, 2) p.84 opp: Piet says that there are two kinds of Bastards: those with smooth hair and those with short hair, 3) This story is found in Kora Book I-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1147</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd Kora notebooks</dc:subject>
   <dc:title>All came out of one hole</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

@@ -17,9 +17,31 @@ def remove_non_ascii(text):
 
 def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
-
+    
     new = "description"
     old = "summary"
+    try:
+        dictData[new] = dictData.pop(old)
+        dictData[new] += " "+dictData["comments"]+"."
+    except:
+        pass
+    
+    new = "subject"
+    old = "collection"
+    try:
+        dictData[new] = dictData.pop(old)
+    except:
+        pass
+    
+    new = "type"
+    old = "@type"
+    try:
+        dictData[new] = dictData.pop(old)
+    except:
+        pass
+    
+    new = "creator"
+    old = "author"
     try:
         dictData[new] = dictData.pop(old)
     except:
@@ -27,6 +49,12 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     
     identifier = serverURL
     dictData["identifier"] = identifier
+    
+    rights = "CC-BY-NC-ND"
+    dictData["rights"] = rights
+    
+    format = "Unqualified Dublin Core"
+    dictData["format"] = format
     
     date = str(datetime.now())
     dateSplit = date.split(" ")
@@ -62,20 +90,20 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
         if (type(valDict) == list):
             valDict = str(valDict)
       
-    for x in dictData.keys():
+    """ for x in dictData.keys():
         tempList = []
         if (dictData[x] != None):
             for i in dictData[x]:
                 i = remove_non_ascii(str(i))
                 tempList.append(i)
-                dictData[x] = tempList 
+                dictData[x] = tempList  """
     
     metadata = simpledc.tostring(dictData)
     
     dcFilePath = directoryPath+"/"+dcFileName
     
     try:
-        dcFile = open(dcFilePath, "w")
+        dcFile = open(dcFilePath, "w", encoding="utf-8")
         dcFile.write(metadata)
         dcFile.close()
     except Exception as e:
@@ -90,8 +118,12 @@ for root, directories, filenames in os.walk(path):
         directoryPath = os.path.join(root, str(i))
         if (directoryPath == 'stories/'+str(i)):
                 filePath = directoryPath +'/metadata.xml'
-                with open(filePath) as file:
-                    dictData = dict(xmltodict.parse(file.read(), dict_constructor=dict))
+                with open(filePath, encoding="utf-8") as file:
+                    data = file.read()
+                    data = data.replace("<i>","")
+                    data = data.replace("</i>","")
+
+                    dictData = dict(xmltodict.parse(data, dict_constructor=dict))
                     dcFileName = "metadata-"+str(i)+"-dc.xml"
                     serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
                     convert(directoryPath, serverURL, dcFileName, dictData)

@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>A (violent and lengthy) account of what happened after the death of !nanni's uncle (|un'ta), who died in the Makoba's house. Karu cries for his dead child. !nanni's father, ya ||ne, tells his father to be silent, as does Karu's wife. ya ||ne and Karu's wife beat Karu with a stick until people take hold of ya ||ne. ya ||ne and Karu threaten and attempt to kill each other a number of times and Karu threatens to kill his own wife. Karu's wife's father (||namme) beats Karu. Karu shoots his father-in-law in the head with an arrow. Karu runs away and the people chase him. Karu's wife beats him and he aims his arrow at his wife. Karu's people beat him with knobkerries.</dc:description>
-  <dc:identifier>stories/1041</dc:identifier>
+  <dc:creator>!nanni (XI)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>A (violent and lengthy) account of what happened after the death of !nanni's uncle (|un'ta), who died in the Makoba's house. Karu cries for his dead child. !nanni's father, ya ||ne, tells his father to be silent, as does Karu's wife. ya ||ne and Karu's wife beat Karu with a stick until people take hold of ya ||ne. ya ||ne and Karu threaten and attempt to kill each other a number of times and Karu threatens to kill his own wife. Karu's wife's father (||namme) beats Karu. Karu shoots his father-in-law in the head with an arrow. Karu runs away and the people chase him. Karu's wife beats him and he aims his arrow at his wife. Karu's people beat him with knobkerries. 1) Date on p.9449: 7 May; p.9550: 22 July, 2) !nanni heard this story from his father (ya ||ne), 3) p.9448v: !nanni states that his father's brother's name was |un'ta; Da is a Biriko !kun (!nanni says he fears Da because Da has a marking between his eyes), 4) p.9545v: a note (22 August 1880) referring to |uma's picture of the same date (see NLLB_D_|u001) on the shao fruit and how it is prepared and eaten at different times of the year, 5) p.9546v: (18 August 1880) see Pieces of wood for divining, or |xu, 6) p.9547v: the Ovaherero use sheep bones for divining; the !kun name for a digging stick (minus a stone), 7) This story is found in Books XI, XII-6 &amp; XII-7.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1041</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>!nanni's uncle</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

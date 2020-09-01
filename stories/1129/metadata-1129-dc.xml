@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>A small blue notebook (dated 1913) in which Lloyd lists words and sentences which she took down in Book II-23 (||kabbo) that needed translation. It contains notes to herself and explanations relating to the translation of the terms. There are exact references to lines and pages in the notebook where the terms appear.</dc:description>
-  <dc:identifier>stories/1129</dc:identifier>
+  <dc:creator>none</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>A small blue notebook (dated 1913) in which Lloyd lists words and sentences which she took down in Book II-23 (||kabbo) that needed translation. It contains notes to herself and explanations relating to the translation of the terms. There are exact references to lines and pages in the notebook where the terms appear. 1) The last few pages at the back of the notebook contains some kind of list of contents, but it is not clear what notebook the list relates to, 2) No book number.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1129</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>Some Bushman words to be translated (L.C. Lloyd, June, 1913)</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

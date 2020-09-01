@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Certain cuts to be made upon the bow, when a Baboon has been killed. A similar ceremony to be observed with regard to the Hyena. A Baboon, when killed, resembles a man, in 'making cloud'. In the Katkop dialect, by Dia!kwain (L V.-24. 5911-5916, 5911 rev., note). Dia!kwain's father told him that the baboon's bad influence, brought about by its death, would live on in (or curse) the bow if the bow was not cut, causing the influence to leave the bow.</dc:description>
-  <dc:identifier>stories/545</dc:identifier>
+  <dc:creator>Dia!kwain (David Hoesar) (V)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Certain cuts to be made upon the bow, when a Baboon has been killed. A similar ceremony to be observed with regard to the Hyena. A Baboon, when killed, resembles a man, in 'making cloud'. In the Katkop dialect, by Díä!kwãin (L V.-24. 5911-5916, 5911 rev., note). Dia!kwain's father told him that the baboon's bad influence, brought about by its death, would live on in (or curse) the bow if the bow was not cut, causing the influence to leave the bow. 1) p.5910v: this story was told to Dia!kwain by his father (Xaa-ttin), 2) p.5911v: see Cuts to be made on a bow when a hyena has been killed, 3) p.5913v: see What is said to a person whose actions are disagreeable (Dia!kwain, 1 February 1876), 4) This story is found in Book V-24.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/545</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Cuts to be made on a bow when a baboon has been killed</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

@@ -19,8 +19,8 @@ import xml.etree.ElementTree as ET
 #form = cgi.FieldStorage()
 
 #query = form["verb"].value
-
-query = 'ListRecords'
+#"content-type: text/html; charset=UTF-8"
+query = 'ListIdentifiers'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
@@ -65,7 +65,7 @@ if (query == 'GetRecord'):
     dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
     
     try:
-        with open(dcFilePath) as dcFile:
+        with open(dcFilePath, encoding="utf-8") as dcFile:
             data = dcFile.read()
             dcFile.close()
     except Exception as e:
@@ -107,7 +107,7 @@ if (query == 'GetRecord'):
     strResp = ''.join([str(elem) for elem in response])
     
     print(strResp)
-  
+# TO DO
 elif (query == 'Identify'):
     """Retrieve information about the repository.
 
@@ -139,8 +139,8 @@ elif (query == 'ListIdentifiers'):
     
     metadataPrefix = "oai_dc"
     set = "stories"
-    frm = str(datetime.now())
-    until = str(datetime.now())
+    frm = "2020-01-01"
+    until = datetime.today().strftime('%Y-%m-%d')
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -150,14 +150,13 @@ elif (query == 'ListIdentifiers'):
     verbRequest = "\n  <request verb=\"ListIdentifiers\" from=\""
     verbRequest += frm+"\"\n           metadataPrefix=\""
     verbRequest += metadataPrefix+"\"\n           set=\""
-    verbRequest += set+"\">"+serverURL+"</request>\n  <ListIdentifiers>"
+    verbRequest += set+"\">"+serverURL+"</request>\n  <ListIdentifiers>\n"
             
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
         for i in range(1,2058):
-            
-            identifier = str(i)
+            identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
             
             response = []
             
@@ -166,53 +165,57 @@ elif (query == 'ListIdentifiers'):
                 response.append(verbResponseDate)
                 response.append(verbRequest)
   
-            fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
-
+            splitString = "stories/"
+            split = identifier.split(splitString)
+            dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+            
             try:
-                with open(fileName) as file:
-                    data = file.read()
-                    file.close()
+                with open(dcFilePath, encoding="utf-8") as dcFile:
+                    data = dcFile.read()
+                    dcFile.close()
             except Exception as e:
                 print(e)
-                print(fileName)
-                print("File Error")
-                
-            splitString = "<datestamp>"
+            
+            splitString = "<dc:date>"
             split = data.split(splitString)
+            splitString = "</dc:date>"
+            split = split[1].split(splitString)
+            recordDate = split[0]
             
-            if len(split) == 2:
-                splitString = "\<datestamp>"
-                split = data.split(splitString)
-                part1 = split[0]
-                datestamp = part1
+            recordDateObject = datetime.strptime(recordDate, "%Y-%m-%d")
+            frmDateObject = datetime.strptime(frm, "%Y-%m-%d")
+            untilDateObject = datetime.strptime(until, "%Y-%m-%d")
+            
+            if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
+                
+                headerIdentifier = "   <header>\n      <identifier>"+identifier+"</identifier>"
+                headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
+                headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
+            
+                headerSetSpec +=  "\n   </header>"
+                
+                header = []
+                header.append(headerIdentifier)
+                header.append(headerDatestamp)
+                header.append(headerSetSpec)
+                strHead = ''.join([str(elem) for elem in header]) 
 
-            headerIdentifier = "\n   <header>\n    <identifier>"+identifier+"</identifier>"
-            headerDatestamp = "\n    <datestamp>"+datestamp+"</datestamp>"
+                record = []
+                record.append(strHead)
+                strRec = ''.join([str(elem) for elem in record]) 
+                
+                response.append(strRec)
+                strResp = ''.join([str(elem) for elem in response]) 
+                
+                print(strResp)
             
-            headerSetSpec = "\n    <setSpec>"+set+"</setSpec>"
-            headerSetSpec +=  "\n   </header>"
-            
-            header = []
-            header.append(headerIdentifier)
-            header.append(headerDatestamp)
-            header.append(headerSetSpec)
-            strHead = ''.join([str(elem) for elem in header]) 
-
-            record = []
-            record.append(strHead)
-            record.append(data)
-            record.append("</record>")
-            strRec = ''.join([str(elem) for elem in record]) 
-            
-            response.append(strRec)
-            strResp = ''.join([str(elem) for elem in response]) 
-            
-            print(strResp)
-            
+            else:
+                pass
+                    
         responseEnd = " </ListIdentifiers>\n</OAI-PMH>"
         print(responseEnd)
         break
-
+# TO DO
 elif (query == 'ListMetadataFormats'):
     """List metadata formats supported by repository or record.
 
@@ -258,7 +261,7 @@ elif (query == 'ListMetadataFormats'):
             fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
             
             try:
-                with open(fileName) as file:
+                with open(fileName, encoding="utf-8") as file:
                     data = file.read()
                     file.close()
             except Exception as e:
@@ -327,8 +330,8 @@ elif (query == 'ListRecords'):
     
     metadataPrefix = "oai_dc"
     set = "stories"
-    frm = "2020-08-27"
-    until = "2020-08-30"
+    frm = "2020-01-01"
+    until = datetime.today().strftime('%Y-%m-%d')
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n <responseDate>"
@@ -358,7 +361,7 @@ elif (query == 'ListRecords'):
             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
             
             try:
-                with open(dcFilePath) as dcFile:
+                with open(dcFilePath, encoding="utf-8") as dcFile:
                     data = dcFile.read()
                     dcFile.close()
             except Exception as e:
@@ -413,7 +416,7 @@ elif (query == 'ListRecords'):
         responseEnd = " </ListRecords> \n</OAI-PMH>"
         print(responseEnd)
         break      
-
+# TO DO
 elif (query == 'ListSets'):    
     """Get a list of sets in the repository.
 

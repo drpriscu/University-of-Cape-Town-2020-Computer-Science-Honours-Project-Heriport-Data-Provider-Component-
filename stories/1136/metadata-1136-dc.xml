@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>The hare, angry with the moon for wanting men to die as it dies, said that the moon must 'become the Boschvark's shoulder blade bone' and go into the sky 'and make the world light'.</dc:description>
-  <dc:identifier>stories/1136</dc:identifier>
+  <dc:creator>Piet Lynx</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>The hare, angry with the moon for wanting men to die as it dies, said that the moon must 'become the Boschvark's shoulder blade bone' and go into the sky 'and make the world light'. 1) p.25 opp: Piet Lynx heard this from his paternal grandfather who heard it from his Bushman head (?), 2) p.25 opp: an explanation of why the hare is angry, 3) p.25 opp: a note that says 'Bitter water 2 days journey from B. West' and on a line below 'Aardfontein', 4) p.26 opp: a note explaining that 'When the sun went down, the moon must make the world light', 5) this story is found in Kora Book I-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1136</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd Kora notebooks</dc:subject>
   <dc:title>The hare and the moon</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Notebook. Mostly words and sentences, some personal information. Bechuanaland.</dc:description>
-  <dc:identifier>stories/2031</dc:identifier>
+  <dc:creator>Makolo</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Notebook. Mostly words and sentences, some personal information. Bechuanaland. 1) p.1: 5.7.1913. Makolo, at Legombe; 2) p.6v: Information about Makolo and the place she comes from, Kary [?] a village, about a man called Moshe'u from the same place who does not speak the language any more; 3) p.22: names of women and girls, 4) p.30: 9.7.13. Matchunki [?] gives some personal information and words; 5) p.43: 10.7.13. ; 6) p.48: 11.7.13. Mosarwa [?], whose name 'is an old name' and his personal history, 'In his youth they used to shoot with bows and arrows. There are none left now. They play no musical instruments'; 7) p.61 &amp; op. an illustration and a description of a spring trap or snare; 8) p.78: 13 July; 9) p.81: Pusho [?] 'the man with the schock[?] head and skin dress'; 10) p.88: on '|xum', the cut between the eyebrows - 'this cut is given in order to make them see better for shooting.'; 11) p. 117: 15.7.13; 12) p.135: 16th July.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/2031</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Dorothea Bleek notebooks</dc:subject>
   <dc:title>Dorothea Bleek - Book BC151_A3_007</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

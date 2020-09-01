@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>A girl is becoming a new maiden and goes to lie down (in her hut). She says the Baboon's name. The Baboon sings to her so that her face will change shape and resemble his own. The girl runs away to the Baboon, who waits on the hill. She marries him.</dc:description>
-  <dc:identifier>stories/767</dc:identifier>
+  <dc:creator>|han≠kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>A girl is becoming a new maiden and goes to lie down (in her hut). She says the Baboon's name. The Baboon sings to her so that her face will change shape and resemble his own. The girl runs away to the Baboon, who waits on the hill. She marries him. 1) |han≠kass'o heard this from his mother (|xabbi-an), 2) p.7609v &amp; p.7618v: (told to |han≠kass'o by |xaken-an, given 31 March 1884): the girl had no buttocks (?) because her period was not there (she has not yet become a 'new maiden'); the girl had no breasts because her chest had changed to resemble a Baboon's, 3) p.7615v: |xam terms of respect (for in-laws), 4) This story is found in Book VIII-18.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/767</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The girl, of the Early Race of people, who married a Baboon</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

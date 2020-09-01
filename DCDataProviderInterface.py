@@ -50,11 +50,39 @@ def convert(directoryPath, dcFileName, dictData):
     # Update dictionary
     try:
         dictData[new] = dictData.pop(old)
+        dictData[new] += " "+dictData["comments"]+"."
     except:
         pass
     
-    identifier = str(directoryPath)
+    new = "subject"
+    old = "collection"
+    try:
+        dictData[new] = dictData.pop(old)
+    except:
+        pass
+    
+    new = "type"
+    old = "@type"
+    try:
+        dictData[new] = dictData.pop(old)
+    except:
+        pass
+    
+    new = "creator"
+    old = "author"
+    try:
+        dictData[new] = dictData.pop(old)
+    except:
+        pass
+    
+    identifier = serverURL
     dictData["identifier"] = identifier
+    
+    rights = "CC-BY-NC-ND"
+    dictData["rights"] = rights
+    
+    format = "Unqualified Dublin Core"
+    dictData["format"] = format
     
     date = str(datetime.now())
     dateSplit = date.split(" ")
@@ -108,7 +136,7 @@ def convert(directoryPath, dcFileName, dictData):
     # Saving converted data to a XML file
     
     dcFilePath = directoryPath+"/"+dcFileName
-    dcFile = open(dcFilePath, "w")
+    dcFile = open(dcFilePath, "w", encoding="utf-8")
     dcFile.write(metadata)
     dcFile.close()
     print("Successfully created file: "+dcFileName)
@@ -133,7 +161,7 @@ for root, directories, filenames in os.walk(path):
                 # do something with directoryPath
                 filePath = directoryPath +'/metadata.xml'
                 # Convert the XML file to a dictionary.
-                with open(filePath) as file:
+                with open(filePath, encoding="utf-8") as file:
                     dictData = dict(xmltodict.parse(file.read(), dict_constructor=dict))
                     dcFileName = "metadata-"+str(i)+"-dc.xml"  
                     convert(directoryPath, dcFileName, dictData)

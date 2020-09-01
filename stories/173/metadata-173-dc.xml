@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>|gipp =kai tchi</dc:description>
-  <dc:identifier>stories/173</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>A description of the shooting and killing of hares. The man carries the hare by its feet, breaks its arms and legs with a stick, and takes it home to his wife in a sack. She has meanwhile returned from collecting food (digging for 'Bushman rice') as well. He shoots another hare and takes it home in the same manner, where they eat the hares he has caught, and other food. p.261v features a note on methods used for hunting and killing different animals: hunters break the jackal's legs, and the hare, the |gipp (Proteles), the ≠kai tchi, the cat and the lynx are all treated in the same way. 1) Note on the inside of the back cover of this notebook: 'Finished correcting Sept 15/71 from Jantje Toorm himself', 2) p.262v: a note explaining that the woman scratches out 'Bushman rice' (ant larvae) with a springbok horn implement, 3) This story is found in Book II-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/173</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Hunting hares</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>!nanni concludes the legend of the Hare and the Moon in which the Hare has told the Moon that the people and others must really die.</dc:description>
-  <dc:identifier>stories/1106</dc:identifier>
+  <dc:creator>!nanni (XI)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>!nanni concludes the legend of the Hare and the Moon in which the Hare has told the Moon that the people and others must really die. 1) p.10 027 opp: !nanni heard this from his paternal grandfather (Karu), 2) This story is a continuation of another, see The Moon and the Hare and |xue (Tamme) in Books XI &amp; XII-8, 3) See also Moon and Sun and Hares and Story of the Moon and the Hare: a version at first by ≠kasin and then by Dia!kwain (in |xam Book IV-4) and The Moon and the little Hare (in |xam Book II-6), 4) This story is found in Book XI.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1106</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>End of Moon and Hare story</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

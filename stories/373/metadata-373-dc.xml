@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>A more concise version of the fable of the anteater, springbok, lynx, and partridge, in the Katkop dialect, was given by !kweiten ta //ken (L VI.-1. 3916-3929). The Anteater steals a young Springbok who grows and becomes a maiden. While the Anteater is out seeking 'Bushman rice' the Lynx takes away the young Springbok. The Anteater goes down into the earth to follow the Lynx and the young Springbok. The Lynx kills the Anteater with his knobkerrie (he was formerly a man) when she comes up through the ground, and returns the young Springbok to her mother.</dc:description>
-  <dc:identifier>stories/373</dc:identifier>
+  <dc:creator>!kweiten ta ||ken (Rachel) (VI)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>A more concise version of the fable of the anteater, springbok, lynx, and partridge, in the Katkop dialect, was given by !kwéiten ta //kën (L VI.-1. 3916-3929). The Anteater steals a young Springbok who grows and becomes a maiden. While the Anteater is out seeking 'Bushman rice' the Lynx takes away the young Springbok. The Anteater goes down into the earth to follow the Lynx and the young Springbok. The Lynx kills the Anteater with his knobkerrie (he was formerly a man) when she comes up through the ground, and returns the young Springbok to her mother. 1) The page numbers in this book (VI-1) are duplicates of those in notebook IV-4, 2) p.3925v: the Lynx possessed a knobkerrie because he was formerly a man, 3) See also The Anteater, Springbok and Lynx (||kabbo's versions 1 &amp; 2) and The Anteater, Springbok, Lynx and Partridge, 4) This story is found in Book VI-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/373</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The Anteater's story, or, The Anteater, Springbok, Lynx and Partridge</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

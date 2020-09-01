@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>An account of the doings of a family of lions (apparently a continuation of one of the Ichneumons speeches, in the myth of the Mantis) gives a good deal of conversation of such a description as might naturally be ascribed by Bushmen to lions (L II.-10. 1051-1099, 11. 1100-1170). Also gives details of their sizes and roles in the pride, the teaching of young lions to hunt and other information about their hunting habits.</dc:description>
-  <dc:identifier>stories/245</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>An account of the doings of a family of lions (apparently a continuation of one of the Ichneumon’s speeches, in the myth of the Mantis) gives a good deal of conversation of such a description as might naturally be ascribed by Bushmen to lions (L II.-10. 1051-1099, 11. 1100-1170). Also gives details of their sizes and roles in the pride, the teaching of young lions to hunt and other information about their hunting habits. 1) This notebook is described in the contents page as being largely concerned with 'Natural History', 2) p.1087v: notes and a diagram depicting the hunting strategy of male and female lions in pursuit of quagga, 3) p.1097v: the male lion talks, but the female lion thinks and does not talk, 4) p.1103v: the |xam terms for dragging and carrying things, 5) p.1105v: different types of trees, 6) p.1113v: ||kabbo explains that lions drink water to mix with the dry bones and flesh to make them cool, 7) p.1142v: Lloyd writes that she has been wrong ('confounded') in her translations of |xam words that she has mixed up ('to lie' and 'to seek'), 8) p.1151v: pronunciation of the |xam term for 'eat', which is made in the throat so as to produce a sound that frightens away with the mouth, 9) See also Lion eats all things, 10) This story is found in Books II-10 and II-11.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/245</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The doings of a family of lions</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

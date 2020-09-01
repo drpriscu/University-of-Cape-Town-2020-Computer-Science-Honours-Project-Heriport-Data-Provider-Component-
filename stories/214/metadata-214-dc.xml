@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>//kabbos dreams of rain and their fulfilment. When the rain has fallen, //kabbo and his family store up water, and hunt springbok. Removal to another water-pit, more springbok hunting, killing young porcupines, and digging out the anteater (L II.-6. 625-633). ||kabbo's dream of rain in which he recalls his home, his place and his family, as well as some elements from their daily life (including hunting and cooking). Lloyd notes on p.625: 'Jantje Toorm told me on the 11th that he had asked for rain on the previous night, when lying down (in his bed) to make the ground wet, as his arms and chest were painful; and that it had come in the night. He told this with an appearance of satisfaction. So I today (the) 12th ask more about it, and get the history, which appears to be that of a dream - he says he saw the rain coming, and also saw and spoke to his wife, his son, and his daughter in his dream.'</dc:description>
-  <dc:identifier>stories/214</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>//kábbo’s dreams of rain and their fulfilment. When the rain has fallen, //kábbo and his family store up water, and hunt springbok. Removal to another water-pit, more springbok hunting, killing young porcupines, and digging out the anteater (L II.-6. 625-633). ||kabbo's dream of rain in which he recalls his home, his place and his family, as well as some elements from their daily life (including hunting and cooking). Lloyd notes on p.625: 'Jantje Toorm told me on the 11th that he had asked for rain on the previous night, when lying down (in his bed) to make the ground wet, as his arms and chest were painful; and that it had come in the night. He told this with an appearance of satisfaction. So I today (the) 12th ask more about it, and get the history, which appears to be that of a dream – he says he saw the rain coming, and also saw and spoke to his wife, his son, and his daughter in his dream.' 1) The page inside the front cover of the notebook,opposite p.625, contains the start of the narrative, 2) p.632v: the women collect water and bring it to the men who are digging out the aardvarks with sticks. They shoot into the hole and throw out the soil with their hands, 3) This story is found in Book II-6.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/214</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>||kabbo's dream of rain</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

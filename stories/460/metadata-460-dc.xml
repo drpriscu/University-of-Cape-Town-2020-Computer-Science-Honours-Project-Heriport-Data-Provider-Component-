@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>The sorcerer !nuin|kuiten. In the Katkop dialect, by Dia!kwain (L V.-15. 5079-5101, 5104-5109). A song that Dia!kwain's father Xaa-ttin used to sing: when he used to sleep he would hear a person calling him (the sorcerer !nuin-|kui-ten).</dc:description>
-  <dc:identifier>stories/460</dc:identifier>
+  <dc:creator>Dia!kwain (David Hoesar) (V)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>The sorcerer !nuin|kúïten. In the Katkop dialect, by Díä!kwãin (L V.-15. 5079-5101, 5104-5109). A song that Dia!kwain's father Xaa-ttin used to sing: when he used to sleep he would hear a person calling him (the sorcerer !nuin-|kui-ten). 1) p.5103v: the string that broke was the thong or string Xaa-ttin heard when !nuin |kuiten invoked the rain-bull, 2) See also The broken string and !huin-|kui-ten (who was a sorcerer or magician), 3) This story is found in Book V-15.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/460</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>What Xaa-ttin used to sing (the broken string)</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

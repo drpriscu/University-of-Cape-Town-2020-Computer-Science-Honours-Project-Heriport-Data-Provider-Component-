@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Words and sentences with many entries concerning the names of celestial bodies and the heavens. p.199v features a note on the great star, which follows daybreak (the Day's Heart star, or Jupiter). p.200v contains further notes on stars and their names and movements as well as what the |xam call them (such as the 'husband', and the 'mother' and 'child').</dc:description>
-  <dc:identifier>stories/157</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Words and sentences with many entries concerning the names of celestial bodies and the heavens. p.199v features a note on the great star, which follows daybreak (the Day's Heart star, or Jupiter). p.200v contains further notes on stars and their names and movements as well as what the |xam call them (such as the 'husband', and the 'mother' and 'child'). 1) Note on the inside of the back cover of this notebook: 'Finished correcting Sept 15/71 from Jantje Toorm himself'; additional corrections made on 27 May, 2) This story is found in Book II-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/157</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Words and sentences (including the names of stars)</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

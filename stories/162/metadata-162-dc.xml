@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Although the Mantis is apparently the most prominent figure in Bushmen mythology, and, at all events, the subject of the greatest number of myths, yet it does not seem that he is the object of any worship, or that prayers are addressed to him.  The heavenly bodies - Sun, Moon, and Stars - are, however, prayed to ... and thus the Bushmen are clearly to be included among the nations who have attained sidereal worship. The |xam pray to the Moon, but not the Sun. They raise their hand and speak, asking for success with hunting springbok, finding ostrich eggs and 'digging out' 'Bushman rice' the next day. The verso pages of this narrative provide further notes on the actions performed and what is said during the prayer.</dc:description>
-  <dc:identifier>stories/162</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>The |xam pray to the Moon, but not the Sun. They raise their hand and speak, asking for success with hunting springbok, finding ostrich eggs and 'digging out' 'Bushman rice' the next day. The verso pages of this narrative provide further notes on the actions performed and what is said during the prayer. Although the Mantis is apparently the most prominent figure in Bushmen mythology, and, at all events, the subject of the greatest number of myths, yet it does not seem that he is the object of any worship, or that prayers are addressed to him.  The heavenly bodies – Sun, Moon, and Stars – are, however, prayed to ... and thus the Bushmen are clearly to be included among the nations who have attained sidereal worship. 1) p.221 appears not to form part of the Prayers to the Moon narrative; it refers to the collecting of ostrich eggs, which also continues in the following narrative, 2) p.218v: 'They cannot ask the sun for anything, but they do the Moon. They raise the right hand, and say …', 3) p.219v: ||kabbo says: '… after the Moon has died, and comes out again little, the Bushmen speak to it.', 4) Initially corrected 14 June; note on the inside of the back cover of this notebook: 'Finished correcting Sept 15/71 from Jantje Toorm himself', 5) This story is found in Book II-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/162</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Prayers to the Moon</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

@@ -81,13 +81,13 @@ contributor = rule_factory('contributors', 'contributor')
 
 coverage = rule_factory('coverage', 'coverage')
 
-creator = rule_factory('creators', 'creator')
+creator = rule_factory('creator', 'creator')
 
 date = rule_factory('date', 'date')
 
 description = rule_factory('description', 'description')
 
-formats = rule_factory('formats', 'format')
+format = rule_factory('format', 'format')
 
 identifier = rule_factory('identifier', 'identifier')
 
@@ -97,12 +97,12 @@ publisher = rule_factory('publishers', 'publisher')
 
 relation = rule_factory('relations', 'relation')
 
-right = rule_factory('rights', 'rights')
+rights = rule_factory('rights', 'rights')
 
 source = rule_factory('sources', 'source')
 
-subject = rule_factory('subjects', 'subject')
+subject = rule_factory('subject', 'subject')
 
 title = rule_factory('title', 'title')
 
-type = rule_factory('types', 'types')
+type = rule_factory('type', 'type')

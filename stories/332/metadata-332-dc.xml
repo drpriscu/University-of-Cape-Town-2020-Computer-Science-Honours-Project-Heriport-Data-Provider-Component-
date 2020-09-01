@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>The veritable Hottentot myth of the 'Origin of Death' is told in the Katkop dialect by =kasin, whose father was a Hottentot; and, although the narrator says that he heard the story from his mother /wa =ko, a Bushwoman, its Hottentot origin can hardly be doubted. Here, the Moon sends the Hare to men with the message of the renewal of life; but it reverses it into a message of death. The angered Moon then heats a stone, and burns the Hares mouth, causing the harelip. =kasin told this story three times; once in a very short version (B XXV. 2361-2364), secondly, in a little longer one (L IV.-4. 3886-3889) and thirdly, in a still more extended one (L IV.-4. 3890-3900). On account of the Hare's actions, people die and do not return to life.</dc:description>
-  <dc:identifier>stories/332</dc:identifier>
+  <dc:creator>≠kasin (Klaas Katkop) (IV)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>The veritable Hottentot myth of the 'Origin of Death' is told in the Katkop dialect by ≠kásin, whose father was a Hottentot; and, although the narrator says that he heard the story from his mother /’wá ≠kõ, a Bushwoman, its Hottentot origin can hardly be doubted. Here, the Moon sends the Hare to men with the message of the renewal of life; but it reverses it into a message of death. The angered Moon then heats a stone, and burns the Hare’s mouth, causing the harelip. ≠kásin told this story three times; once in a very short version (B XXV. 2361-2364), secondly, in a little longer one (L IV.-4. 3886-3889) and thirdly, in a still more extended one (L IV.-4. 3890-3900). On account of the Hare's actions, people die and do not return to life. 1) ≠kasin heard this from his mother (ko a ≠ko) 2) p.3444v: ≠kasin heard things about death and ascending thoughts from his father and mother; his father heard them from his father, 3) See also The Moon and the Hare and A prayer addressed to the Moon, and another version of the Moon and Hare story and Story of the Moon and the Hare: a version at first by ≠kasin and then by Dia!kwain and Moon and Hare: the origin of death, 4) This story is found in Book IV-1.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/332</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Story of the Moon and the Hare and how the Moon punished the Hare</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

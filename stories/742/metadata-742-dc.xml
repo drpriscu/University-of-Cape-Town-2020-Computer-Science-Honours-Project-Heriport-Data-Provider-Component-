@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Frogs are not to be killed, lest drought ensue. An exhortation, to the Bushmen, to be careful of food in time of plenty, is followed by a description of the jackals doings with regard to food, etc. (L VIII.-16. 7449-7451, 7448 rev.-7450 rev., and 7452-7456). |kui</dc:description>
-  <dc:identifier>stories/742</dc:identifier>
+  <dc:creator>|han≠kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Frogs are not to be killed, lest drought ensue. An exhortation, to the Bushmen, to be careful of food in time of plenty, is followed by a description of the jackal’s doings with regard to food, etc. (L VIII.-16. 7449-7451, 7448 rev.-7450 rev., and 7452-7456). If people kill frogs, rain will not fall and drought will come. The people will have to eat gambro (|kui) plants because other plants have disappeared. 1) |han≠kass'o heard this from his maternal grandfather (Tsatsi); what their place looks like in times of drought, 2) pp.7448v-7450v: see Habits of jackals, 3) p.7450v: how the people protect themselves from the ill-effects of the gambro, 4) See also Want of rain and Gambro or |kui and its ill-effects, 5) This story is found in Book VIII-16.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/742</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Rain protects frogs</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

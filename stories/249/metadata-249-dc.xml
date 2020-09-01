@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>Death. The place to which the Bushmen go after death. The various ways of dying, and of being killed (L II.-12. 1173-1243, 13. 1244-1314. 14. 1315-1396). A description of the place where people go to after death as well as various ways of dying, including murder and death from starvation.</dc:description>
-  <dc:identifier>stories/249</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>Death. The place to which the Bushmen go after death. The various ways of dying, and of being killed (L II.-12. 1173-1243, 13. 1244-1314. 14. 1315-1396). A description of the place where people go to after death as well as various ways of dying, including murder and death from starvation. 1) p.1173v: a knife with two sharp edges like those from Damaraland, 2) p.1174v: (26 May 1879) an opening called a 'grave' by ||kabbo's people, 3) p.1175v: a knife with one sharp edge, 4) p.1176v: the man who shoots well lives and the man who shoots 'amiss' dies of hunger, 5) See also A man is wounded by another by accident when out after springbok and ||kabbo tells of death, the hole, and the path of the First Bushmen, 6) This story is found in Book II-12.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/249</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The place to which people go after death, and various ways of dying and being killed</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

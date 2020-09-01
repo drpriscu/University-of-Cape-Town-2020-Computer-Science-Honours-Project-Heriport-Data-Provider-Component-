@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>... a cunning woman of this race, who lived alone in a house underground, deceived and robbed /kwammana .  This was told in the Katkop dialect by !kweiten ta //ken (L VI.-2. 4034-4053).</dc:description>
-  <dc:identifier>stories/386</dc:identifier>
+  <dc:creator>!kweiten ta ||ken (Rachel) (VI)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>... a cunning woman of this [Early] race, who lived alone in a house underground, deceived and robbed /kwámmana [in this story he is called |kua ka khumm].  This was told in the Katkop dialect by !kwéiten ta //kën (L VI.-2. 4034-4053). An old woman asks |kua ka khumm to build her a shelter, even though she already has one under the ground. She takes his things and disappears into her house. 1) Lloyd took down this story twice as she did not understand it properly the first time she took it down (see p.4042v); the two versions are included together here, 2) p.4033v: the location of the old woman's house in the pan; the story was told to !kweiten ta ||ken by her mother (≠kamme-an); Dia!kwain says that |kua is short for |kwammana, 3) p.4036v: |kua's things come of their own accord when he summons them, 4) This story is found in Book VI-2.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/386</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Story of |kua ka khumm</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>

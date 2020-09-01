@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:date>2020-08-30</dc:date>
-  <dc:description>When he sneezes, ||kabbo believes his family is talking about him and about the |xam, their names, their masters, their families and their search for their wives.</dc:description>
-  <dc:identifier>stories/215</dc:identifier>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-01</dc:date>
+  <dc:description>When he sneezes, ||kabbo believes his family is talking about him and about the |xam, their names, their masters, their families and their search for their wives. 1) p.634v: a cut-out clipping on traditions relating to sneezing in various cultures, 2) p.645v: relations and their names; Albert Meintjes is a Bastard; the colours of skins of different peoples, 3) p.646v: Dutch names of |xam, 4) 648v: names and skin colours of |xam women, 5) p.651v: ||kabbo's's wife's name, 6) This story is found in Book II-6.</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/215</dc:identifier>
+  <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Sneezing: and searching for wives and families</dc:title>
+  <dc:type>story</dc:type>
 </oai_dc:dc>
