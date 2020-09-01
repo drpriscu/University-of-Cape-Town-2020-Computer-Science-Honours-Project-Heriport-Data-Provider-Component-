@@ -174,6 +174,73 @@ elif(query == 'ListIdentifiers'):
         print(responseEnd)
         break
     
+elif (query = 'ListMetadataFormats'):
+  
+    verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+    verbResponseDate = "\n  <responseDate>"
+    verbResponseDate += str(datetime.now())
+    verbResponseDate += "</responseDate>"
+    
+    try:
+        identifier = form.getvalue ("identifier", "")
+        verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
+        verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
+    
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        splitString = "stories/"
+        
+        split = identifier.split(splitString)
+        dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+        
+        try:
+            with open(dcFilePath, encoding="utf-8") as dcFile:
+                data = dcFile.read()
+                dcFile.close()
+        except Exception as e:
+                    print(e)
+        
+        data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
+        data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
+        
+        record = []
+        record.append(data)
+        strRec = ''.join([str(elem) for elem in record])
+        
+        responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
+        response.append(strRec)
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        
+        print(strResp)
+    
+    except:
+        
+        verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
+        verbRequest += serverURL+"</request>\n  <ListMetadataFormats>\n"
+    
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        data = "    <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
+        data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
+        
+        record = []
+        record.append(data)
+        strRec = ''.join([str(elem) for elem in record])
+        
+        responseEnd = "\n  </ListMetadataFormats>\n</OAI-PMH>"
+        response.append(strRec)
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        
+        print(strResp)
+
 elif (query == 'ListRecords'):
     
     try:

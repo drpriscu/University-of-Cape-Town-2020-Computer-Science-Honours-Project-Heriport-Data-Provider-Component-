@@ -20,7 +20,7 @@ import xml.etree.ElementTree as ET
 
 #query = form["verb"].value
 #"content-type: text/html; charset=UTF-8"
-query = 'ListIdentifiers'
+query = 'ListMetadataFormats'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
@@ -215,7 +215,7 @@ elif (query == 'ListIdentifiers'):
         responseEnd = " </ListIdentifiers>\n</OAI-PMH>"
         print(responseEnd)
         break
-# TO DO
+
 elif (query == 'ListMetadataFormats'):
     """List metadata formats supported by repository or record.
 
@@ -233,77 +233,72 @@ elif (query == 'ListMetadataFormats'):
     tuples (each entry in the tuple is a string).
     """
     
-    identifier = "1"
-    
+    identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/6"
+  
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
-            
-    verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n identifier=\""
-    verbRequest += identifier+"\">\n"
-    verbRequest += serverURL+"</request>\n  <ListMetadataFormats>"
-            
-    path = 'stories/'
     
-    for root, directories, filenames in os.walk(path):
-        for i in range(1,2058):
-            
-            identifier = str(i)
-            
-            response = []
-            
-            if (i == 1):
-                response.append(verbResponseHeader)
-                response.append(verbResponseDate)
-                response.append(verbRequest)
-  
-            fileName = "stories-dc/metadata-"+str(i)+"-dc.xml"
-            
-            try:
-                with open(fileName, encoding="utf-8") as file:
-                    data = file.read()
-                    file.close()
-            except Exception as e:
-                print(e)
-                print(fileName)
-                print("File Error")
-                
-            splitString = "<datestamp>"
-            split = data.split(splitString)
-            
-            if len(split) == 2:
-                splitString = "\<datestamp>"
-                split = split[1].split(splitString)
-                part1 = split[0]
-                datestamp = part1
-
-            headerIdentifier = " <header>\n  <identifier>"+identifier+"</identifier>"
-            headerDatestamp = "\n  <datestamp>"+datestamp+"</datestamp>"
-            
-            headerSetSpec = "<setSpec>"+set+"</setSpec>"
-            headerSetSpec +=  "\n</header>"
-            
-            header = []
-            header.append(headerIdentifier)
-            header.append(headerDatestamp)
-            header.append(headerSetSpec)
-            strHead = ''.join([str(elem) for elem in header]) 
-
-            record = []
-            record.append(strHead)
-            record.append(data)
-            record.append("</record>")
-            strRec = ''.join([str(elem) for elem in record]) 
-            
-            response.append(strRec)
-            strResp = ''.join([str(elem) for elem in response]) 
-            
-            print(strResp)
-            
-        responseEnd = " </ListMetadataFormats>\n</OAI-PMH>"
-        print(responseEnd)
-        break
+    try:
+        identifier = form.getvalue ("identifier", "")
+        verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
+        verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
+    
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        splitString = "stories/"
+        
+        split = identifier.split(splitString)
+        dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+        
+        try:
+            with open(dcFilePath, encoding="utf-8") as dcFile:
+                data = dcFile.read()
+                dcFile.close()
+        except Exception as e:
+                    print(e)
+        
+        data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
+        data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
+        
+        record = []
+        record.append(data)
+        strRec = ''.join([str(elem) for elem in record])
+        
+        responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
+        response.append(strRec)
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        
+        print(strResp)
+    
+    except:
+        
+        verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
+        verbRequest += serverURL+"</request>\n  <ListMetadataFormats>\n"
+    
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        data = "    <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
+        data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
+        
+        record = []
+        record.append(data)
+        strRec = ''.join([str(elem) for elem in record])
+        
+        responseEnd = "\n  </ListMetadataFormats>\n</OAI-PMH>"
+        response.append(strRec)
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        
+        print(strResp)
 
 elif (query == 'ListRecords'):
     """Get a list of header, metadata and about information on records.
