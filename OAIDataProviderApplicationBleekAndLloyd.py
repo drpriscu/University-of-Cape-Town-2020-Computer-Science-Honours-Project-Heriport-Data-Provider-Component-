@@ -90,6 +90,7 @@ if (query == 'GetRecord'):
 elif(query == 'ListIdentifiers'):
     
     metadataPrefix = form.getvalue ("metadataPrefix", "")
+    
     try:
         set = form.getvalue ("set", "")
         frm = form.getvalue ("from", "")
@@ -218,7 +219,6 @@ elif (query = 'ListMetadataFormats'):
         print(strResp)
     
     except:
-        
         verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
         verbRequest += serverURL+"</request>\n  <ListMetadataFormats>\n"
     
@@ -243,8 +243,9 @@ elif (query = 'ListMetadataFormats'):
 
 elif (query == 'ListRecords'):
     
+    metadataPrefix = form.getvalue ("metadataPrefix", "")
+    
     try:
-        metadataPrefix = form.getvalue ("metadataPrefix", "")
         set = form.getvalue ("set", "")
         frm = form.getvalue ("from", "")
         until = form.getvalue ("until", "")

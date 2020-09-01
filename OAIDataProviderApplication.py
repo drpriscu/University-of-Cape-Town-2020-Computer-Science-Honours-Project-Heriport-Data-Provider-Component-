@@ -241,7 +241,8 @@ elif (query == 'ListMetadataFormats'):
     verbResponseDate += "</responseDate>"
     
     try:
-        identifier = form.getvalue ("identifier", "")
+        #identifier = form.getvalue ("identifier", "")
+        identifier = identifier
         verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
         verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
     
@@ -277,7 +278,6 @@ elif (query == 'ListMetadataFormats'):
         print(strResp)
     
     except:
-        
         verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
         verbRequest += serverURL+"</request>\n  <ListMetadataFormats>\n"
     

@@ -90,13 +90,13 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
         if (type(valDict) == list):
             valDict = str(valDict)
       
-    """ for x in dictData.keys():
+    for x in dictData.keys():
         tempList = []
         if (dictData[x] != None):
             for i in dictData[x]:
                 i = remove_non_ascii(str(i))
                 tempList.append(i)
-                dictData[x] = tempList  """
+                dictData[x] = tempList
     
     metadata = simpledc.tostring(dictData)
     
