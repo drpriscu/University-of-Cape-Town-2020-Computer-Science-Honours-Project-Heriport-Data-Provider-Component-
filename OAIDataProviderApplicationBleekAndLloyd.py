@@ -46,7 +46,7 @@ if (query == 'GetRecord'):
             splitString = "stories/"
             split = identifier.split(splitString)
             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-            dcFile = open(dcFilePath, "w", encoding="utf-8")
+            dcFile = open(dcFilePath, "r", encoding="utf-8")
             data = dcFile.read()
             dcFile.close()
             
@@ -122,7 +122,7 @@ if (query == 'GetRecord'):
                 part1 = part1[39:len(part1)-1]
                 data = part1
             
-            data = "    <metadata>\n      "+data+"\n    </metadata>"
+            data = "    <metadata>\n      "+data+"    </metadata>"
             headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
             headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
             headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
@@ -190,7 +190,7 @@ elif (query == 'Identify'):
                 dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                 
                 try:
-                    dcFile = open(dcFilePath, "w", encoding="utf-8")
+                    dcFile = open(dcFilePath, "r", encoding="utf-8")
                     data = dcFile.read()
                     dcFile.close()
                 except Exception as e:
@@ -339,7 +339,7 @@ elif(query == 'ListIdentifiers'):
                     dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                     
                     try:
-                        dcFile = open(dcFilePath, "w", encoding="utf-8")
+                        dcFile = open(dcFilePath, "r", encoding="utf-8")
                         data = dcFile.read()
                         dcFile.close()
                     except Exception as e:
@@ -473,7 +473,7 @@ elif (query == 'ListMetadataFormats'):
                 splitString = "stories/"
                 split = identifier.split(splitString)
                 dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-                dcFile = open(dcFilePath, "w", encoding="utf-8")
+                dcFile = open(dcFilePath, "r", encoding="utf-8")
                 data = dcFile.read()
                 dcFile.close()
                 
@@ -504,8 +504,7 @@ elif (query == 'ListMetadataFormats'):
                 response.append(strRec)
                 response.append(responseEnd)
                 strResp = ''.join([str(elem) for elem in response])
-                print(strResp)
-   
+                print(strResp) 
 # TO DO
 elif (query == 'ListRecords'):
     try:

@@ -10,18 +10,17 @@ import cgi
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
-query = 'ListIdentifiers'
+query = 'GetRecord'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
 if (query == 'GetRecord'):
     try:
-        identifier = "5111110"
+        identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/6"
         metadataPrefix = "oai_dc"
         set = "stories"
         
     except:
-        print("damn")
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
@@ -51,6 +50,7 @@ if (query == 'GetRecord'):
             dcFile.close()
             
         except:
+            print("hey")
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
             verbResponseDate += str(datetime.now())
@@ -72,7 +72,6 @@ if (query == 'GetRecord'):
             print(strResp)
         
         else:
-            
             if(metadataPrefix != "oai_dc"):
                 verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
                 verbResponseDate = "\n  <responseDate>"
@@ -94,7 +93,7 @@ if (query == 'GetRecord'):
                 strResp = ''.join([str(elem) for elem in response])
                 print(strResp)
                 exit()
-                    
+                
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
             verbResponseDate += str(datetime.now())
@@ -112,7 +111,7 @@ if (query == 'GetRecord'):
             splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
             split = data.split(splitString)
             
-            if len(split) == 2:
+            if (len(split) == 2):
                 part1 = split[0]
                 part1 = part1[39:len(part1)-3]
                 part2 = split[1]
@@ -123,7 +122,7 @@ if (query == 'GetRecord'):
                 part1 = part1[39:len(part1)-1]
                 data = part1
             
-            data = "    <metadata>\n      "+data+"\n    </metadata>"
+            data = "    <metadata>\n      "+data+"    </metadata>"
             headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
             headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
             headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
@@ -144,7 +143,10 @@ if (query == 'GetRecord'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-        
+
+
+
+       
 elif (query == 'Identify'):
     try:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
