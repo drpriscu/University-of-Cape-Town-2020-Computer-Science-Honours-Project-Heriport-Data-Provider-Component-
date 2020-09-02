@@ -16,10 +16,10 @@ print ("Content-type: text/xml\n")
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"
 
 if (query == 'GetRecord'):
+    set = "stories"
     try:
         identifier = form.getvalue ("identifier", "")
         metadataPrefix = form.getvalue ("metadataPrefix", "")
-        set = "stories"
         
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -211,7 +211,7 @@ elif (query == 'Identify'):
         data += "\n    <baseURL>"+serverURL+"<baseURL>"
         data += "\n    <protocolVersion>2.0</protocolVersion>"
         data += "\n    <adminEmail>admin@pumbaa.cs.uct.ac.za</adminEmail>"
-        data += "\n    <earliestDatestamp>"+earliestDatestamp+"<\earliestDatestamp>"
+        data += "\n    <earliestDatestamp>"+earliestDatestamp+"</earliestDatestamp>"
         data += "\n    <deletedRecord>no</deletedRecord>"
         data += "\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>"
         
@@ -407,45 +407,17 @@ elif(query == 'ListIdentifiers'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-                  
+      
 elif (query == 'ListMetadataFormats'):
     try:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
         verbResponseDate += "</responseDate>"
-    
-    except:
-        verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-        verbResponseDate = "\n  <responseDate>"
-        verbResponseDate += str(datetime.now())
-        verbResponseDate += "</responseDate>"
         
-        verbRequest = "\n  <request verb=\"ListMetadataFormats\">"
-        verbRequest += serverURL+"</request>\n"
-        verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
-        
-        response = []
-        response.append(verbResponseHeader)
-        response.append(verbResponseDate)
-        response.append(verbRequest)
-        
-        responseEnd = "\n</OAI-PMH>"
-        response.append(responseEnd)
-        strResp = ''.join([str(elem) for elem in response])
-        print(strResp)
-    
-    else:    
         try:
             identifier = form.getvalue ("identifier", "")
-            verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
-            verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
         
-            response = []
-            response.append(verbResponseHeader)
-            response.append(verbResponseDate)
-            response.append(verbRequest)
-                
         except:
             verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
             verbRequest += serverURL+"</request>\n  <ListMetadataFormats>\n"
@@ -466,9 +438,10 @@ elif (query == 'ListMetadataFormats'):
             response.append(strRec)
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
-            print(strResp)
+            print(strResp)  
         
-        else:
+        else:   
+            
             try:
                 splitString = "stories/"
                 split = identifier.split(splitString)
@@ -476,11 +449,11 @@ elif (query == 'ListMetadataFormats'):
                 dcFile = open(dcFilePath, "r", encoding="utf-8")
                 data = dcFile.read()
                 dcFile.close()
-                
+            
             except:
-                verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
-                verbRequest += identifier+"\">\n    "+serverURL+"</request>\n"
-                verbRequest += "  <error code=\"idDoesNotExist\">The value of the identifier argument is unknown or illegal in this repository.</error>"
+                verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
+                verbRequest += serverURL+"</request>\n"
+                verbRequest += "  <error code=\"idDoesNotExist\">TThe value of the identifier argument is unknown or illegal in this repository.</error>"
         
                 response = []
                 response.append(verbResponseHeader)
@@ -491,8 +464,16 @@ elif (query == 'ListMetadataFormats'):
                 response.append(responseEnd)
                 strResp = ''.join([str(elem) for elem in response])
                 print(strResp)
+                
+            else:
+                verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
+                verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
             
-            else:           
+                response = []
+                response.append(verbResponseHeader)
+                response.append(verbResponseDate)
+                response.append(verbRequest)
+                
                 data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
                 data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
                 
@@ -504,7 +485,28 @@ elif (query == 'ListMetadataFormats'):
                 response.append(strRec)
                 response.append(responseEnd)
                 strResp = ''.join([str(elem) for elem in response])
-                print(strResp) 
+                print(strResp)
+                
+    except:
+        verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+        verbResponseDate = "\n  <responseDate>"
+        verbResponseDate += str(datetime.now())
+        verbResponseDate += "</responseDate>"
+        
+        verbRequest = "\n  <request verb=\"ListMetadataFormats\">"
+        verbRequest += serverURL+"</request>\n"
+        verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
+        
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        responseEnd = "\n</OAI-PMH>"
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        print(strResp)
+                
 # TO DO
 elif (query == 'ListRecords'):
     try:
