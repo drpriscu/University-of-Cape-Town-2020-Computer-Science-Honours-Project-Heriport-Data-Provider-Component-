@@ -41,7 +41,7 @@ def remove_non_ascii(text):
     return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore')
     
 # Takes in a dictionary of XML data and outputs a DC formatted XML file.
-def convert(directoryPath, dcFileName, dictData):
+def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
 
     # Mapping
@@ -85,8 +85,8 @@ def convert(directoryPath, dcFileName, dictData):
     dictData["format"] = format
     
     date = str(datetime.now())
-    dateSplit = date.split(" ")
-    date = dateSplit[0]
+    #dateSplit = date.split(" ")
+    #date = dateSplit[0]
     dictData["date"] = date
 
     # Map values in dicitonary to list type values
@@ -162,8 +162,13 @@ for root, directories, filenames in os.walk(path):
                 filePath = directoryPath +'/metadata.xml'
                 # Convert the XML file to a dictionary.
                 with open(filePath, encoding="utf-8") as file:
-                    dictData = dict(xmltodict.parse(file.read(), dict_constructor=dict))
-                    dcFileName = "metadata-"+str(i)+"-dc.xml"  
-                    convert(directoryPath, dcFileName, dictData)
+                    data = file.read()
+                    data = data.replace("<i>","")
+                    data = data.replace("</i>","")
+
+                    dictData = dict(xmltodict.parse(data, dict_constructor=dict))
+                    dcFileName = "metadata-"+str(i)+"-dc.xml"
+                    serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
+                    convert(directoryPath, serverURL, dcFileName, dictData)
     print("Successfully converted files.")                
     break

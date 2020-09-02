@@ -17,10 +17,9 @@ from datetime import datetime
 import xml.etree.ElementTree as ET
 
 #form = cgi.FieldStorage()
-
 #query = form["verb"].value
 #"content-type: text/html; charset=UTF-8"
-query = 'ListMetadataFormats'
+query = 'ListRecords'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
@@ -45,7 +44,22 @@ if (query == 'GetRecord'):
     metadataPrefix = "oai_dc"
     identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/6"
     set = "stories"
-            
+    
+    splitString = "stories/"
+    split = identifier.split(splitString)
+    dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+    
+    try:
+        with open(dcFilePath, encoding="utf-8") as dcFile:
+            data = dcFile.read()
+            dcFile.close()
+    except:
+        print("idDoesNotExist")
+    
+    if(metadataPrefix != "oai_dc"):
+            print("cannotDisseminateFormat")
+            sys.exit()
+    
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
@@ -59,17 +73,6 @@ if (query == 'GetRecord'):
     response.append(verbResponseHeader)
     response.append(verbResponseDate)
     response.append(verbRequest)
-    
-    splitString = "stories/"
-    split = identifier.split(splitString)
-    dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-    
-    try:
-        with open(dcFilePath, encoding="utf-8") as dcFile:
-            data = dcFile.read()
-            dcFile.close()
-    except Exception as e:
-                print(e)
         
     splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
     split = data.split(splitString)
@@ -105,16 +108,84 @@ if (query == 'GetRecord'):
     response.append(strRec)
     response.append(responseEnd)
     strResp = ''.join([str(elem) for elem in response])
-    
     print(strResp)
-# TO DO
+
 elif (query == 'Identify'):
     """Retrieve information about the repository.
 
     Returns an Identify object describing the repository.
     """
-    print ("<OAI-PMH> fill in Identify response according to protocol...</OAI-PMH>")
-  
+    
+    verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+    verbResponseDate = "\n  <responseDate>"
+    verbResponseDate += str(datetime.now())
+    verbResponseDate += "</responseDate>"
+    
+    verbRequest = "\n  <request verb=\"Identify\">"
+    verbRequest += serverURL+"</request>\n  <Identify>\n"
+    
+    repositoryName = "The New Bleek and Lloyd Collection"
+    repositoryIdentifier = "http://pumbaa.cs.uct.ac.za"
+    earliestDatestamp = str(datetime.now())
+            
+    path = 'stories/'
+    
+    for root, directories, filenames in os.walk(path):
+        for i in range(1,2058):
+            identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
+                          
+            splitString = "stories/"
+            split = identifier.split(splitString)
+            dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+            
+            try:
+                with open(dcFilePath, encoding="utf-8") as dcFile:
+                    data = dcFile.read()
+                    dcFile.close()
+            except Exception as e:
+                print(e)
+            
+            splitString = "<dc:date>"
+            split = data.split(splitString)
+            splitString = "</dc:date>"
+            split = split[1].split(splitString)
+            split = split[0].split(" ")
+            recordDate = split[0]
+                    
+            if((recordDate <= earliestDatestamp)):
+                earliestDatestamp = recordDate
+        break
+    
+    data = "    <repositoryName>"+repositoryName+"</repositoryName>"
+    data += "\n    <baseURL>"+serverURL+"<baseURL>"
+    data += "\n    <protocolVersion>2.0</protocolVersion>"
+    data += "\n    <adminEmail>admin@pumbaa.cs.uct.ac.za</adminEmail>"
+    data += "\n    <earliestDatestamp>"+earliestDatestamp+"<\earliestDatestamp>"
+    data += "\n    <deletedRecord>no</deletedRecord>"
+    data += "\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>"
+    
+    data += "\n    <description>\n      <oai-identifier"
+    data += "\n       xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai-identifier\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai-identifier\n          http://www.openarchives.org/OAI/2.0/oai-identifier.xsd\">"
+    data += "\n       <scheme>oai</scheme>"
+    data += "\n       <repositoryIdentifier>oai</repositoryIdentifier>"
+    data += "\n       </oai-identifier>\n    </description>"
+    
+    response = []
+    response.append(verbResponseHeader)
+    response.append(verbResponseDate)
+    response.append(verbRequest)
+    
+    record = []
+    record.append(data)
+    strRec = ''.join([str(elem) for elem in record])
+    
+    responseEnd = "\n </Identify>\n</OAI-PMH>"
+    response.append(strRec)
+    response.append(responseEnd)
+    strResp = ''.join([str(elem) for elem in response])
+    
+    print(strResp)
+    
 elif (query == 'ListIdentifiers'):
     """Get a list of header information on records.
 
@@ -180,6 +251,7 @@ elif (query == 'ListIdentifiers'):
             split = data.split(splitString)
             splitString = "</dc:date>"
             split = split[1].split(splitString)
+            split = split[0].split(" ")
             recordDate = split[0]
             
             recordDateObject = datetime.strptime(recordDate, "%Y-%m-%d")
@@ -189,7 +261,7 @@ elif (query == 'ListIdentifiers'):
             if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
                 
                 headerIdentifier = "   <header>\n      <identifier>"+identifier+"</identifier>"
-                headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
+                headerDatestamp = "\n      <datestamp>"+recordDate+"</datestamp>"
                 headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
             
                 headerSetSpec +=  "\n   </header>"
@@ -274,7 +346,6 @@ elif (query == 'ListMetadataFormats'):
         response.append(strRec)
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
-        
         print(strResp)
     
     except:
@@ -297,7 +368,6 @@ elif (query == 'ListMetadataFormats'):
         response.append(strRec)
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
-        
         print(strResp)
 
 elif (query == 'ListRecords'):
@@ -329,15 +399,15 @@ elif (query == 'ListRecords'):
     until = datetime.today().strftime('%Y-%m-%d')
     
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-    verbResponseDate = "\n <responseDate>"
+    verbResponseDate = "\n  <responseDate>"
     verbResponseDate += str(datetime.now())
     verbResponseDate += "</responseDate>"
             
-    verbRequest = "\n <request verb=\"ListRecords\" from=\""
-    verbRequest += frm+"\"\n          set=\""
-    verbRequest += set+"\"\n          metadataPrefix=\""
-    verbRequest += metadataPrefix+"\">"+"\n          "+serverURL+"</request>\n <ListRecords>\n"
-            
+    verbRequest = "\n  <request verb=\"ListRecords\" from=\""
+    verbRequest += frm+"\"\n           set=\""
+    verbRequest += set+"\"\n           metadataPrefix=\""
+    verbRequest += metadataPrefix+"\">"+"\n           "+serverURL+"</request>\n <ListRecords>\n"
+    
     path = 'stories/'
     
     for root, directories, filenames in os.walk(path):
@@ -366,6 +436,7 @@ elif (query == 'ListRecords'):
             split = data.split(splitString)
             splitString = "</dc:date>"
             split = split[1].split(splitString)
+            split = split[0].split(" ")
             recordDate = split[0]
                   
             recordDateObject = datetime.strptime(recordDate, "%Y-%m-%d")
@@ -373,19 +444,19 @@ elif (query == 'ListRecords'):
             untilDateObject = datetime.strptime(until, "%Y-%m-%d")
             
             if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
+                    
+                data = "     <metadata>\n      "+data[39:len(data)]+"     </metadata>"
+                about = "\n     <about>"
+                provenance = "        xmlns=\"http://www.openarchives.org/OAI/2.0/provenance\"\n        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n        xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/provenance\n        http://www.openarchives.org/OAI/2.0/provenance.xsd\">"
                 
-                data = "    <metadata>\n      "+data[39:len(data)]+"    </metadata>"
-                about = "\n    <about>"
-                provenance = "       xmlns=\"http://www.openarchives.org/OAI/2.0/provenance\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/provenance\n       http://www.openarchives.org/OAI/2.0/provenance.xsd\">"
+                about += "\n       <provenance>\n"+provenance+"\n       </provenance>"
+                about += "\n     </about>"
                 
-                about += "\n      <provenance>\n"+provenance+"\n      </provenance>"
-                about += "\n    </about>"
-                
-                headerIdentifier = "  <record>\n    <header>\n      <identifier>"+identifier+"</identifier>"
-                headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
-                headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
+                headerIdentifier = "   <record>\n     <header>\n       <identifier>"+identifier+"</identifier>"
+                headerDatestamp = "\n       <datestamp>"+recordDate+"</datestamp>"
+                headerSetSpec = "\n       <setSpec>"+set+"</setSpec>"
             
-                headerSetSpec +=  "\n    </header>\n"
+                headerSetSpec +=  "\n     </header>\n"
                 
                 header = []
                 header.append(headerIdentifier)
@@ -397,28 +468,57 @@ elif (query == 'ListRecords'):
                 record.append(strHead)
                 record.append(data)
                 record.append(about)
-                record.append("\n  </record>")
+                record.append("\n   </record>")
                 strRec = ''.join([str(elem) for elem in record]) 
                 
                 response.append(strRec)
                 strResp = ''.join([str(elem) for elem in response]) 
-                
                 print(strResp)
             
             else:
                 pass
                     
-        responseEnd = " </ListRecords> \n</OAI-PMH>"
+        responseEnd = "  </ListRecords>\n</OAI-PMH>"
         print(responseEnd)
         break      
-# TO DO
-elif (query == 'ListSets'):    
+    
+elif (query == 'ListSets'):
     """Get a list of sets in the repository.
 
     Should raise error.NoSetHierarchyError if the repository does not
     support sets.
 
     Returns an iterable of setSpec, setName tuples (strings)."""
+    
+    verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+    verbResponseDate = "\n <responseDate>"
+    verbResponseDate += str(datetime.now())
+    verbResponseDate += "</responseDate>"
+    
+    verbRequest = "\n <request verb=\"ListSets\">"
+    verbRequest += serverURL+"</request>\n <ListSets>\n"
+
+    response = []
+    response.append(verbResponseHeader)
+    response.append(verbResponseDate)
+    response.append(verbRequest)
+    
+    set = "stories"
+    data = "  <set>\n    <setName>"+set+"</setName>\n    <setDescription>"
+    data += "\n      <oai_dc:dc\n          xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\"\n          xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n          xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai_dc/\n          http://www.openarchives.org/OAI/2.0/oai_dc.xsd\">"
+    data += "\n          <dc:description>This set contains metadata describing stories from the Bleek and Lloyd Collection.</dc:description>"
+    data += "\n       </oai_dc:dc>\n    </setDescription>\n  </set>"
+    
+    record = []
+    record.append(data)
+    strRec = ''.join([str(elem) for elem in record])
+    
+    responseEnd = "\n </ListSets>\n</OAI-PMH>"
+    response.append(strRec)
+    response.append(responseEnd)
+    strResp = ''.join([str(elem) for elem in response])
+    
+    print(strResp)
 
 else:
 # Error handling
