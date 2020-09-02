@@ -10,18 +10,18 @@ import cgi
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
-form = cgi.FieldStorage()
-query = form["verb"].value
+query = 'ListIdentifiers'
+serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
-serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"
 
 if (query == 'GetRecord'):
     try:
-        identifier = form.getvalue ("identifier", "")
-        metadataPrefix = form.getvalue ("metadataPrefix", "")
+        identifier = "5111110"
+        metadataPrefix = "oai_dc"
         set = "stories"
         
     except:
+        print("damn")
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
@@ -46,7 +46,7 @@ if (query == 'GetRecord'):
             splitString = "stories/"
             split = identifier.split(splitString)
             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-            dcFile = open(dcFilePath, "w", encoding="utf-8")
+            dcFile = open(dcFilePath, "r", encoding="utf-8")
             data = dcFile.read()
             dcFile.close()
             
@@ -72,6 +72,7 @@ if (query == 'GetRecord'):
             print(strResp)
         
         else:
+            
             if(metadataPrefix != "oai_dc"):
                 verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
                 verbResponseDate = "\n  <responseDate>"
@@ -93,7 +94,7 @@ if (query == 'GetRecord'):
                 strResp = ''.join([str(elem) for elem in response])
                 print(strResp)
                 exit()
-                
+                    
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
             verbResponseDate += str(datetime.now())
@@ -111,7 +112,7 @@ if (query == 'GetRecord'):
             splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
             split = data.split(splitString)
             
-            if (len(split) == 2):
+            if len(split) == 2:
                 part1 = split[0]
                 part1 = part1[39:len(part1)-3]
                 part2 = split[1]
@@ -143,35 +144,14 @@ if (query == 'GetRecord'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-    
+        
 elif (query == 'Identify'):
     try:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
         verbResponseDate += "</responseDate>"
-    
-    except:
-        verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-        verbResponseDate = "\n  <responseDate>"
-        verbResponseDate += str(datetime.now())
-        verbResponseDate += "</responseDate>"
         
-        verbRequest = "\n  <request verb=\"Identify\">"
-        verbRequest += serverURL+"</request>\n"
-        verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
-        
-        response = []
-        response.append(verbResponseHeader)
-        response.append(verbResponseDate)
-        response.append(verbRequest)
-        
-        responseEnd = "\n</OAI-PMH>"
-        response.append(responseEnd)
-        strResp = ''.join([str(elem) for elem in response])
-        print(strResp)
-    
-    else:   
         verbRequest = "\n  <request verb=\"Identify\">"
         verbRequest += serverURL+"</request>\n  <Identify>\n"
         
@@ -190,9 +170,9 @@ elif (query == 'Identify'):
                 dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                 
                 try:
-                    dcFile = open(dcFilePath, "w", encoding="utf-8")
-                    data = dcFile.read()
-                    dcFile.close()
+                    with open(dcFilePath, encoding="utf-8") as dcFile:
+                        data = dcFile.read()
+                        dcFile.close()
                 except Exception as e:
                     print(e)
                 
@@ -235,10 +215,30 @@ elif (query == 'Identify'):
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
         print(strResp)
-# TO DO            
+    
+    except:
+        verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+        verbResponseDate = "\n  <responseDate>"
+        verbResponseDate += str(datetime.now())
+        verbResponseDate += "</responseDate>"
+        
+        verbRequest = "\n  <request verb=\"Identify\">"
+        verbRequest += serverURL+"</request>\n"
+        verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
+        
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        responseEnd = "\n</OAI-PMH>"
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        print(strResp)
+           
 elif(query == 'ListIdentifiers'):
     try:
-        metadataPrefix = form.getvalue ("metadataPrefix", "")
+        metadataPrefix = "oai_dc"
     
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -286,7 +286,7 @@ elif(query == 'ListIdentifiers'):
                     pass
                 else:
                     pass
-            
+        print("here")
         if(metadataPrefix != "oai_dc"):
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
@@ -310,7 +310,7 @@ elif(query == 'ListIdentifiers'):
             print(strResp)
             exit()
         
-        try:
+        try:   
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
             verbResponseDate += str(datetime.now())
@@ -407,35 +407,14 @@ elif(query == 'ListIdentifiers'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-                  
+       
 elif (query == 'ListMetadataFormats'):
     try:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
         verbResponseDate += "</responseDate>"
-    
-    except:
-        verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
-        verbResponseDate = "\n  <responseDate>"
-        verbResponseDate += str(datetime.now())
-        verbResponseDate += "</responseDate>"
         
-        verbRequest = "\n  <request verb=\"ListMetadataFormats\">"
-        verbRequest += serverURL+"</request>\n"
-        verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
-        
-        response = []
-        response.append(verbResponseHeader)
-        response.append(verbResponseDate)
-        response.append(verbRequest)
-        
-        responseEnd = "\n</OAI-PMH>"
-        response.append(responseEnd)
-        strResp = ''.join([str(elem) for elem in response])
-        print(strResp)
-    
-    else:    
         try:
             identifier = form.getvalue ("identifier", "")
             verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
@@ -445,7 +424,45 @@ elif (query == 'ListMetadataFormats'):
             response.append(verbResponseHeader)
             response.append(verbResponseDate)
             response.append(verbRequest)
+            
+            splitString = "stories/"
+            
+            split = identifier.split(splitString)
+            dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+            
+            try:
+                with open(dcFilePath, encoding="utf-8") as dcFile:
+                    data = dcFile.read()
+                    dcFile.close()
+            except:
+                verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
+                verbRequest += serverURL+"</request>\n"
+                verbRequest += "  <error code=\"idDoesNotExist\">TThe value of the identifier argument is unknown or illegal in this repository.</error>"
+        
+                response = []
+                response.append(verbResponseHeader)
+                response.append(verbResponseDate)
+                response.append(verbRequest)
                 
+                responseEnd = "\n</OAI-PMH>"
+                response.append(responseEnd)
+                strResp = ''.join([str(elem) for elem in response])
+                print(strResp)
+                
+            
+            data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
+            data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
+            
+            record = []
+            record.append(data)
+            strRec = ''.join([str(elem) for elem in record])
+            
+            responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
+            response.append(strRec)
+            response.append(responseEnd)
+            strResp = ''.join([str(elem) for elem in response])
+            print(strResp)
+        
         except:
             verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
             verbRequest += serverURL+"</request>\n  <ListMetadataFormats>\n"
@@ -466,58 +483,16 @@ elif (query == 'ListMetadataFormats'):
             response.append(strRec)
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
+            
             print(strResp)
         
-        else:
-            try:
-                splitString = "stories/"
-                split = identifier.split(splitString)
-                dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-                dcFile = open(dcFilePath, "w", encoding="utf-8")
-                data = dcFile.read()
-                dcFile.close()
-                
-            except:
-                verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
-                verbRequest += identifier+"\">\n    "+serverURL+"</request>\n"
-                verbRequest += "  <error code=\"idDoesNotExist\">The value of the identifier argument is unknown or illegal in this repository.</error>"
-        
-                response = []
-                response.append(verbResponseHeader)
-                response.append(verbResponseDate)
-                response.append(verbRequest)
-                
-                responseEnd = "\n</OAI-PMH>"
-                response.append(responseEnd)
-                strResp = ''.join([str(elem) for elem in response])
-                print(strResp)
-            
-            else:           
-                data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
-                data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
-                
-                record = []
-                record.append(data)
-                strRec = ''.join([str(elem) for elem in record])
-                
-                responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
-                response.append(strRec)
-                response.append(responseEnd)
-                strResp = ''.join([str(elem) for elem in response])
-                print(strResp)
-   
-# TO DO
-elif (query == 'ListRecords'):
-    try:
-        metadataPrefix = form.getvalue ("metadataPrefix", "")
-    
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
         verbResponseDate += "</responseDate>"
         
-        verbRequest = "\n  <request verb=\"ListRecords\">"
+        verbRequest = "\n  <request verb=\"ListMetadataFormats\">"
         verbRequest += serverURL+"</request>\n"
         verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
         
@@ -529,34 +504,23 @@ elif (query == 'ListRecords'):
         responseEnd = "\n</OAI-PMH>"
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
-        print(strResp)   
-        
-    else:
-        set = "stories"
-        frm = "2020-01-01"
-        until = datetime.today().strftime('%Y-%m-%d')
-        
+        print(strResp)
+
+elif (query == 'ListRecords'):
+    try:
+        metadataPrefix = form.getvalue ("metadataPrefix", "")
         try:
             set = form.getvalue ("set", "")
-        
         except:
+            set = "stories"
+        try:
             frm = form.getvalue ("from", "")
+        except:
+            frm = "2020-01-01"
+        try:
             until = form.getvalue ("until", "")
-        
-        else:
-            try:
-                frm = form.getvalue ("from", "")
-            
-            except:
-                until = form.getvalue ("until", "")
-            
-            else:
-                try:
-                    until = form.getvalue ("until", "")
-                except:
-                    pass
-                else:
-                    pass
+        except:
+            until = datetime.today().strftime('%Y-%m-%d')
         
         if(metadataPrefix != "oai_dc"):
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -579,7 +543,7 @@ elif (query == 'ListRecords'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-            exit()
+            sys.exit()
         
         try:    
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -686,7 +650,27 @@ elif (query == 'ListRecords'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-                   
+            
+    except:
+        verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
+        verbResponseDate = "\n  <responseDate>"
+        verbResponseDate += str(datetime.now())
+        verbResponseDate += "</responseDate>"
+        
+        verbRequest = "\n  <request verb=\"ListRecords\">"
+        verbRequest += serverURL+"</request>\n"
+        verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
+        
+        response = []
+        response.append(verbResponseHeader)
+        response.append(verbResponseDate)
+        response.append(verbRequest)
+        
+        responseEnd = "\n</OAI-PMH>"
+        response.append(responseEnd)
+        strResp = ''.join([str(elem) for elem in response])
+        print(strResp)
+        
 elif (query == 'ListSets'):
     try:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -717,14 +701,14 @@ elif (query == 'ListSets'):
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
         print(strResp)
-      
+        
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
         verbResponseDate += "</responseDate>"
         
-        verbRequest = "\n  <request verb=\"ListSets\">"
+        verbRequest = "\n  <request verb=\"ListSets\""
         verbRequest += serverURL+"</request>\n"
         verbRequest += "  <error code=\"badArgument\">The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.</error>"
         
@@ -737,7 +721,7 @@ elif (query == 'ListSets'):
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
         print(strResp)
-
+            
 else:
     verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
     verbResponseDate = "\n  <responseDate>"
@@ -755,4 +739,4 @@ else:
     responseEnd = "\n</OAI-PMH>"
     response.append(responseEnd)
     strResp = ''.join([str(elem) for elem in response])
-    print(strResp)
+    print(strResp)    
