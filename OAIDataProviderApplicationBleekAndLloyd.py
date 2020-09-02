@@ -27,9 +27,10 @@ if (query == 'GetRecord'):
         dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
         
         try:
-            with open(dcFilePath, encoding="utf-8") as dcFile:
-                data = dcFile.read()
-                dcFile.close()
+            dcFile = open(dcFilePath, "r", encoding="utf-8")
+            data = dcFile.read()
+            dcFile.close()
+        
         except:
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
