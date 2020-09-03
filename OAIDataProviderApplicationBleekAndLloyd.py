@@ -208,7 +208,7 @@ elif (query == 'Identify'):
             break
         
         data = "    <repositoryName>"+repositoryName+"</repositoryName>"
-        data += "\n    <baseURL>"+serverURL+"<baseURL>"
+        data += "\n    <baseURL>"+serverURL+"</baseURL>"
         data += "\n    <protocolVersion>2.0</protocolVersion>"
         data += "\n    <adminEmail>admin@pumbaa.cs.uct.ac.za</adminEmail>"
         data += "\n    <earliestDatestamp>"+earliestDatestamp+"</earliestDatestamp>"
@@ -230,7 +230,7 @@ elif (query == 'Identify'):
         record.append(data)
         strRec = ''.join([str(elem) for elem in record])
         
-        responseEnd = "\n </Identify>\n</OAI-PMH>"
+        responseEnd = "\n  </Identify>\n</OAI-PMH>"
         response.append(strRec)
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
@@ -451,9 +451,9 @@ elif (query == 'ListMetadataFormats'):
                 dcFile.close()
             
             except:
-                verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
-                verbRequest += serverURL+"</request>\n"
-                verbRequest += "  <error code=\"idDoesNotExist\">TThe value of the identifier argument is unknown or illegal in this repository.</error>"
+                verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
+                verbRequest += identifier+"\">\n    "+serverURL+"</request>\n"
+                verbRequest += "  <error code=\"idDoesNotExist\">The value of the identifier argument is unknown or illegal in this repository.</error>"
         
                 response = []
                 response.append(verbResponseHeader)

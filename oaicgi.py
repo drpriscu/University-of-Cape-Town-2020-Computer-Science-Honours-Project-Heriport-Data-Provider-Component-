@@ -10,7 +10,7 @@ import cgi
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
-query = 'GetRecord'
+query = 'ListMetadataFormats'
 serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/cgi-bin/OAIDataProviderApplicationBleekAndLloyd.py"
 print ("Content-type: text/xml\n")
 
@@ -143,9 +143,6 @@ if (query == 'GetRecord'):
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
             print(strResp)
-
-
-
        
 elif (query == 'Identify'):
     try:
@@ -190,10 +187,10 @@ elif (query == 'Identify'):
             break
         
         data = "    <repositoryName>"+repositoryName+"</repositoryName>"
-        data += "\n    <baseURL>"+serverURL+"<baseURL>"
+        data += "\n    <baseURL>"+serverURL+"</baseURL>"
         data += "\n    <protocolVersion>2.0</protocolVersion>"
         data += "\n    <adminEmail>admin@pumbaa.cs.uct.ac.za</adminEmail>"
-        data += "\n    <earliestDatestamp>"+earliestDatestamp+"<\earliestDatestamp>"
+        data += "\n    <earliestDatestamp>"+earliestDatestamp+"</earliestDatestamp>"
         data += "\n    <deletedRecord>no</deletedRecord>"
         data += "\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>"
         
@@ -212,7 +209,7 @@ elif (query == 'Identify'):
         record.append(data)
         strRec = ''.join([str(elem) for elem in record])
         
-        responseEnd = "\n </Identify>\n</OAI-PMH>"
+        responseEnd = "\n  </Identify>\n</OAI-PMH>"
         response.append(strRec)
         response.append(responseEnd)
         strResp = ''.join([str(elem) for elem in response])
@@ -418,52 +415,8 @@ elif (query == 'ListMetadataFormats'):
         verbResponseDate += "</responseDate>"
         
         try:
-            identifier = form.getvalue ("identifier", "")
-            verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
-            verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
-        
-            response = []
-            response.append(verbResponseHeader)
-            response.append(verbResponseDate)
-            response.append(verbRequest)
-            
-            splitString = "stories/"
-            
-            split = identifier.split(splitString)
-            dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
-            
-            try:
-                with open(dcFilePath, encoding="utf-8") as dcFile:
-                    data = dcFile.read()
-                    dcFile.close()
-            except:
-                verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
-                verbRequest += serverURL+"</request>\n"
-                verbRequest += "  <error code=\"idDoesNotExist\">TThe value of the identifier argument is unknown or illegal in this repository.</error>"
-        
-                response = []
-                response.append(verbResponseHeader)
-                response.append(verbResponseDate)
-                response.append(verbRequest)
-                
-                responseEnd = "\n</OAI-PMH>"
-                response.append(responseEnd)
-                strResp = ''.join([str(elem) for elem in response])
-                print(strResp)
-                
-            
-            data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
-            data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
-            
-            record = []
-            record.append(data)
-            strRec = ''.join([str(elem) for elem in record])
-            
-            responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
-            response.append(strRec)
-            response.append(responseEnd)
-            strResp = ''.join([str(elem) for elem in response])
-            print(strResp)
+            #identifier = form.getvalue ("identifier", "")
+            identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/storis/6"
         
         except:
             verbRequest = "\n  <request verb=\"ListMetadataFormats\">\n"
@@ -485,9 +438,55 @@ elif (query == 'ListMetadataFormats'):
             response.append(strRec)
             response.append(responseEnd)
             strResp = ''.join([str(elem) for elem in response])
-            
-            print(strResp)
+            print(strResp)  
         
+        else:   
+            
+            try:
+                splitString = "stories/"
+                split = identifier.split(splitString)
+                dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
+                dcFile = open(dcFilePath, "r", encoding="utf-8")
+                data = dcFile.read()
+                dcFile.close()
+            
+            except:
+                verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
+                verbRequest += identifier+"\">\n    "+serverURL+"</request>\n"
+                verbRequest += "  <error code=\"idDoesNotExist\">TThe value of the identifier argument is unknown or illegal in this repository.</error>"
+        
+                response = []
+                response.append(verbResponseHeader)
+                response.append(verbResponseDate)
+                response.append(verbRequest)
+                
+                responseEnd = "\n</OAI-PMH>"
+                response.append(responseEnd)
+                strResp = ''.join([str(elem) for elem in response])
+                print(strResp)
+                
+            else:
+                verbRequest = "\n  <request verb=\"ListMetadataFormats\"\n    identifier=\""
+                verbRequest += identifier+"\">\n    "+serverURL+"</request>\n  <ListMetadataFormats>\n"
+            
+                response = []
+                response.append(verbResponseHeader)
+                response.append(verbResponseDate)
+                response.append(verbRequest)
+                
+                data = "     <metadataPrefix>oai_dc</metadataPrefix>\n     <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>\n     <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>"
+                data = "   <metadataFormat>\n"+data+"\n   </metadataFormat>"
+                
+                record = []
+                record.append(data)
+                strRec = ''.join([str(elem) for elem in record])
+                
+                responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
+                response.append(strRec)
+                response.append(responseEnd)
+                strResp = ''.join([str(elem) for elem in response])
+                print(strResp)
+                
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
