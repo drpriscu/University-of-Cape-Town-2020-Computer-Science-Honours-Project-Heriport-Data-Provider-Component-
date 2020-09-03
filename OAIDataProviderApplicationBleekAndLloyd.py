@@ -227,7 +227,7 @@ elif (query == 'Identify'):
         data += "\n    <adminEmail>admin@pumbaa.cs.uct.ac.za</adminEmail>"
         data += "\n    <earliestDatestamp>"+earliestDatestamp+"</earliestDatestamp>"
         data += "\n    <deletedRecord>no</deletedRecord>"
-        data += "\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>"
+        data += "\n    <granularity>YYYY-MM-DD</granularity>"
         
         data += "\n    <description>\n      <oai-identifier"
         data += "\n       xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai-identifier\"\n       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n       xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai-identifier\n          http://www.openarchives.org/OAI/2.0/oai-identifier.xsd\">"
@@ -329,6 +329,7 @@ elif(query == 'ListIdentifiers'):
             verbRequest += set+"\">"+serverURL+"</request>\n  <ListIdentifiers>\n"
                     
             path = 'stories/'
+            count = 0
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,2058):
@@ -364,7 +365,7 @@ elif(query == 'ListIdentifiers'):
                     untilDateObject = datetime.strptime(until, "%Y-%m-%d")
                     
                     if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
-                        
+                        count += 1
                         headerIdentifier = "   <header>\n      <identifier>"+identifier+"</identifier>"
                         headerDatestamp = "\n      <datestamp>"+recordDate+"</datestamp>"
                         headerSetSpec = "\n      <setSpec>"+set+"</setSpec>"
@@ -392,6 +393,9 @@ elif(query == 'ListIdentifiers'):
                 responseEnd = " </ListIdentifiers>\n</OAI-PMH>"
                 print(responseEnd)
                 break
+            
+            if (count == 0):
+                raise
             
         except:
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -600,6 +604,7 @@ elif (query == 'ListRecords'):
             verbRequest += metadataPrefix+"\">"+"\n           "+serverURL+"</request>\n  <ListRecords>\n"
                     
             path = 'stories/'
+            count = 0
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,2058):
@@ -635,7 +640,7 @@ elif (query == 'ListRecords'):
                     untilDateObject = datetime.strptime(until, "%Y-%m-%d")
                     
                     if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
-                                        
+                        count += 1      
                         data = "     <metadata>\n      "+data[39:len(data)]+"    </metadata>"
                         about = "\n     <about>"
                         provenance = "        xmlns=\"http://www.openarchives.org/OAI/2.0/provenance\"\n        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n        xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/provenance\n        http://www.openarchives.org/OAI/2.0/provenance.xsd\">"
@@ -672,6 +677,11 @@ elif (query == 'ListRecords'):
                 responseEnd = "  </ListRecords>\n</OAI-PMH>"
                 print(responseEnd)
                 break
+            
+            if (count == 0):
+                raise
+            
+            
         except:
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
