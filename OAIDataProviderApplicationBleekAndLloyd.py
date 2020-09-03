@@ -261,6 +261,15 @@ elif(query == 'ListIdentifiers'):
         if (metadataPrefix == ""):
             raise
         
+        frm = form.getvalue ("from", "")
+        if (frm != ""):
+            if (frm != datetime.strptime(frm, "%Y-%m-%d").strftime('%Y-%m-%d')):
+            raise
+        
+        until = form.getvalue ("until", "")
+        if (until != ""):
+            if (until != datetime.strptime(until, "%Y-%m-%d").strftime('%Y-%m-%d')):
+        
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
@@ -282,10 +291,6 @@ elif(query == 'ListIdentifiers'):
         print(strResp)
         
     else:
-        set = form.getvalue ("set", "")
-        if (set == ""):
-            set = "stories"
-        
         frm = form.getvalue ("from", "")
         if (frm == ""):
             frm = "2020-01-01"
@@ -293,6 +298,10 @@ elif(query == 'ListIdentifiers'):
         until = form.getvalue ("until", "")
         if (until == ""):
             until = datetime.today().strftime('%Y-%m-%d')
+        
+        set = form.getvalue ("set", "")
+        if (set == ""):
+            set = "stories"
         
         if (metadataPrefix != "oai_dc"):
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -318,6 +327,9 @@ elif(query == 'ListIdentifiers'):
             exit()
         
         try:
+            if (set != "stories"):
+                raise
+            
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
             verbResponseDate += str(datetime.now())
@@ -389,13 +401,13 @@ elif(query == 'ListIdentifiers'):
                     
                     else:
                         pass
-                            
+                
+                if (count == 0):
+                    raise
+                          
                 responseEnd = " </ListIdentifiers>\n</OAI-PMH>"
                 print(responseEnd)
                 break
-            
-            if (count == 0):
-                raise
             
         except:
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
@@ -536,6 +548,16 @@ elif (query == 'ListRecords'):
         if (metadataPrefix == ""):
             raise
         
+        frm = form.getvalue ("from", "")
+        if (frm != ""):
+            if (frm != datetime.strptime(frm, "%Y-%m-%d").strftime('%Y-%m-%d')):
+            raise
+        
+        until = form.getvalue ("until", "")
+        if (until != ""):
+            if (until != datetime.strptime(until, "%Y-%m-%d").strftime('%Y-%m-%d')):
+                raise
+        
     except:
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
@@ -592,7 +614,10 @@ elif (query == 'ListRecords'):
             print(strResp)
             exit()
                   
-        try:    
+        try:
+            if (set != "stories"):
+                raise
+            
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
             verbResponseDate += str(datetime.now())
@@ -673,15 +698,14 @@ elif (query == 'ListRecords'):
                     
                     else:
                         pass
+                
+                if (count == 0):
+                    raise
                             
                 responseEnd = "  </ListRecords>\n</OAI-PMH>"
                 print(responseEnd)
                 break
-            
-            if (count == 0):
-                raise
-            
-            
+              
         except:
             verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
             verbResponseDate = "\n  <responseDate>"
@@ -691,7 +715,7 @@ elif (query == 'ListRecords'):
             verbRequest = "\n  <request verb=\"ListRecords\" from=\""
             verbRequest += frm+"\"\n           set=\""
             verbRequest += set+"\"\n           metadataPrefix=\""
-            verbRequest += metadataPrefix+"\">"+"\n           "+serverURL+"</request>"
+            verbRequest += metadataPrefix+"\">"+"\n           "+serverURL+"</request>\n"
             verbRequest += "  <error code=\"noRecordsMatch\">The combination of the values of the from, until, set and metadataPrefix arguments results in an empty list.</error>"
             
             response = []
