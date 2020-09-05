@@ -46,12 +46,18 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     except:
         pass
     
+    
+    '''
     new = "identifier"
     old = "file"
     try:
         dictData[new] = dictData.pop(old)
     except:
         pass
+    '''
+    
+    identifier = serverURL
+    dictData["identifier"] = identifier
     
     new = "rights"
     old = "reproductionConditions"
@@ -145,7 +151,7 @@ for root, directories, filenames in os.walk(path):
                     
                     dictData = dict(xmltodict.parse(data, dict_constructor=dict))
                     dcFileName = "metadata-"+str(i)+"-dc.xml"
-                    serverURL = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA%20Depot/"+str(i)
+                    serverURL = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
                     convert(directoryPath, serverURL, dcFileName, dictData)
     print("Successfully converted files.")                
     break

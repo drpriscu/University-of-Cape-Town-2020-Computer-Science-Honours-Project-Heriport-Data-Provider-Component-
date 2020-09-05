@@ -197,7 +197,7 @@ elif (query == 'Identify'):
         
         for root, directories, filenames in os.walk(path):
             for i in range(1,21):
-                identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA%20Depot/"+str(i)
+                identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
                             
                 splitString = "FHYA Depot/"
                 split = identifier.split(splitString)
@@ -346,7 +346,7 @@ elif(query == 'ListIdentifiers'):
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,21):
-                    identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA%20Depot/"+str(i)
+                    identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
                     
                     response = []
                     
@@ -634,7 +634,7 @@ elif (query == 'ListRecords'):
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,21):
-                    identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA%20Depot/"+str(i)
+                    identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
                     
                     response = []
                     
