@@ -19,9 +19,10 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData = dictData['item'] 
     
     new = "description"
-    old = "event"
+    old = "file"
     try:
-        dictData[new] = dictData.pop(old)
+        dictData[new] = serverURL[0:50]
+        dictData[new] += dictData.pop(old)
     except:
         pass
     
@@ -88,11 +89,8 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     for dic in dictData["contributor"]:
         dic = dic["#text"]
         authors.append(dic)
-    
     dictData["contributor"] = authors
         
-    
-    
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
                 dictData[keys] = list(dictData[keys].split("+"))
