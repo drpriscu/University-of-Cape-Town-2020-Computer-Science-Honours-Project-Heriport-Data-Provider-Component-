@@ -77,11 +77,11 @@ def rule_factory(plural, singular):
     return f
 
 
-contributor = rule_factory('contributor', 'contributor')
+contributors = rule_factory('contributors', 'contributors')
 
 coverage = rule_factory('coverage', 'coverage')
 
-creator = rule_factory('creator', 'creator')
+creators = rule_factory('creators', 'creators')
 
 date = rule_factory('date', 'date')
 

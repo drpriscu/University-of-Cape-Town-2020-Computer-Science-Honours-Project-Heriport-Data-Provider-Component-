@@ -40,7 +40,7 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     except:
         pass
     
-    new = "creator"
+    new = "creators"
     old = "author"
     try:
         dictData[new] = dictData.pop(old)
@@ -60,6 +60,15 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     dateSplit = date.split(" ")
     date = dateSplit[0]
     dictData["date"] = date
+    
+    creators = ""
+    try:
+        if (type(dictData["creators"]) == list):
+            for dic in dictData["creators"]:
+                creators += dic+", "
+            dictData["creators"] = creators[0:len(creators)-2]
+    except:
+        pass
     
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):

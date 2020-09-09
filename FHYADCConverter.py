@@ -40,13 +40,12 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     except:
         pass
     
-    new = "contributor"
+    new = "contributors"
     old = "eventActor"
     try:
         dictData[new] = dictData.pop(old)
     except:
         pass
-    
     
     '''
     new = "identifier"
@@ -85,12 +84,12 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     value = (dictData["title"][0])
     dictData["title"] = str(value)
     
-    authors = []
-    for dic in dictData["contributor"]:
+    authors = ""
+    for dic in dictData["contributors"]:
         dic = dic["#text"]
-        authors.append(dic)
-    dictData["contributor"] = authors
-        
+        authors += dic+", "
+    dictData["contributors"] = authors[0:len(authors)-2]
+    
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
                 dictData[keys] = list(dictData[keys].split("+"))
