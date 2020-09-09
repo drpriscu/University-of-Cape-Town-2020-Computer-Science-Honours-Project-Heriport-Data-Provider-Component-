@@ -85,10 +85,13 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     dictData["title"] = str(value)
     
     authors = ""
-    for dic in dictData["contributors"]:
-        dic = dic["#text"]
-        authors += dic+", "
-    dictData["contributors"] = authors[0:len(authors)-2]
+    try:
+        for dic in dictData["contributors"]:
+            dic = dic["#text"]
+            authors += dic+", "
+        dictData["contributors"] = authors[0:len(authors)-2]
+    except:
+        pass
     
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
@@ -135,7 +138,7 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
 path = 'FHYA Depot/'
 
 for root, directories, filenames in os.walk(path):
-    for i in range(1,21):
+    for i in range(1,88):
         directoryPath = os.path.join(root, str(i))
         if (directoryPath == 'FHYA Depot/'+str(i)):
                 filePath = directoryPath +'/metadata.xml'

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:contributors>Five Hundred Year Archive (FHYA), C. Struik (PTY) LTD, John Centlivers Chase</dc:contributors>
+  <dc:date>2020-09-09</dc:date>
+  <dc:description>http://emandulo.apc.uct.ac.za/collection/metadata/FHYA%20Depot/Chase_J_C_TheNatalPapers.pdf</dc:description>
+  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:identifier>http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/47</dc:identifier>
+  <dc:rights>Creative Commons License: CC BY-NC-ND 
+
+https://creativecommons.org/licenses/by-nc-nd/3.0/
+
+Unless otherwise stated the copyright of all material on the FHYA resides with the contributing institution/custodian.</dc:rights>
+  <dc:source>[Source - Benathi Marufu for FHYA, 2020: A digital copy of the book The Natal papers. A reprint of all notices and public documents connected with that territory including a description of the country and a history of events from 1498 to 1843 in two part by John Centlivres Chase. Facsimile reprint. Cape Town, C. Struik (PTY) LTD 1968.]</dc:source>
+  <dc:subject>fhya-depot</dc:subject>
+  <dc:title>The Natal Papers</dc:title>
+  <dc:type>Textual record</dc:type>
+</oai_dc:dc>
