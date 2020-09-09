@@ -21,7 +21,8 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     new = "description"
     old = "file"
     try:
-        dictData[new] = serverURL[0:50]
+        dictData[new] = serverURL[0:30]
+        dictData[new] += "collection/"
         dictData[new] += dictData.pop(old)
     except:
         pass
@@ -151,7 +152,7 @@ for root, directories, filenames in os.walk(path):
                     
                     dictData = dict(xmltodict.parse(data, dict_constructor=dict))
                     dcFileName = "metadata-"+str(i)+"-dc.xml"
-                    serverURL = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
+                    serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
                     convert(directoryPath, serverURL, dcFileName, dictData)
     print("Successfully converted files.")                
     break

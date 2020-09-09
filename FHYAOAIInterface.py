@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 form = cgi.FieldStorage()
 query = form["verb"].value
 print ("Content-type: text/xml\n")
-serverURL = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA%20Depot/"
+serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA%20Depot/"
 
 if (query == 'GetRecord'):
     set = "FHYA Depot"
@@ -204,7 +204,7 @@ elif (query == 'Identify'):
         
         for root, directories, filenames in os.walk(path):
             for i in range(1,88):
-                identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
+                identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
                             
                 splitString = "FHYA Depot/"
                 split = identifier.split(splitString)
@@ -231,7 +231,6 @@ elif (query == 'Identify'):
         data = "    <repositoryName>"+repositoryName+"</repositoryName>"
         data += "\n    <baseURL>"+serverURL+"</baseURL>"
         data += "\n    <protocolVersion>2.0</protocolVersion>"
-        #data += "\n    <adminEmail>admin@emandulo.apc.uct.ac.za/</adminEmail>"
         data += "\n    <adminEmail>prsale003@myuct.ac.za</adminEmail>"
         data += "\n    <earliestDatestamp>"+earliestDatestamp+"</earliestDatestamp>"
         data += "\n    <deletedRecord>no</deletedRecord>"
@@ -363,7 +362,7 @@ elif(query == 'ListIdentifiers'):
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,88):
-                    identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
+                    identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
                     
                     response = []
                     
@@ -459,7 +458,8 @@ elif (query == 'ListMetadataFormats'):
         for field in form:
             if ((field != "verb") and (field != "identifier")):
                 raise
-            
+        
+        identifier = form.getvalue ("identifier", "") 
         badChars = ['\"','<','>','\'']
         for ch in badChars:
             if (ch in identifier):
@@ -664,7 +664,7 @@ elif (query == 'ListRecords'):
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,88):
-                    identifier = "http://emandulo.apc.uct.ac.za/collection/metadata/FHYA Depot/"+str(i)
+                    identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
                     
                     response = []
                     
