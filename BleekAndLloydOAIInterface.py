@@ -31,7 +31,19 @@ if (query == 'GetRecord'):
         if (metadataPrefix == ""):
             raise
         
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            if (ch in identifier):
+                raise
+            if (ch in metadataPrefix):
+                raise
+        
     except:
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            identifier.replace(ch,"illegal character")
+            metadataPrefix.replace(ch,"illegal character")
+            
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
@@ -256,7 +268,7 @@ elif(query == 'ListIdentifiers'):
         metadataPrefix = form.getvalue ("metadataPrefix", "")
         
         for field in form:
-            if ((field != "identifier") and (field != "metadataPrefix") and (field != "verb") and (field != "set") and (field != "from") and (field != "until")):
+            if ((field != "metadataPrefix") and (field != "verb") and (field != "set") and (field != "from") and (field != "until")):
                 raise
         
         if (metadataPrefix == ""):
@@ -272,7 +284,21 @@ elif(query == 'ListIdentifiers'):
             if (until != datetime.strptime(until, "%Y-%m-%d").strftime('%Y-%m-%d')):
                 raise
         
+        set = form.getvalue ("set", "")
+        
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            if (ch in metadataPrefix):
+                raise
+            if (ch in set):
+                raise
+        
     except:
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            metadataPrefix.replace(ch,"illegal character")
+            set.replace(ch,"illegal character")
+        
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
@@ -443,8 +469,18 @@ elif (query == 'ListMetadataFormats'):
         for field in form:
             if ((field != "verb") and (field != "identifier")):
                 raise
-    
+        
+        identifier = form.getvalue ("identifier", "")
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            if (ch in identifier):
+                raise
+
     except:
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            identifier.replace(ch,"illegal character")
+            
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
@@ -544,7 +580,7 @@ elif (query == 'ListRecords'):
         metadataPrefix = form.getvalue ("metadataPrefix", "")
         
         for field in form:
-            if ((field != "identifier") and (field != "metadataPrefix") and (field != "verb") and (field != "set") and (field != "from") and (field != "until")):
+            if ((field != "metadataPrefix") and (field != "verb") and (field != "set") and (field != "from") and (field != "until")):
                 raise
         
         if (metadataPrefix == ""):
@@ -560,7 +596,20 @@ elif (query == 'ListRecords'):
             if (until != datetime.strptime(until, "%Y-%m-%d").strftime('%Y-%m-%d')):
                 raise
         
+        set = form.getvalue ("set", "")
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            if (ch in metadataPrefix):
+                raise
+            if (ch in set):
+                raise
+        
     except:
+        badChars = ['\"','<','>','\'']
+        for ch in badChars:
+            metadataPrefix.replace(ch,"illegal character")
+            set.replace(ch,"illegal character")
+        
         verbResponseHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">"
         verbResponseDate = "\n  <responseDate>"
         verbResponseDate += str(datetime.now())
