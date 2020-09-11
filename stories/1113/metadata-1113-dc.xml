@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|uma (XIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>|uma tells of his experiences with a ghost (or ||gaun-a). 1) p.10 260v: |uma from personal observation; a note by Tamme (not translated) - continued on next verso page, 2) This story is found in Book XIII &amp; XIV-1.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1113</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>The ||gaun-a. The Ghost</dc:title>
   <dc:type>story</dc:type>

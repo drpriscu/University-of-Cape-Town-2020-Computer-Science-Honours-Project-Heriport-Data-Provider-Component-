@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>Kaiki</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Notebook. Words and sentences and geneaologies, personal history. Bechuanaland. 1) p.301: 6.6.18. Kaiki. 2) p.301v&amp;302: Details of Kaiki's family and details about her marriage; 3) p.315v-6v: Kaiki's personal history - when she was small, how the women dug for onions, men knocked over ant hills, women sifted 'rice', children killed birds with stones, cooking of onions; 4) p.317&amp;v: 14.6.18. Names and genealogies of Bushmen (Hans, Ou Lies) and personal histories, relations with others ('Kafirs' etc) in same place; 5) p.318v-319&amp;v: Custom and daily life: cooking, eating, poison, utensils, making beer from honey; 'he throws the wishbones and they tell the future'; 6) p.320-21: 16.6.18. Kaiki. Words and descriptions including dancing and making and drinking honey beer; 7) p.329v: Names and personal history of some Namaquas and Bushmen; 8) p.330: Wednesday 19.8.18. 9) p.332: Personal history of Ou Sol or ||ollenki (Dorki's father) and Jacob or |on|gake and their relations and emploment; 10) p.332v: 21.6.18 Kaiki; 11) p.334v: Personal history of Dorki..</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/2033</dc:identifier>
+  <dc:publisher>Dorothea Bleek</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Dorothea Bleek</dc:source>
   <dc:subject>Dorothea Bleek notebooks</dc:subject>
   <dc:title>Dorothea Bleek - Book BC151_A3_009</dc:title>
   <dc:type>story</dc:type>

@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>The Moon is not to be laughed at. By /han=kasso (L VIII--28. 8441-8443, 8446). People say that the Moon becomes angry when they laugh at it. People thus call it |kuan ttu to show it respect to try and keep it from going into the sky. The Moon's wife is ||ko'on. 1) p.8440: |han=kass'o heard this from his mother (|xabbi-an), 2) p.8441v: the Moon's other name and the name of the Moon's wife, 3) See also The Moon seeking his wife, ||ko'on, 4) This story is found in Book VIII-28.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/874</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The Moon not to be laughed at</dc:title>
   <dc:type>story</dc:type>

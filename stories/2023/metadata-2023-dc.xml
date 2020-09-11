@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>!nanni (XI), Tamme (XII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Thirty pages of interviews collected by Jemima Bleek in late 1879 with !nanni (XI) and Tamme (XII). The notebook contains mostly vocabulary, largely relating to animals. 1) The front cover of the notebook reads "Pp. 1-30. 1879. XI &amp; XII-1. Collected by J.C. Bleek."; 2) Written inside the front cover: "From 2 September /79 To 11 November /79"; 3) There is an insert featuring lists of clicks and vocabulary in the front of the notebook; 4) p.2 features the comment in English 'lamb in picture book' which indicates Jemima Bleek was probably showing the boys picture books as a means of getting vocabulary. On the following pages 'P.B' sometimes appears indicating the use of the picture book next to a word;  5) Date on p.5: 3/9/79; 6) Date on p.10: 4/9/79; 7) Tamme begins his contribution on p.17, the date is noted as 5/9/79; 8) p.19: '||nanni' resumes his contribution; 9) p.21 is dated 7/9/79 and is taken down in pencil (it could read 'study' next to the date); 10) p.22: 8/9/79; 11) p.25: 10/9/79; 12) p.29: 11/11/79; 13) The pages after p.30 are blank and only p.31 is numbered; 14) This collection is found in the one half of a notebook of interviews conducted by Jemima Bleek. The other half of the notebook contains interviews with 'Hottentot' contributors and has a different cover; 15) This half of the notebook is numbered XI &amp; XII-1..</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/2023</dc:identifier>
+  <dc:publisher>Jemima Bleek</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Jemima Bleek</dc:source>
   <dc:subject>Jemima Bleek notebooks</dc:subject>
   <dc:title>Jemima Bleek's interviews with !nanni and Tamme, September to November 1879</dc:title>
   <dc:type>story</dc:type>

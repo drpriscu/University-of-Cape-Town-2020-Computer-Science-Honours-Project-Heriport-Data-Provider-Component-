@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Horns to be burnt, when the weather looks very threatening. (L VIII.-23. 8030 and 8031). The people burn the outer layer of the springbok's horn to make the rain-clouds disperse when they see that they threaten to bring angry rain ('make war'). 1) p.8029v: (4 December 1878) |han=kass'o heard this story from his maternal grandfather (Tsatsi); the removal of skin from horns, 2) p.8030v: the scent of the burning horn rises in the smoke and disperses the rain-clouds, 3) This story is found in Book VIII-23.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/816</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Horns burnt for rain</dc:title>
   <dc:type>story</dc:type>

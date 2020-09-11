@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>||kabbo (Jantje) (II)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>A note by ||kabbo on |kannu, a 'Rain's man', who was ||kabbo's !kui or person after his father's death. |kannu was shot in the dark by his grandson (called !kauken ka |a). The story is continued on p.2264v with further details of |kannu's murder and some details of the incident. 1) See also |kannu the rainmaker (pp.6639v-6646v), 2) This story is found in Book II-25.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/276</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The death of |kannu the Rain's man who was ||kabbo's person</dc:title>
   <dc:type>story</dc:type>

@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>Tamme (XII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Tamme recounts some of his experiences when younger. He describes other people he has met, such as  a person called |kon-ta and his family. Tamme recalls when he was small ('so high') and his mother carried him on her back. He was able to see many things from that position. He feared the water, which was cold. 1) p.9169v: !kun terms for various relations and relationships, 2) See also About Tamme's relations and How Tamme was taken by the Makoba and given to the Ovambo, 2) This story is found in Book XI &amp; XII-3.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/986</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>Tamme's experiences before coming to Mowbray</dc:title>
   <dc:type>story</dc:type>

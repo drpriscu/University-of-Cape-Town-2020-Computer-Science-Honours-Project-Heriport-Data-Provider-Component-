@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>A description of some barter, containing allusion to the ill effect of eating Jackals hearts (L VIII.-16. 7456 rev.-7458 rev., 7460, note). |han=kass'o's maternal grandfather (Tsatsi) is given a dog by |gappem-ttu and it kills many jackals. Tsatsi gives a kaross to |gappem-ttu for giving him a dog that kills so many jackals. 1) This story was translated on 8 August 1898 (see Book VIII-16: p.V), 2) See also Children do not eat jackal's hearts, 3) This story is found in Book VIII-16.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/745</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Notes (to Children do not eat jackal's hearts)</dc:title>
   <dc:type>story</dc:type>

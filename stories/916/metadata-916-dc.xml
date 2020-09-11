@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Locust birds not to be molested; etc. By /han=kasso (L VIII.-31. 8763-8765, 8763 rev. and 8764 rev.). |han=kass'o's grandfather ordered him not to throw stones at the locust birds, for if he did the locusts (and the locust birds) would disappear. 1) p.8764v: people's arms become sore from throwing stones at swallows and locust birds; Tsatsi was not 'patient', 2) See also Throwing stones at locusts and The locust bird or ||kerri, 3) This story is found in Book VIII-31.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/916</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Locust birds</dc:title>
   <dc:type>story</dc:type>

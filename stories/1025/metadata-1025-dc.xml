@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>!nanni (XI)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>|xue becomes an ostrich and goes into a rock. He becomes an owl and dies and flies eat him. |xue's wife carries him to her house. She fetches a large pot and puts him in the pot, pours water on him and builds a great fire, intending to cook him. |xue cries because he is afraid of the fire and his wife asks if it is her husband who cries. |xue's wife breaks the pot and |xue says 'I say |xue', revealing himself. |xue's wife cries. 1) !nanni heard this from his paternal grandfather (Karu), 2) This story is found in Book XI &amp; XII-5.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1025</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>|xue as ostrich and other things</dc:title>
   <dc:type>story</dc:type>

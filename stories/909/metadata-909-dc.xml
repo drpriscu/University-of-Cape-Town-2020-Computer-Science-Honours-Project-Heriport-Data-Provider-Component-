@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>The admiration of Bushman women for the horse. The sound of the cantering of horses imitated by them. By /han=kasso (L VIII.-31. 8737-8740). The women sit with a rolled up kaross between their knees and slap it making the sound of the horse. 1) See also How the Bushman women show their admiration for the horse, 2) p.8737v: the women 'play' the kaross, 2) p.8738v: how the women hold the kaross between their knees while they 'play', 3) p.8739v: the noise the kaross makes as the women slap it, 4) This story is found in Book VIII-31.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/909</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>!kuppen (imitation of the sound of horses)</dc:title>
   <dc:type>story</dc:type>

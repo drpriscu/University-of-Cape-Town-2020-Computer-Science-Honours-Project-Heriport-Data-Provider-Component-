@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>Dia!kwain (David Hoesar) (V)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Dia!kwain comments on George Stow's copy of a Bushman painting (no. 1) which features figures and various animals (numbered). He describes the doings of the |xam with regard to hunting. Dia!kwain goes on to describe the habits of the hunting leopard. 1) p.5630v: the other name of the Orange River (Tki), given after sea water (which is cold), 2) p.5638v: includes the name of a family friend of Dia!kwain's mother who died after being injured by a leopard, 3) p.5639v: the |xam names of stones, 4) This story is found in Book V-21.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/513</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Explanation of Mr G. Stow's pictures: 1 (habits of the hunting leopard)</dc:title>
   <dc:type>story</dc:type>

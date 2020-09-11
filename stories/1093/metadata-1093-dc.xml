@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>!nanni (XI)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>An account of the procedure followed when a man kills another man. The man who has shot another does not eat or drink water for two days (he has 'done without two things'). On the third day he performs a cleansing ritual, which is described in detail. 1) pp.9904v-9906v: a person's mother mourns her dead husband (he 'having killed much meat'); their hearts are aching and the child seeks its father among the other people, but does not find him; 'we kill another person' when 'our heart aches', 2) Tamme has added some notes to this story, 3) See also What the man says while cleansing himself and The manner in which a man who is being cleansed, is prepared for drinking water and Further particulars regarding the purification or cleansing (|koa), 4) This story is found in Book XI &amp; XII-11.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1093</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>
   <dc:title>Purification after shooting a person</dc:title>
   <dc:type>story</dc:type>

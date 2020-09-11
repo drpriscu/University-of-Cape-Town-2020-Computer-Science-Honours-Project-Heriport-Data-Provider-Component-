@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>!kweiten ta ||ken (Rachel) (VI)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>What a Maiden must eat and avoid (L II.-28. 2520-2524). How a New Maiden is treated, has been told in the Katkop dialect, by !kweiten ta //ken (L VI.-2. 3997-4003); who also narrates the use made by Bushman Maidens of a kind of red stone (L VI.-1. 3970-3974). Maidens use ||ka or rooi klip (or red haematite) to adorn the springs and the young men. 1) The page numbers in this book (VI-1) are duplicates of those in notebook IV-4, 2) See also The Water's story: more about how maidens adorn young men, 3) This story is found in Book VI-1.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/377</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>About maidens and how they adorn young men with ||ka or 'rooi klip'</dc:title>
   <dc:type>story</dc:type>

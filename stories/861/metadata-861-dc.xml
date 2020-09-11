@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Mat sieves said to be generally made by the Bushmen, but skin sieves by the Grass Bushmen and the Koranna-Hottentots. In English, after Dia!kwain (L V.-25. VI note). Sieves supposed also to be used by the early race. By /han=kasso (L VIII.-27. 8391 and 8392). |han=kass'o describes some sieves (!yuiten) that he believes belonged to the Early Race of Bushmen. These sieves were used to sift !haken after digging it out. 1) See also a note by Dia!kwain in The woman who was killed by the baboons (p.5993opp) for a description of sieves made from matting (used by 'real Bushmen') and sieves made from skins used by Korannas and 'Grass Bushmen', 2) This story is found in Book VIII-27.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/861</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Mat sieves</dc:title>
   <dc:type>story</dc:type>

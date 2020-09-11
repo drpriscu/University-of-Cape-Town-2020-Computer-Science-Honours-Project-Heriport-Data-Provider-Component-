@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>=kasin (Klaas Katkop) (IV)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>A good many genealogical notes and portions of Bushman family history have been taken down. (B II. 349, 359 rev., 360-362, 364, 365 368-373, 376; BXXV. 2352, 2412 and 2416...) From some of these materials, and from other sources, twelve genealogical diagrams (in oblong double folio) have been compiled, each giving all the known ancestors of one individual, frequently extending four, and sometimes five generations back. About the family and relations of =kasin (Klaas Katkop). 1) p.2351v: the name of a Dutch farmer (Gert van Wyk); a place called Nieuwepoort (beyond Calvinia); how =kasin's wife married another man during =kasin's absence and they had a child, 2) This story is found in Book XXV.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/111</dc:identifier>
+  <dc:publisher>Wilhelm Bleek</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Wilhelm Bleek</dc:source>
   <dc:subject>Wilhelm Bleek notebooks</dc:subject>
   <dc:title>Klaas Katkop (=kasin)</dc:title>
   <dc:type>story</dc:type>

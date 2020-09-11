@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>Dia!kwain (David Hoesar) (V)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>The crying of the Wind tells the beasts of prey where to find people, and when it blows strongly they can approach the dwelling unheard, etc. (L V.-23. 5846-5857). People must hide when the wind blows strongly, as it means that the lion is coming for them and the blowing hides the sound of its approach from the dogs. 1) pp.5845v &amp; 5846v: see |xannan |xannan and the wind and see also The crying of the wind is an evil omen, 2) p.5856v: about an old man who was killed by a lion when Dia!kwain's father was young, 3) This story is found in Book V-23.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/537</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The crying of the wind tells beasts of prey where to find people</dc:title>
   <dc:type>story</dc:type>

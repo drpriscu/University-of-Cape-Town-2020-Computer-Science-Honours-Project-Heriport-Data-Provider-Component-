@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>Dia!kwain (David Hoesar) (V)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>The Knorhaan (Brandkop) who married his sister. Told to Dia!kwain by his mother (L V.-5. 4292-4320).  Apparently a version of the fable imbedded in the Anteaters Laws. The Kwa-kkwara (or Koran Brandkop) pretends to be a child and cries and hides his 'grown-up things'. A girl carries him about and he sleeps with her. The girl's mother tells the girl's older brother who puts the Kwa-kkwara's head into the fire. Kwa-kkwara screams ('||kha! ||kha!') and darts out of the fire, revealing himself to be a grown-up man. 1) This story was told to Dia!kwain by his mother (=kamme-an), 2) This story contains a rare reference to sex in the Lloyd notebooks, 3) The bird in the story's Dutch name is Koran Brandkop, 4) p.4293v: some |xam words for relations, 5) See also The Korhaan marries his elder sister (the Anteater's laws) (||kabbo's version 2) and The song of the Kwa-Kkwara, or korhaan malkop and The kwa-kkwara, or korhaan malkop, 4) This story is found in Book V-5.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/405</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The story of the Kwa-kkwara</dc:title>
   <dc:type>story</dc:type>

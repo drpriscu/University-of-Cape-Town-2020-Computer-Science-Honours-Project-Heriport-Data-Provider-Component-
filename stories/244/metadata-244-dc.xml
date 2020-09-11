@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>||kabbo (Jantje) (II)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>An account of the doings of a family of lions (apparently a continuation of one of the Ichneumons speeches, in the myth of the Mantis) gives a good deal of conversation of such a description as might naturally be ascribed by Bushmen to lions (L II-10. 1051-1099, 11. 1100-1170). The verso pages give further details on how the lion steals up on the people and how they chase the lions away with heated embers. 1) p.1054v: animals eaten by the lion, 2) p.1058v: the lion and its movements according to the position of the sun, 3) p.1060v: a diagram, showing where the lion waits (near the man's house) for the sun to set and the fires to go out, 4) p.1063v: people throw embers at the lion using a disk of ostrich heart bone, 5) p.1075v: |xam names and terms for lookouts for hunting game, 6) p.1077v: |xam and Dutch names for dense green bushes found in Bushmanland, 7) See also The doings of a family of lions, 8) This story is found in Book II-10.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/244</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>Lion eats all things</dc:title>
   <dc:type>story</dc:type>

@@ -15,8 +15,8 @@ def remove_non_ascii(text):
     text = text.replace('–',"-")
     return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore')
 
-def convert(directoryPath, serverURL, dcFileName, dictData):
-    dictData = dictData['item'] 
+def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
+    dictData = dictData['item']     
     
     new = "description"
     old = "file"
@@ -94,6 +94,55 @@ def convert(directoryPath, serverURL, dcFileName, dictData):
     except:
         pass
     
+    try:
+        dictData["title"]
+    except:
+        dictData["title"] = "Item from The Five Hundred Year Archive"
+    
+    try:
+        dictData["subject"]
+    except:
+        dictData["subject"] = "fhya-depot"
+    
+    try:
+        dictData["description"]
+    except:
+        dictData["description"] = "An item from The Five Hundred Year Archive."
+    
+    try:
+        dictData["creator"]
+    except:
+        if(idNum != 54):    
+            splitString = ":"
+            split = dictData["source"].split(splitString)
+            splitString = " for"
+            split = dictData["source"].split(splitString)
+            dictData["creator"] = split[0][10:len(split[0])]
+        else:
+            dictData["creator"] = dictData["source"][10:138]
+            
+    try:
+        dictData["publisher"]
+    except:
+        if(idNum != 54):    
+            splitString = ":"
+            split = dictData["source"].split(splitString)
+            splitString = " for"
+            split = dictData["source"].split(splitString)
+            dictData["creator"] = split[0][10:len(split[0])]
+        else:
+            dictData["creator"] = dictData["source"][10:138]
+        
+    try:
+        dictData["type"]
+    except:
+        dictData["type"] = "Item"
+    
+    try:
+        dictData["rights"]
+    except:
+        dictData["rights"] = "Creative Commons License: CC BY-NC-ND\nhttps://creativecommons.org/licenses/by-nc-nd/3.0/\nUnless otherwise stated the copyright of all material on the FHYA resides with the contributing institution/custodian."  
+        
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
                 dictData[keys] = list(dictData[keys].split("+"))
@@ -140,6 +189,7 @@ path = 'FHYA Depot/'
 
 for root, directories, filenames in os.walk(path):
     for i in range(1,88):
+        idNum = i
         directoryPath = os.path.join(root, str(i))
         if (directoryPath == 'FHYA Depot/'+str(i)):
                 filePath = directoryPath +'/metadata.xml'
@@ -153,6 +203,6 @@ for root, directories, filenames in os.walk(path):
                     dictData = dict(xmltodict.parse(data, dict_constructor=dict))
                     dcFileName = "metadata-"+str(i)+"-dc.xml"
                     serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
-                    convert(directoryPath, serverURL, dcFileName, dictData)
+                    convert(directoryPath, dcFileName, dictData, serverURL, idNum)
     print("Successfully converted files.")                
     break

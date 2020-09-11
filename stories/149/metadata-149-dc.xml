@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:creators>|a!kunta (Stoffel) (I)</dc:creators>
-  <dc:date>2020-09-06</dc:date>
+  <dc:date>2020-09-11</dc:date>
   <dc:description>Accounting for the habits of animals, in which various animals marry their own kind, eat certain things and behave in certain ways, because the Anteater tells them to. We have a separate version of these laws or sayings of the Anteater and Lynx. (L I.-2. 138-150.) 1) p.147v: the hyena is said to carry eggs in its mane, 2) See also The Anteater, Springbok and Lynx (||kabbo's versions 1 &amp; 2), 3) This story is found in Book I-2.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/149</dc:identifier>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
+  <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>
   <dc:title>The Anteater's laws (|a!kunta's version)</dc:title>
   <dc:type>story</dc:type>
