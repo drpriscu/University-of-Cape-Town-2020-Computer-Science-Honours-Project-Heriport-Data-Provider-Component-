@@ -212,7 +212,7 @@ try:
             path = 'stories/'
             
             for root, directories, filenames in os.walk(path):
-                for i in range(1,88):
+                for i in range(1,2058):
                     identifier = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
                                 
                     splitString = "stories/"
