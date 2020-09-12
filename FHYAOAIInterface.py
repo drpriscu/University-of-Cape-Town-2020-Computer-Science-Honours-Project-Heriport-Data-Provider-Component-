@@ -301,8 +301,8 @@ try:
                 resumptionTokenFromFlag = False
                 resumptionTokenUntilFlag = False
                 
-                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
+                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
                 
                 resumptionTokenSetFlag = False
                 resumptionTokenSet = "set"
@@ -354,7 +354,7 @@ try:
                         resumptionTokenSetFlag = True
                         resumptionTokenSet = resumptionTokenSplit[3]
              
-                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S')):
+                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')):
                     raise
                 
                 if (resumptionTokenMetadataPrefix != "oai_dc"):
@@ -372,9 +372,9 @@ try:
                     if (resumptionTokenSet != "FHYA Depot"):
                         raise
                 
-                resumptionTokenExpirationDatebject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%d %H:%M:%S')
-                currentDate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%d %H:%M:%S')
+                resumptionTokenExpirationDatebject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S')
+                currentDate = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
+                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%dT%H:%M:%S')
                                 
                 if (resumptionTokenExpirationDatebject <= currentDateObject):
                     raise
@@ -679,12 +679,12 @@ try:
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\""
                         
                         resumptionToken = "<resumptionToken"
-                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%d %H:%M:%S')+"\""
+                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')+"\""
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\">"
                         
                         if (complete == False):
                             tokenString = str(nextIndex)
-                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%d %H:%M:%S')
+                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')
                             
                             tokenString += ","+metadataPrefix
                         
@@ -899,8 +899,8 @@ try:
                 resumptionTokenFromFlag = False
                 resumptionTokenUntilFlag = False
                 
-                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
+                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
                 
                 resumptionTokenSetFlag = False
                 resumptionTokenSet = "set"
@@ -952,7 +952,7 @@ try:
                         resumptionTokenSetFlag = True
                         resumptionTokenSet = resumptionTokenSplit[3]
              
-                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S')):
+                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')):
                     raise
                 
                 if (resumptionTokenMetadataPrefix != "oai_dc"):
@@ -970,9 +970,9 @@ try:
                     if (resumptionTokenSet != "FHYA Depot"):
                         raise
                 
-                resumptionTokenExpirationDatebject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%d %H:%M:%S')
-                currentDate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%d %H:%M:%S')
+                resumptionTokenExpirationDatebject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S')
+                currentDate = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
+                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%dT%H:%M:%S')
                                 
                 if (resumptionTokenExpirationDatebject <= currentDateObject):
                     raise
@@ -1288,12 +1288,12 @@ try:
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\""
                         
                         resumptionToken = "<resumptionToken"
-                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%d %H:%M:%S')+"\""
+                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')+"\""
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\">"
                         
                         if (complete == False):
                             tokenString = str(nextIndex)
-                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%d %H:%M:%S')
+                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')
                             
                             tokenString += ","+metadataPrefix
                         
