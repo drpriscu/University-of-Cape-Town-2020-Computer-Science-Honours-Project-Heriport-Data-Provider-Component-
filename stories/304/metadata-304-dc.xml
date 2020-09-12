@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>Blaitje Snell, Daoud Moos</dc:creators>
+  <dc:creators>Blaitje Snell</dc:creators>
+  <dc:creators>Daoud Moos</dc:creators>
   <dc:date>2020-09-12</dc:date>
   <dc:description>Names, words and sentences given by Blaitje Snell and Daoud Moos from Stuurman's and Thierfontein, the names of their relations and where they come from. Words in the dialect of Stuurmansfontein, in the Kareebergen (B XXIV. 2261; L II.-35. 3160-3164). 1) p.3159v: the location of Thierfontein and Stuurmansfontein (near or in the Kareebergen), 2) See also Words and sentences: Kareebergen Stuurmansfontein dialect, 3) This story is found in Book II-35.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/304</dc:identifier>
-  <dc:publisher>Lucy Lloyd</dc:publisher>
+  <dc:publishers>Lucy Lloyd</dc:publishers>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>

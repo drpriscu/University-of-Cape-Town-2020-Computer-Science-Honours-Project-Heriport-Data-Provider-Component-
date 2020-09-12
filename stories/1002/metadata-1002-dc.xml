@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>!nanni (XI), Tamme (XII)</dc:creators>
+  <dc:creators>!nanni (XI)</dc:creators>
+  <dc:creators>Tamme (XII)</dc:creators>
   <dc:date>2020-09-12</dc:date>
   <dc:description>About the dream (or ||gan-a) of !nanni and Tamme's country. In !nanni's country a dream put 'a thing' into a person and this makes them ill. In Tamme's country, a dream speaks to him. The dream speaks to many people who hear it. The people told Tamme that when a person dies he or she becomes a dream (or ||gan-a). The dream's heart aches when this happens and kills another person (it puts a 'thing' in them). 1) p.9263v: 'The dream does not eat anything'; the !kun and Latin names for two plants, 2) See also Curing illness (and the trance dance), 3) This story is found in Book XI &amp; XII-4.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1002</dc:identifier>
-  <dc:publisher>Lucy Lloyd</dc:publisher>
+  <dc:publishers>Lucy Lloyd</dc:publishers>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>

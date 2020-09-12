@@ -93,7 +93,7 @@ identifier = rule_factory('identifier', 'identifier')
 
 language = rule_factory('languages', 'language')
 
-publisher = rule_factory('publisher', 'publisher')
+publishers = rule_factory('publishers', 'publishers')
 
 relation = rule_factory('relation', 'relation')
 

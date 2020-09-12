@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>=kasin (Klaas Katkop) (IV), Dia!kwain (David Hoesar) (V)</dc:creators>
+  <dc:creators>=kasin (Klaas Katkop) (IV)</dc:creators>
+  <dc:creators>Dia!kwain (David Hoesar) (V)</dc:creators>
   <dc:date>2020-09-12</dc:date>
   <dc:description>The names of a number of Stars have been ascertained with the kind help of Mr. Maclear. Besides a separate alphabetical index to the Stars, the names of some are given in a supplementary list (B XXV. 2345-2347 and 2354); whilst another list in the Katkop dialect has not yet been identified on the map of the sky (L IV. -4. 3882 and 3901-3907).  A short piece on the Hare's star (or !nau ka |kuatti) describing where it can be seen in January 1874. 1) See also Names of stars and Bushman names for the star Canopus, 2) This story is found in Book IV-4.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/362</dc:identifier>
-  <dc:publisher>Lucy Lloyd</dc:publisher>
+  <dc:publishers>Lucy Lloyd</dc:publishers>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>

@@ -109,7 +109,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         if (type(dictData["creators"]) == list):
             for dic in dictData["creators"]:
                 creators += dic+", "
-            dictData["creators"] = creators[0:len(creators)-2]
+            dictData["creator"] = creators[0:len(creators)-2]
     except:
         pass
     
@@ -210,28 +210,28 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["creators"] = "The New Digital Bleek and Lloyd"
     
     try:
-        dictData["publisher"]
+        dictData["publishers"]
     except:
         if(wilhelmBleekNotebooks):
-            dictData["publisher"] = "Wilhelm Bleek"
+            dictData["publishers"] = "Wilhelm Bleek"
         
         elif(lucyLloydxamNotebooks):
-            dictData["publisher"] = "Lucy Lloyd"
+            dictData["publishers"] = "Lucy Lloyd"
         
         elif(lucyLloydkunNotebooks):
-            dictData["publisher"] = "Lucy Lloyd"
+            dictData["publishers"] = "Lucy Lloyd"
         
         elif(lucyLloydKoraNotebooks):
-            dictData["publisher"] = "Lucy Lloyd"
+            dictData["publishers"] = "Lucy Lloyd"
 
         elif(jemimaBleekNotebooks):
-            dictData["publisher"] = "Jemima Bleek"
+            dictData["publishers"] = "Jemima Bleek"
         
         elif(dorotheaBleekNotebooks):
-            dictData["publisher"] = "Dorothea Bleek"
+            dictData["publishers"] = "Dorothea Bleek"
         
         else:
-            dictData["publisher"] = "The New Digital Bleek and Lloyd"
+            dictData["publishers"] = "The New Digital Bleek and Lloyd"
     
     try:
         dictData["type"]
@@ -264,7 +264,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
-                dictData[keys] = list(dictData[keys].split("+"))
+                dictData[keys] = list(dictData[keys].split("•"))
                 
     for x in dictData:
         valDict = dictData[x]
@@ -273,12 +273,12 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             n = valDict.values()
             dictData[x] = n 
             dictData[x] = " ".join(str(v) for v in dictData[x])
-            dictData[x] = list(dictData[x].split("+"))
+            dictData[x] = list(dictData[x].split("•"))
 
             for i in valDict.values():
                 if type(i) == list:
                     dictData[x] = ' '.join([str(elem) for elem in i]) 
-                    dictData[x] = list(dictData[x].split("+"))
+                    dictData[x] = list(dictData[x].split("•"))
                    
         if (type(valDict) == list and type(valDict[0]) == dict):
             for i in range(0,len(valDict)):
@@ -286,7 +286,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
                 valDictNew['kw'] = "None"
 
                 if type(valDict[i]) is not type(None):
-                    dictData[x] = list(min(valDict[0].values()).split("+"))
+                    dictData[x] = list(min(valDict[0].values()).split("•"))
     
         if (type(valDict) == list):
             valDict = str(valDict)

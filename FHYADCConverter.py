@@ -110,28 +110,28 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         dictData["description"] = "An item from The Five Hundred Year Archive."
     
     try:
-        dictData["creator"]
+        dictData["creators"]
     except:
         if(idNum != 54):    
             splitString = ":"
             split = dictData["source"].split(splitString)
             splitString = " for"
             split = dictData["source"].split(splitString)
-            dictData["creator"] = split[0][10:len(split[0])]
+            dictData["creators"] = split[0][10:len(split[0])]
         else:
-            dictData["creator"] = dictData["source"][10:138]
+            dictData["creators"] = dictData["source"][10:138]
             
     try:
-        dictData["publisher"]
+        dictData["publishers"]
     except:
         if(idNum != 54):    
             splitString = ":"
             split = dictData["source"].split(splitString)
             splitString = " for"
             split = dictData["source"].split(splitString)
-            dictData["creator"] = split[0][10:len(split[0])]
+            dictData["publishers"] = split[0][10:len(split[0])]
         else:
-            dictData["creator"] = dictData["source"][10:138]
+            dictData["publishers"] = dictData["source"][10:138]
         
     try:
         dictData["type"]
@@ -145,7 +145,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
-                dictData[keys] = list(dictData[keys].split("+"))
+                dictData[keys] = list(dictData[keys].split("•"))
     
     for x in dictData:
         valDict = dictData[x]
@@ -154,12 +154,12 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             n = valDict.values()
             dictData[x] = n 
             dictData[x] = " ".join(str(v) for v in dictData[x])
-            dictData[x] = list(dictData[x].split("+"))
+            dictData[x] = list(dictData[x].split("•"))
 
             for i in valDict.values():
                 if type(i) == list:
                     dictData[x] = ' '.join([str(elem) for elem in i]) 
-                    dictData[x] = list(dictData[x].split("+"))
+                    dictData[x] = list(dictData[x].split("•"))
         
         if (type(valDict) == list):
             valDict = str(valDict)
