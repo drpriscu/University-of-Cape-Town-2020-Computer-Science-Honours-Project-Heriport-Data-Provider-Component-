@@ -113,28 +113,28 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         dictData["description"] = "An item from The Five Hundred Year Archive."
     
     try:
-        dictData["creators"]
+        dictData["creator"]
     except:
         if(idNum != 54):    
             splitString = ":"
             split = dictData["source"].split(splitString)
             splitString = " for"
             split = dictData["source"].split(splitString)
-            dictData["creators"] = split[0][10:len(split[0])]
+            dictData["creator"] = split[0][10:len(split[0])]
         else:
-            dictData["creators"] = dictData["source"][10:138]
+            dictData["creator"] = dictData["source"][10:138]
             
     try:
-        dictData["publishers"]
+        dictData["publisher"]
     except:
         if(idNum != 54):    
             splitString = ":"
             split = dictData["source"].split(splitString)
             splitString = " for"
             split = dictData["source"].split(splitString)
-            dictData["publishers"] = split[0][10:len(split[0])]
+            dictData["publisher"] = split[0][10:len(split[0])]
         else:
-            dictData["publishers"] = dictData["source"][10:138]
+            dictData["publisher"] = dictData["source"][10:138]
         
     try:
         dictData["type"]
