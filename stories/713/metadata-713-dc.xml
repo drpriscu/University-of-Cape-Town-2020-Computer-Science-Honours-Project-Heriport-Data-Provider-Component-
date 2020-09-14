@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>|han=kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>|han=kass'o's grandfather Tsatsi puts different kinds of bones away in the sticks of the hut to avoid wounding the first finger of his right hand. If the bones are not treated properly and are eaten by the dogs, he will be wounded and will not be able to shoot properly. 1) This story is found in Book VIII-14, 2) see also ||kabbo's treatment of bones and Treatment of bones.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/713</dc:identifier>
-  <dc:publishers>Lucy Lloyd</dc:publishers>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>

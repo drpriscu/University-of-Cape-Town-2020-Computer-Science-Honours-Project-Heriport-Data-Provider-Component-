@@ -77,11 +77,11 @@ def rule_factory(plural, singular):
     return f
 
 
-contributors = rule_factory('contributors', 'contributors')
+contributor = rule_factory('contributor', 'contributor')
 
 coverage = rule_factory('coverage', 'coverage')
 
-creators = rule_factory('creators', 'creators')
+creator = rule_factory('creator', 'creator')
 
 date = rule_factory('date', 'date')
 
@@ -93,7 +93,7 @@ identifier = rule_factory('identifier', 'identifier')
 
 language = rule_factory('languages', 'language')
 
-publishers = rule_factory('publishers', 'publishers')
+publisher = rule_factory('publisher', 'publisher')
 
 relation = rule_factory('relation', 'relation')
 

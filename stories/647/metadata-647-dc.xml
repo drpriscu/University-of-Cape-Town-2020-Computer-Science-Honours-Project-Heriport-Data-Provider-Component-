@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>|han=kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>Wind-making; followed by a long discourse upon springbok hunting. By /han=kasso (L VIII.-8. 6725-6769 rev.). The people beat the bushes with a stick and call to the north wind to help them travel quickly in front of the game. The hunters do not wish to shoot while the springbok are running, as they are too numerous. Some hunters drive, some run and some wait in a screen to shoot the springbok. Bewitched springbok do not fall even when shot, and must be left alone. 1) p.6727v: the |xam term for shooting into a running herd of springbok, 2) p.6730v: the |xam term for the vibration of the bowstring after shooting, 3) p.6737v: the |xam term for the 'advance guard' of the springbok herd, 4) p.6750v: the screen of bushes used in hunting springbok, 5) This story is found in Book VIII-8.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/647</dc:identifier>
-  <dc:publishers>Lucy Lloyd</dc:publishers>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>

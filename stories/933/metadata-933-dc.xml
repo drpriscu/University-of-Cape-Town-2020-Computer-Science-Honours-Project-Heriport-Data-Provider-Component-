@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>|han=kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>Bushman names for Stars. Given by /han=kasso (L VIII.-32. 8826 rev., 8842 and 8843, 8841 rev. and 8842 rev.). The stars (in Orion's belt) are named according to the hunting of springbok. 1) p.8841v: |han=kass'o heard this from his mother (|xabbi-an), 2) pp.8841v &amp; 8842v: the stars are named according to the hunting of springbok, 3) This story is found in Book VIII-32.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/933</dc:identifier>
-  <dc:publishers>Lucy Lloyd</dc:publishers>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>

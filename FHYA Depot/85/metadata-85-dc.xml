@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:contributors>Five Hundred Year Archive (FHYA), University of Cape Town, Suleman Hoosen and sons, Petros Lamula</dc:contributors>
-  <dc:creators>Benathi Marufu</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:contributor>Five Hundred Year Archive (FHYA)</dc:contributor>
+  <dc:contributor>University of Cape Town</dc:contributor>
+  <dc:contributor>Suleman Hoosen and sons</dc:contributor>
+  <dc:contributor>Petros Lamula</dc:contributor>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>http://emandulo.apc.uct.ac.za/collection/FHYA%20Depot/uMgungundlovu/Lamula_P_uZulukamalandela_a_most_practical_and_concise_compendium_of_African_History_1930.pdf</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/85</dc:identifier>
-  <dc:publishers>Benathi Marufu</dc:publishers>
   <dc:rights>Creative Commons License: CC BY-NC-ND  
 
 https://creativecommons.org/licenses/by-nc-nd/3.0/

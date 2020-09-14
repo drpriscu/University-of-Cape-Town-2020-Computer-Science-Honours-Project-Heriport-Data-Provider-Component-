@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>|han=kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>Names of various Bushmen and Bushman women, with information regarding them. Partly in Bushman by and partly in English after /han=kasso (L VIII.-1. 6078-6081, 4. 6370 rev., note, 11. 6969 rev., note 14. 7278 and 7277 rev., 20. 7749 and 7750, 7750 rev., 7748 rev. and 7749 rev., 27. 8437, 8435 rev. and 8436 rev., 31. 8744 rev., 8772 rev., 32. 8808 rev.). Includes the story of !kui-!kaxu (or Pained Chest) who was so named because he married a woman called Tuain-an who 'chased him with fire' and did not want him when they got married (7750v). 1) This story is found in Book VIII-20.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/779</dc:identifier>
-  <dc:publishers>Lucy Lloyd</dc:publishers>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd |xam notebooks</dc:subject>

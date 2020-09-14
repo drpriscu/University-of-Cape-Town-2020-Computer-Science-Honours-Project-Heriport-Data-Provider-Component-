@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>Dia!kwain (David Hoesar) (V)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>Dia!kwain (David Hoesar) (V)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>Notes about Dia!kwain (David Hoesar) and his relations, including information about their places and names as well as details of their personal history. 1) This story is found in Book XXV.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/117</dc:identifier>
-  <dc:publishers>Wilhelm Bleek</dc:publishers>
+  <dc:publisher>Wilhelm Bleek</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Wilhelm Bleek</dc:source>
   <dc:subject>Wilhelm Bleek notebooks</dc:subject>

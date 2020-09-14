@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>!nanni (XI)</dc:creators>
-  <dc:creators>Tamme (XII)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>!nanni (XI)</dc:creator>
+  <dc:creator>Tamme (XII)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>Tamme (and possibly !nanni) gives words and sentences relating to many aspects of daily life in their country (mostly to do with food). Mention is also made of the name used by !nanni's and Tamme's people when speaking of the lion (its name is avoided by the !kun). 1) There is a small insert between pages 9289v and 9290 with an illustration (which resembles a wing) and a word 2) p.9282v: what the !kun call the lion to avoid using its name; the |xam observe a similar avoidance (see Children do not say the lion's name at night and The avoidance of the name of the lion in the |xam Book VIII-23 and Books V-7 and V-8), 3) This story is found in Book XI &amp; XII-4.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1008</dc:identifier>
-  <dc:publishers>Lucy Lloyd</dc:publishers>
+  <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Lucy Lloyd</dc:source>
   <dc:subject>Lucy Lloyd !kun notebooks</dc:subject>

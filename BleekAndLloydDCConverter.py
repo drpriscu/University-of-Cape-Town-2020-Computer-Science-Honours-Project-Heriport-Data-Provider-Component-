@@ -83,7 +83,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     except:
         pass
     
-    new = "creators"
+    new = "creator"
     old = "author"
     try:
         dictData[new] = dictData.pop(old)
@@ -104,14 +104,18 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     date = dateSplit[0]
     dictData["date"] = date
     
-    creators = ""
+    '''
+    creator = ""
     try:
-        if (type(dictData["creators"]) == list):
-            for dic in dictData["creators"]:
-                creators += dic+", "
-            dictData["creator"] = creators[0:len(creators)-2]
+        if (type(dictData["creator"]) == list):
+            print (idNum)
+            exit()
+            for dic in dictData["creator"]:
+                creator += dic+", "
+            dictData["creator"] = creator[0:len(creator)-2]
     except:
         pass
+    '''
     
     try:
         dictData["title"]
@@ -186,52 +190,52 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["description"] = "A story from The New Digital Bleek and Lloyd."
     
     try:
-        dictData["creators"]
+        dictData["creator"]
     except:
         if(wilhelmBleekNotebooks):
-            dictData["creators"] = "Wilhelm Bleek"
+            dictData["creator"] = "Wilhelm Bleek"
         
         elif(lucyLloydxamNotebooks):
-            dictData["creators"] = "Lucy Lloyd"
+            dictData["creator"] = "Lucy Lloyd"
         
         elif(lucyLloydkunNotebooks):
-            dictData["creators"] = "Lucy Lloyd"
+            dictData["creator"] = "Lucy Lloyd"
         
         elif(lucyLloydKoraNotebooks):
-            dictData["creators"] = "Lucy Lloyd"
+            dictData["creator"] = "Lucy Lloyd"
 
         elif(jemimaBleekNotebooks):
-            dictData["creators"] = "Jemima Bleek"
+            dictData["creator"] = "Jemima Bleek"
         
         elif(dorotheaBleekNotebooks):
-            dictData["creators"] = "Dorothea Bleek"
+            dictData["creator"] = "Dorothea Bleek"
         
         else:
-            dictData["creators"] = "The New Digital Bleek and Lloyd"
+            dictData["creator"] = "The New Digital Bleek and Lloyd"
     
     try:
-        dictData["publishers"]
+        dictData["publisher"]
     except:
         if(wilhelmBleekNotebooks):
-            dictData["publishers"] = "Wilhelm Bleek"
+            dictData["publisher"] = "Wilhelm Bleek"
         
         elif(lucyLloydxamNotebooks):
-            dictData["publishers"] = "Lucy Lloyd"
+            dictData["publisher"] = "Lucy Lloyd"
         
         elif(lucyLloydkunNotebooks):
-            dictData["publishers"] = "Lucy Lloyd"
+            dictData["publisher"] = "Lucy Lloyd"
         
         elif(lucyLloydKoraNotebooks):
-            dictData["publishers"] = "Lucy Lloyd"
+            dictData["publisher"] = "Lucy Lloyd"
 
         elif(jemimaBleekNotebooks):
-            dictData["publishers"] = "Jemima Bleek"
+            dictData["publisher"] = "Jemima Bleek"
         
         elif(dorotheaBleekNotebooks):
-            dictData["publishers"] = "Dorothea Bleek"
+            dictData["publisher"] = "Dorothea Bleek"
         
         else:
-            dictData["publishers"] = "The New Digital Bleek and Lloyd"
+            dictData["publisher"] = "The New Digital Bleek and Lloyd"
     
     try:
         dictData["type"]

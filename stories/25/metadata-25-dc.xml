@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>||kabbo (Jantje) (II)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>||kabbo (Jantje) (II)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>An account of how a man called Jacob Nein (or |kann) is bitten by a leopard that he was hunting because he and his family were hungry. Jacob Nein has his head sewn together with thread made from sinews and survives the attack, going on to tell others of his ordeal. 1) Jacob 'Nein' is also spelt 'Nyn' and also 'Nijn' in other stories in which he appears, 2) This story is found in Book II.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/25</dc:identifier>
-  <dc:publishers>Wilhelm Bleek</dc:publishers>
+  <dc:publisher>Wilhelm Bleek</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Wilhelm Bleek</dc:source>
   <dc:subject>Wilhelm Bleek notebooks</dc:subject>

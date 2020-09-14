@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:creators>|han=kass'o (Klein Jantje) (VIII)</dc:creators>
-  <dc:date>2020-09-12</dc:date>
+  <dc:creator>|han=kass'o (Klein Jantje) (VIII)</dc:creator>
+  <dc:date>2020-09-14</dc:date>
   <dc:description>The Moon is created from a long white wing-feather of the Ostrich. After |kaggen (the Mantis) breaks the eland's gall and it blinds him, he crawls, feeling his way to the place of the Ostrich, where he finds a feather. He throws it into the sky so that it may become the Moon and light the ground for him to see in the darkness. 1) p.997v: |han=kass'o heard this story from his maternal grandmother (=kammi) and mother (|xabbi-an); a note on this version of the story;  |kaggen was formerly a man; a note on the eland's gall which belonged to the eland |kaggen had made, 2) p.998v: The vlei (or place ) where the ostrich play, eat, assemble and sleep, and its |xam name, 3) p.999v: note on the feather that comes from the wing of the bird (the ostrich), 4) This story is found in Book X.</dc:description>
   <dc:format>Unqualified Dublin Core</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/50</dc:identifier>
-  <dc:publishers>Wilhelm Bleek</dc:publishers>
+  <dc:publisher>Wilhelm Bleek</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
   <dc:source>Wilhelm Bleek</dc:source>
   <dc:subject>Wilhelm Bleek notebooks</dc:subject>
