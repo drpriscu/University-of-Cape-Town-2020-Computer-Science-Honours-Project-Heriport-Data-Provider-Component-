@@ -190,22 +190,26 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
 
 path = 'FHYA Depot/'
 
-for root, directories, filenames in os.walk(path):
-    for i in range(1,88):
-        idNum = i
-        directoryPath = os.path.join(root, str(i))
-        if (directoryPath == 'FHYA Depot/'+str(i)):
-                filePath = directoryPath +'/metadata.xml'
-                with open(filePath, encoding="utf-8") as file:
-                    data = file.read()
-                    data = data.replace("<view","")
-                    data = data.replace("</view>","")
-                    data = data.replace("<event>","")
-                    data = data.replace("</event>","")
-                    
-                    dictData = dict(xmltodict.parse(data, dict_constructor=dict))
-                    dcFileName = "metadata-"+str(i)+"-dc.xml"
-                    serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
-                    convert(directoryPath, dcFileName, dictData, serverURL, idNum)
-    print("Successfully converted files.")                
-    break
+try:
+    for root, directories, filenames in os.walk(path):
+        for i in range(1,88):
+            idNum = i
+            directoryPath = os.path.join(root, str(i))
+            if (directoryPath == 'FHYA Depot/'+str(i)):
+                    filePath = directoryPath +'/metadata.xml'
+                    with open(filePath, encoding="utf-8") as file:
+                        data = file.read()
+                        data = data.replace("<view","")
+                        data = data.replace("</view>","")
+                        data = data.replace("<event>","")
+                        data = data.replace("</event>","")
+                        
+                        dictData = dict(xmltodict.parse(data, dict_constructor=dict))
+                        dcFileName = "metadata-"+str(i)+"-dc.xml"
+                        serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
+                        convert(directoryPath, dcFileName, dictData, serverURL, idNum)
+        print("Successfully converted files.")                
+        break
+except Exception as e:
+    print ("Error in converting files: ")
+    print (e)

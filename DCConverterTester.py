@@ -21,12 +21,10 @@ def check(dcFileName, data):
     print ("_________________________________________________________________________________")
     print ("\n\nTesting: "+dcFileName)
     print("Case 1: Checking XML Well-Formedness")
-        
-    # open and read schema file
+    
     with open("oai_dc.xsd", 'r') as schema_file:
         schema_to_check = schema_file.read()
 
-    # open and read xml file
     with open(dcFileName, 'r') as xml_file:
         xml_to_check = xml_file.read()
     
@@ -68,6 +66,7 @@ print ("________________________________________________________________________
 try:
     scriptBleekAndLloyd = False
     scriptFHYA = False
+    scriptMetsemegologolo = False
     print("Importing: " + script)
     
     if (script == "FHYADCConverter.py"):
@@ -79,6 +78,11 @@ try:
         scriptBleekAndLloyd = True
         print("Running: " + script)
         import BleekAndLloydDCConverter
+    
+    elif (script == "MetsemegologoloDCConverter.py"):
+        scriptMetsemegologolo = True
+        print("Running: " + script)
+        import MetsemegologoloDCConverter
     
     else:
         raise
@@ -98,6 +102,10 @@ else:
     elif (scriptBleekAndLloyd):
         path = "stories/"
         endIndex = 2058
+    
+    elif (scriptMetsemegologolo):
+        path = "Metsemegologolo/"
+        endIndex = 2
     
     for root, directories, filenames in os.walk(path):
         for i in range(1,endIndex):   

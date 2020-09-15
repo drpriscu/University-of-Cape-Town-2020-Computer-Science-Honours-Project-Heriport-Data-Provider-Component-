@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object  id="28" created="2020-03-07T13:38:29.484988+02:00">
+     <uuid>66c4cb0c-5ed5-450e-83ae-c83fd349cb4a</uuid>
+     <title>Artefact: isicoco polishing stone</title>
+     <description>An isicoco polishing stone.</description>
+     <relationships>
+          <relationship type="subject">
+               <predicate>was used to create</predicate>
+               <object id="44" type="object">isicoco</object>
+          </relationship>
+          <relationship type="object">
+               <predicate>was produced by</predicate>
+               <subject id="35" type="site">uMgungundlovu</subject>
+          </relationship>
+          <relationship type="object">
+               <predicate>was collected by</predicate>
+               <subject id="93" type="actor">Tim Maggs</subject>
+          </relationship>
+     </relationships>
+     <heldBy id="23">
+          <canonicalTitle id="2">KwaZulu-Natal Museum</canonicalTitle>
+          <accessionNumber>1975-139</accessionNumber>
+     </heldBy>
+     <provenance>The stone was collected by Tim Maggs in 1973 from a pot dimple in the brewery hut (Hut 11; Parkington &amp; Cronin 1979) floor at uMgungundlovu.</provenance>
+     <proxies> 
+          <proxy form="IMG" humanReadable="Image proxy">
+               <file purpose="display">
+                    <rights>CC BY-SA</rights>
+                    <uri>http://www.metsemegologolo.org.za/media/thumbnails/3f9551d4f7b24936910bf82eca52eef5.JPG</uri>
+                    <fileName>3f9551d4f7b24936910bf82eca52eef5.JPG</fileName>
+               </file>
+               <file purpose="original">
+                    <rights>CC BY-SA</rights>
+                    <uri>http://www.metsemegologolo.org.za/media/images/1975-139 ISICOCO POLISHER DSCF3285 ed.JPG</uri>
+                    <fileName>1975-139 ISICOCO POLISHER DSCF3285 ed.JPG </fileName>
+               </file>
+               <caption>isicoco polishing stone with its storage box</caption>
+               <creator>
+                    <canonicalName id="">Justine Wintjes</canonicalName>
+                    <affiliation id="23">KwaZulu-Natal Museum</affiliation>
+                    <date>2019</date>
+               </creator>
+               <userAnnotations></userAnnotations>
+          </proxy>
+     </proxies>
+     <geospatial>
+          <!-- Under construction -->
+     </geospatial>
+</object>
+

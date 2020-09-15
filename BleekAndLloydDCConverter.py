@@ -240,7 +240,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     try:
         dictData["type"]
     except:
-        dictData["type"] = "story"
+        dictData["type"] = "Story"
     
     try:
         dictData["source"]
@@ -265,6 +265,11 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         
         else:
             dictData["source"] = "The New Digital Bleek and Lloyd"
+    
+    try:
+        dictData["contributor"]
+    except:
+        dictData["contributor"] = "The New Digital Bleek and Lloyd"
     
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
@@ -317,20 +322,24 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
 
 path = 'stories/'
 
-for root, directories, filenames in os.walk(path):
-    for i in range(1,2058):
-        idNum = i
-        directoryPath = os.path.join(root, str(i))
-        if (directoryPath == 'stories/'+str(i)):
-                filePath = directoryPath +'/metadata.xml'
-                with open(filePath, encoding="utf-8") as file:
-                    data = file.read()
-                    data = data.replace("<i>","")
-                    data = data.replace("</i>","")
+try:
+    for root, directories, filenames in os.walk(path):
+        for i in range(1,2058):
+            idNum = i
+            directoryPath = os.path.join(root, str(i))
+            if (directoryPath == 'stories/'+str(i)):
+                    filePath = directoryPath +'/metadata.xml'
+                    with open(filePath, encoding="utf-8") as file:
+                        data = file.read()
+                        data = data.replace("<i>","")
+                        data = data.replace("</i>","")
 
-                    dictData = dict(xmltodict.parse(data, dict_constructor=dict))
-                    dcFileName = "metadata-"+str(i)+"-dc.xml"
-                    serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
-                    convert(directoryPath, dcFileName, dictData, serverURL, idNum)
-    print("Successfully converted files.")                
-    break
+                        dictData = dict(xmltodict.parse(data, dict_constructor=dict))
+                        dcFileName = "metadata-"+str(i)+"-dc.xml"
+                        serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
+                        convert(directoryPath, dcFileName, dictData, serverURL, idNum)
+        print("Successfully converted files.")                
+        break
+except Exception as e:
+    print ("Error in converting files: ")
+    print (e)
