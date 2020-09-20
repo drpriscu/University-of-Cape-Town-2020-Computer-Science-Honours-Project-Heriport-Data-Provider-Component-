@@ -6,8 +6,6 @@ import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
 import simpledc
-import re
-import string
 import unicodedata
 from datetime import datetime, timedelta
 
@@ -163,7 +161,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["subject"] = "Dorothea Bleek notebooks"
         
         else:
-            dictData["subject"] = "The New Digital Bleek and Lloyd"
+            dictData["subject"] = "The New Digital Bleek and Lloyd Archive"
     
     try:
         dictData["description"]
@@ -187,7 +185,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["description"] = "A story from Dorothea Bleek notebooks."
         
         else:
-            dictData["description"] = "A story from The New Digital Bleek and Lloyd."
+            dictData["description"] = "A story from The New Digital Bleek and Lloyd Archive."
     
     try:
         dictData["creator"]
@@ -211,7 +209,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["creator"] = "Dorothea Bleek"
         
         else:
-            dictData["creator"] = "The New Digital Bleek and Lloyd"
+            dictData["creator"] = "The New Digital Bleek and Lloyd Archive"
     
     try:
         dictData["publisher"]
@@ -235,7 +233,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["publisher"] = "Dorothea Bleek"
         
         else:
-            dictData["publisher"] = "The New Digital Bleek and Lloyd"
+            dictData["publisher"] = "The New Digital Bleek and Lloyd Archive"
     
     try:
         dictData["type"]
@@ -264,12 +262,12 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
             dictData["source"] = "Dorothea Bleek"
         
         else:
-            dictData["source"] = "The New Digital Bleek and Lloyd"
+            dictData["source"] = "The New Digital Bleek and Lloyd Archive"
     
     try:
         dictData["contributor"]
     except:
-        dictData["contributor"] = "The New Digital Bleek and Lloyd"
+        dictData["contributor"] = "The New Digital Bleek and Lloyd Archive"
     
     for keys in dictData:
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):

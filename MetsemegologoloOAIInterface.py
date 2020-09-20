@@ -205,14 +205,14 @@ try:
             verbRequest = "\n  <request verb=\"Identify\">"
             verbRequest += serverURL+"</request>\n  <Identify>\n"
             
-            repositoryName = "The Five Hundred Year Archive"
-            repositoryIdentifier = "http://emandulo.apc.uct.ac.za/"
+            repositoryName = "Metsemegologolo Archive"
+            repositoryIdentifier = "http://Metsemegologolo.apc.uct.ac.za/"
             earliestDatestamp = str(datetime.now())
                     
             path = 'Metsemegologolo/'
             
             for root, directories, filenames in os.walk(path):
-                for i in range(1,88):
+                for i in range(1,2):
                     identifier = "http://Metsemegologolo.apc.uct.ac.za/metadata/Metsemegologolo/"+str(i)
                                 
                     splitString = "Metsemegologolo/"
@@ -581,18 +581,18 @@ try:
                     count = 0
                     startFile = 1
                     startIndex = 1
-                    endIndex = 11
-                    complete = False
+                    endIndex = 2
+                    complete = True
                     
                     if (resumptionTokenFlag):
                         startIndex = int(resumptionTokenNextIndex)
                         
-                        if (endIndex < 87):
+                        if (endIndex < 2):
                             endIndex = startIndex+10
                         
-                        if (endIndex > 87):
+                        if (endIndex > 1):
                             complete = True
-                            endIndex = 88
+                            endIndex = 2
                     
                         verbRequest += " resumptionToken=\""+resumptionToken+"\""
                     else:
@@ -672,7 +672,7 @@ try:
                         if (count == 0):
                             raise
                 
-                        completeListSize = 87
+                        completeListSize = 1
                         nextIndex = endIndex
                         expirationDate = datetime.now() + timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=10, hours=0, weeks=0)
                         resumptionToken = "<resumptionToken"
@@ -1179,18 +1179,18 @@ try:
                     count = 0
                     startFile = 1
                     startIndex = 1
-                    endIndex = 11
-                    complete = False
+                    endIndex = 2
+                    complete = True
                     
                     if (resumptionTokenFlag):
                         startIndex = int(resumptionTokenNextIndex)
                         
-                        if (endIndex < 87):
+                        if (endIndex < 2):
                             endIndex = startIndex+10
                         
-                        if (endIndex > 87):
+                        if (endIndex > 1):
                             complete = True
-                            endIndex = 88
+                            endIndex = 2
                     
                         verbRequest += " resumptionToken=\""+resumptionToken+"\""
                         
@@ -1281,7 +1281,7 @@ try:
                         if (count == 0):
                             raise
                         
-                        completeListSize = 87
+                        completeListSize = 1
                         nextIndex = endIndex
                         expirationDate = datetime.now() + timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=10, hours=0, weeks=0)
                         resumptionToken = "<resumptionToken"
@@ -1393,7 +1393,7 @@ try:
             set = "Metsemegologolo"
             data = "  <set>\n    <setName>"+set+"</setName>\n    <setDescription>"
             data += "\n      <oai_dc:dc\n          xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\"\n          xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n          xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai_dc/\n          http://www.openarchives.org/OAI/2.0/oai_dc.xsd\">"
-            data += "\n          <dc:description>This set contains metadata describing items from the Five Hundred Year Archive.</dc:description>"
+            data += "\n          <dc:description>This set contains metadata describing items from the Metsemegologolo Archive.</dc:description>"
             data += "\n       </oai_dc:dc>\n    </setDescription>\n  </set>"
             
             record = []

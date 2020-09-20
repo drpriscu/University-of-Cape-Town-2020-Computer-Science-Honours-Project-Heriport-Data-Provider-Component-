@@ -6,8 +6,6 @@ import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
 import simpledc
-import re
-import string
 import unicodedata
 from datetime import datetime
 
@@ -31,9 +29,9 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     except:
         pass
     
-    new = "creator"
+    new = "publisher"
     try:
-        dictData[publisher] = dictData["relationship"][2]["subject"]["#text"]  
+        dictData[new] = dictData["relationship"][2]["subject"]["#text"]  
     except:
         pass
         
@@ -66,12 +64,12 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     try:
         dictData["creator"]
     except:
-        dictData["creator"] = "Metsemegologolo"
+        dictData["creator"] = "The Metsemegologolo Archive"
             
     try:
         dictData["publisher"]
     except:
-        dictData["publisher"] = "Metsemegologolo"
+        dictData["publisher"] = "The Metsemegologolo Archive"
      
     try:
         dictData["type"]

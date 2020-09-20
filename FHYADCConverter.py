@@ -6,8 +6,6 @@ import pprint
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
 import simpledc
-import re
-import string
 import unicodedata
 from datetime import datetime
 
