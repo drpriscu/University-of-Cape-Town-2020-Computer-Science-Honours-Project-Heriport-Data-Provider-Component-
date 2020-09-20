@@ -66,7 +66,7 @@ try:
         
         else:
             try:
-                splitString = "FHYA Depot/"
+                splitString = "FHYA%20Depot/"
                 split = identifier.split(splitString)
                 dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                 dcFile = open(dcFilePath, "r", encoding="utf-8")
@@ -213,9 +213,9 @@ try:
             
             for root, directories, filenames in os.walk(path):
                 for i in range(1,88):
-                    identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
+                    identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA%20Depot/"+str(i)
                                 
-                    splitString = "FHYA Depot/"
+                    splitString = "FHYA%20Depot/"
                     split = identifier.split(splitString)
                     dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                     
@@ -611,7 +611,7 @@ try:
 
                     for root, directories, filenames in os.walk(path):
                         for i in range(startIndex, endIndex):
-                            identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
+                            identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA%20Depot/"+str(i)
                             
                             response = []
                             
@@ -620,7 +620,7 @@ try:
                                 response.append(verbResponseDate)
                                 response.append(verbRequest)
                 
-                            splitString = "FHYA Depot/"
+                            splitString = "FHYA%20Depot/"
                             split = identifier.split(splitString)
                             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                             
@@ -812,7 +812,7 @@ try:
             
             else:   
                 try:
-                    splitString = "FHYA Depot/"
+                    splitString = "FHYA%20Depot/"
                     split = identifier.split(splitString)
                     dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                     dcFile = open(dcFilePath, "r", encoding="utf-8")
@@ -1210,7 +1210,7 @@ try:
                     
                     for root, directories, filenames in os.walk(path):
                         for i in range(startIndex,endIndex):
-                            identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
+                            identifier = "http://emandulo.apc.uct.ac.za/metadata/FHYA%20Depot/"+str(i)
                             
                             response = []
                             
@@ -1219,7 +1219,7 @@ try:
                                 response.append(verbResponseDate)
                                 response.append(verbRequest)
                 
-                            splitString = "FHYA Depot/"
+                            splitString = "FHYA%20Depot/"
                             split = identifier.split(splitString)
                             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
                             
