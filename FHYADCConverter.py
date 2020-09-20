@@ -204,7 +204,7 @@ try:
                         
                         dictData = dict(xmltodict.parse(data, dict_constructor=dict))
                         dcFileName = "metadata-"+str(i)+"-dc.xml"
-                        serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA%20Depot/"+str(i)
+                        serverURL = "http://emandulo.apc.uct.ac.za/metadata/FHYA Depot/"+str(i)
                         convert(directoryPath, dcFileName, dictData, serverURL, idNum)
         print("Successfully converted files.")                
         break
