@@ -2,9 +2,9 @@
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:contributor>The New Digital Bleek and Lloyd Archive</dc:contributor>
   <dc:creator>The New Digital Bleek and Lloyd Archive</dc:creator>
-  <dc:date>2020-09-20</dc:date>
+  <dc:date>2020-10-05</dc:date>
   <dc:description>A story from The New Digital Bleek and Lloyd Archive.</dc:description>
-  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:format>text/xml</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/1513</dc:identifier>
   <dc:publisher>The New Digital Bleek and Lloyd Archive</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>

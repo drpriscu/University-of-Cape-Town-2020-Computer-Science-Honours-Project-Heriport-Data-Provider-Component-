@@ -1,21 +1,38 @@
 #!/usr/bin/env python3
+"""
+BleekAndLloydDCConverter.py: Program that reads XML metadata files of The New Digital Bleek and Lloyd Archive Data Provider, 
+converts the records to (unqualified) Dublin Core and outputs the converted XML metadata files.
+Author: Alex Priscu - PRSLAE003
+University of Cape Town
+Project: Data Provider Interfaces component of the metadata aggregation system – HERIPORT.
+Date: 1 October 2020
+"""
 
+# Import relevant packages
 import os
-import xmltodict
 import pprint
+import simpledc
+import sys
+import unicodedata
+import xmltodict
+
+from datetime import datetime, timedelta
 from lxml import etree
 from xmlutils import Rules, dump_etree_helper, etree_to_string
-import simpledc
-import unicodedata
-from datetime import datetime, timedelta
 
-def remove_non_ascii(text):
+# Remove non-ASCII characters from text.
+def remove_non_ASCII(text):
+    # Replace type hypher with standardised hyphen.
     text = text.replace('–',"-")
+    # Return normalised text containing only ASCII characters.
     return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore')
 
-def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
-    dictData = dictData['item']
+# Convert XML metadata record contents to (unqualified) Dublin Core and write the converted metadata to a new XML metadata record.
+def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
+    # Set dictData to content of dictData item.
+    dictData = dictData["item"]
     
+    # Set New Digital Bleek and Lloyd Archive collection flags to False.
     wilhelmBleekNotebooks = False
     lucyLloydxamNotebooks = False
     lucyLloydkunNotebooks = False
@@ -23,6 +40,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     jemimaBleekNotebooks = False
     dorotheaBleekNotebooks = False
     
+    # Set collection flags to True based on collection index ranges.
     if((idNum>=1) and (idNum<=128)):
         wilhelmBleekNotebooks = True
     
@@ -41,24 +59,16 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     if((idNum>=2025) and (idNum<=2056)):
         dorotheaBleekNotebooks = True
     
-    if(wilhelmBleekNotebooks):
-        pass
-        
-    if(lucyLloydxamNotebooks):
-        pass
-    
-    if(lucyLloydkunNotebooks):
-        pass
-    
-    if(lucyLloydKoraNotebooks):
-        pass
-
-    if(jemimaBleekNotebooks):
+    # Implement Data Provider Mapping Schema
+    # Assign <dc:subject> to <collection>.
+    new = "subject"
+    old = "collection"
+    try:
+        dictData[new] = dictData.pop(old)
+    except:
         pass
     
-    if(dorotheaBleekNotebooks):
-        pass
-    
+    # Assign <dc:description> to <summary> and <comments>.
     new = "description"
     old = "summary"
     try:
@@ -67,20 +77,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     except:
         pass
     
-    new = "subject"
-    old = "collection"
-    try:
-        dictData[new] = dictData.pop(old)
-    except:
-        pass
-    
-    new = "type"
-    old = "@type"
-    try:
-        dictData[new] = dictData.pop(old)
-    except:
-        pass
-    
+    # Assign <dc:creator> to <author>.
     new = "creator"
     old = "author"
     try:
@@ -88,33 +85,35 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
     except:
         pass
     
+    # Assign <dc:type> to <@type>.
+    new = "type"
+    old = "@type"
+    try:
+        dictData[new] = dictData.pop(old)
+        if(dictData[new] != "story"):
+            print(dictData[new])
+    except:
+        pass
+    
+    # Assign <dc:identifier> to URI of record. 
     identifier = serverURL
     dictData["identifier"] = identifier
     
+    # Assign <dc:rights> to Data Provider record rights.
     rights = "CC-BY-NC-ND"
     dictData["rights"] = rights
     
-    format = "Unqualified Dublin Core"
+    # Assign <dc:format> to Data Provider record format according to Internet Media Types [MIME].
+    format = "text/xml"
     dictData["format"] = format
     
+    # Assign <dc:date> to Data Provider functional requirements' date.
     date = str(datetime.now())
     dateSplit = date.split(" ")
     date = dateSplit[0]
     dictData["date"] = date
     
-    '''
-    creator = ""
-    try:
-        if (type(dictData["creator"]) == list):
-            print (idNum)
-            exit()
-            for dic in dictData["creator"]:
-                creator += dic+", "
-            dictData["creator"] = creator[0:len(creator)-2]
-    except:
-        pass
-    '''
-    
+    # Try to assign a default value to <dc:title> based on record collection.
     try:
         dictData["title"]
     except:
@@ -139,6 +138,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         else:
             dictData["title"] = "Story from The New Digital Bleek and Lloyd"
     
+    # Try to assign a default value to <dc:subject> based on record collection.
     try:
         dictData["subject"]
     except:
@@ -163,6 +163,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         else:
             dictData["subject"] = "The New Digital Bleek and Lloyd Archive"
     
+    # Try to assign a default value to <dc:description> based on record collection.
     try:
         dictData["description"]
     except:
@@ -187,6 +188,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         else:
             dictData["description"] = "A story from The New Digital Bleek and Lloyd Archive."
     
+    # Try to assign a default value to <dc:creator> based on record collection.
     try:
         dictData["creator"]
     except:
@@ -211,6 +213,7 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         else:
             dictData["creator"] = "The New Digital Bleek and Lloyd Archive"
     
+    # Try to assign a default value to <dc:publisher> based on record collection.
     try:
         dictData["publisher"]
     except:
@@ -235,11 +238,13 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         else:
             dictData["publisher"] = "The New Digital Bleek and Lloyd Archive"
     
+    # Try to assign a default value to <dc:type> based on record collection.
     try:
         dictData["type"]
     except:
         dictData["type"] = "Story"
     
+    # Try to assign a default value to <dc:source> based on record collection.
     try:
         dictData["source"]
     except:
@@ -264,80 +269,144 @@ def convert(directoryPath, dcFileName, dictData, serverURL, idNum):
         else:
             dictData["source"] = "The New Digital Bleek and Lloyd Archive"
     
+    # Try to assign a default value to <dc:contributor> based on record collection.
     try:
         dictData["contributor"]
     except:
         dictData["contributor"] = "The New Digital Bleek and Lloyd Archive"
     
-    for keys in dictData:
-        if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
-                dictData[keys] = list(dictData[keys].split("•"))
-                
-    for x in dictData:
-        valDict = dictData[x]
- 
+    # Format the data types of dictData to lists of str values.
+    # For each key in dictData.
+    for key in dictData:
+        # If the dictData value at the key is of type str or None.
+        if (type(dictData[key]) == str) or (type(dictData[key]) == None):
+            # Set the dictData value at the key to be of type list.
+            dictData[key] = list(dictData[key].split("•"))
+    
+    # For each key in dictData.             
+    for key in dictData:
+        # Set valDict to the dictData value at the key.
+        valDict = dictData[key]
+        
+        # If valDict is of type dict.
         if (type(valDict) == dict):
+            # Set n to list of valDict values.
             n = valDict.values()
-            dictData[x] = n 
-            dictData[x] = " ".join(str(v) for v in dictData[x])
-            dictData[x] = list(dictData[x].split("•"))
-
+            # Set dictData at the key to n.
+            dictData[key] = n 
+            # Convert the dictData value at the key to be of type list.
+            dictData[key] = " ".join(str(v) for v in dictData[key])
+            dictData[key] = list(dictData[key].split("•"))
+            
+            # For values in valDict.
             for i in valDict.values():
+                # If value is of type list.
                 if type(i) == list:
-                    dictData[x] = ' '.join([str(elem) for elem in i]) 
-                    dictData[x] = list(dictData[x].split("•"))
-                   
+                    # Join elements of list.
+                    dictData[key] = ' '.join([str(elem) for elem in i])
+                    # 
+                    dictData[key] = list(dictData[key].split("•"))
+        
+        # If valDict is of type list and contains a dict value.
         if (type(valDict) == list and type(valDict[0]) == dict):
-            for i in range(0,len(valDict)):
+            # For values in valDict.
+            for i in range(0, len(valDict)):
+                # Set valDictNew to valDict value.
                 valDictNew = valDict[i]
-                valDictNew['kw'] = "None"
-
+                # Set valDictNew at kw key to None.
+                valDictNew["kw"] = "None"
+                # If valDict value is not of type None.
                 if type(valDict[i]) is not type(None):
-                    dictData[x] = list(min(valDict[0].values()).split("•"))
-    
+                    # Set the dictData value at the key to be of type list.
+                    dictData[key] = list(min(valDict[0].values()).split("•"))
+
+        # If valDict is of type list.
         if (type(valDict) == list):
+            # Set valDict to type str.
             valDict = str(valDict)
-      
-    for x in dictData.keys():
-        tempList = []
-        if (dictData[x] != None):
-            for i in dictData[x]:
-                i = remove_non_ascii(str(i))
-                tempList.append(i)
-                dictData[x] = tempList
     
+    # For each key in dictData.
+    for key in dictData.keys():
+        # Create a temporary list.
+        tempList = []
+        # If the dictData value at the key is not empty.
+        if (dictData[key] != None):
+            # For each value dictData at the key.
+            for i in dictData[key]:
+                # Run the remove_non_ASCII method.
+                i = remove_non_ASCII(str(i))
+                # Store the value in the temporary list.
+                tempList.append(i)
+                # Set the dictData value at the key to the the temporary list.
+                dictData[key] = tempList
+    
+    # Set metadata to dictData converted to an (unqualified) Dublin Core string.
     metadata = simpledc.tostring(dictData)
+    # Set dcFilePath to the Data Provider sub-folder directory path concatenated with the (unqualified) Dublin Core file name.
     dcFilePath = directoryPath+"/"+dcFileName
     
+    # Try to create a file with UTF-8 encoding in the (unqualified) Dublin Core file path
     try:
         dcFile = open(dcFilePath, "w", encoding="utf-8")
+        # Write the metadata to the (unqualified) Dublin Core file.
         dcFile.write(metadata)
+        # Close the (unqualified) Dublin Core file.
         dcFile.close()
+    # Unable to write to the XML metadata record.    
     except Exception as e:
-                print(e)
-                
+        # Print error statement.
+        print ("Error in writing file: "+str(e))
+    # Print conversion statement.
     print("Successfully created file: "+dcFileName)
 
-path = 'stories/'
+# Read each XML metadata record of a Data Provider directory and call the convert_to_DC method to convert and store converted XML metadata record. 
+def read_records():
+    # Try to access each sub-folder XML metadata file in a Data Provider directory path.
+    try:
+        # Set path to the Data Provider directory path.
+        path = "stories/"
+        for root, directories, filenames in os.walk(path):
+            # For each index of the of the Data Provider directory.
+            for i in range(1, 2058):
+                # Set index to string of current index.
+                index = str(i)
+                # Set directoryPath to the Data Provider sub-folder directory path.
+                directoryPath = os.path.join(root, index)
+                # Set filePath to the Data Provider directory path concatenated with the index.
+                filePath = directoryPath +"/metadata.xml"
+                # Open the XML metadata record with UTF-8 encoding.
+                with open(filePath, encoding="utf-8") as file:
+                    # Set data to the file contents read.
+                    data = file.read()
+                    # Replace data html tags.
+                    data = data.replace("<i>","")
+                    data = data.replace("</i>","")
+                    # Set dictData to the dictionary constructed from the data.
+                    dictData = dict(xmltodict.parse(data, dict_constructor=dict))
+                    # Set dcFileName to "metadata-" concatenated with the index and "-dc.xml".
+                    dcFileName = "metadata-"+index+"-dc.xml"
+                    # Set serverURL to the Data Provider server URL concatenated with the index.
+                    serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+index
+                    # Close the (unqualified) Dublin Core file.
+                    file.close()
+                    # Run the convert_to_DC method.
+                    convert_to_DC(directoryPath, dcFileName, dictData, serverURL, i)
+            # Print conversion statement.
+            print ("Successfully converted files.")
+            # Break from for loop after all files have been read and converted.              
+            break
+    # Unable to open the XML metadata record.
+    except Exception as e:
+        # Print error statement.
+        print ("Error in converting files: "+str(e))
 
-try:
-    for root, directories, filenames in os.walk(path):
-        for i in range(1,2058):
-            idNum = i
-            directoryPath = os.path.join(root, str(i))
-            if (directoryPath == 'stories/'+str(i)):
-                    filePath = directoryPath +'/metadata.xml'
-                    with open(filePath, encoding="utf-8") as file:
-                        data = file.read()
-                        data = data.replace("<i>","")
-                        data = data.replace("</i>","")
-
-                        dictData = dict(xmltodict.parse(data, dict_constructor=dict))
-                        dcFileName = "metadata-"+str(i)+"-dc.xml"
-                        serverURL = "http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/"+str(i)
-                        convert(directoryPath, dcFileName, dictData, serverURL, idNum)
-        print("Successfully converted files.")                
-        break
-except Exception as e:
-    print ("Error in converting files: ")
-    print (e)
+# Only run the functions if this module is run.
+if __name__ == "__main__":
+    # If number of args is 1.                                     
+    if len(sys.argv) == 1:
+        # Run the read_records method.                                  
+        read_records()
+    # Else the number of args is invalid.                                         
+    else:
+        # Print usage statment.                                                    
+        print ("Usage: python3 BleekAndLloydDCConverter.py")

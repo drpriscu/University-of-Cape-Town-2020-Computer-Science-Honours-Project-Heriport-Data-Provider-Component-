@@ -2,9 +2,9 @@
 <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:contributor>The New Digital Bleek and Lloyd Archive</dc:contributor>
   <dc:creator>=gerri-sse (Jan Ronebout)</dc:creator>
-  <dc:date>2020-09-20</dc:date>
+  <dc:date>2020-10-05</dc:date>
   <dc:description>The Old Man, the Little Hare, and the Lions. Related by =giri-sse (L VII.-1. 6032-6040, partly translated). A fragment of the above story was also related by =giri-sse (L VII.-1. 6031). Explanatory note in the Katkop dialect, by Dia!kwain (L VII.-1. 6031 rev. and 6032 rev.). An untranslated version of the song of the old man who calls for mist (/kumm) to come to the 'killing place' as he hops away from the Lions (after cutting off his bad leg). 1) p.6039v: the name of the mist in the song is |kumm (according to both Jan Ronebout and Dia!kwain), 2) See also Fragment of a story about the old man, the little Hare and the travelling Lions, 3) This story is found in Book VII-1.</dc:description>
-  <dc:format>Unqualified Dublin Core</dc:format>
+  <dc:format>text/xml</dc:format>
   <dc:identifier>http://pumbaa.cs.uct.ac.za/~balnew/metadata/stories/567</dc:identifier>
   <dc:publisher>Lucy Lloyd</dc:publisher>
   <dc:rights>CC-BY-NC-ND</dc:rights>
