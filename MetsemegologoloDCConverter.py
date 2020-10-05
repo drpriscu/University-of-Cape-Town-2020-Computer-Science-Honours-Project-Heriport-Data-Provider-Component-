@@ -123,24 +123,36 @@ def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
     except:
         dictData["contributor"] = "The Metsemegologolo Archive"
     
-    
+    # Format the data types of dictData from str to single list values.
+    # For each key in dictData.
     for keys in dictData:
+        # If the dictData value at the key is of type str or None.
         if (type(dictData[keys]) == str) or (type(dictData[keys]) == None):
-                dictData[keys] = list(dictData[keys].split("•"))
+            # Set the dictData value at the key to be of type list.
+            dictData[keys] = list(dictData[keys].split("•"))
     
-    for x in dictData:
-        valDict = dictData[x]
- 
+    # For each key in dictData. 
+    for key in dictData:
+        # Set valDict to the dictData value at the key.
+        valDict = dictData[key]
+        
+        # If valDict is of type dict.
         if (type(valDict) == dict):
+            # Set n to list of valDict values.
             n = valDict.values()
-            dictData[x] = n 
-            dictData[x] = " ".join(str(v) for v in dictData[x])
-            dictData[x] = list(dictData[x].split("•"))
-
-            for i in valDict.values():
-                if type(i) == list:
-                    dictData[x] = ' '.join([str(elem) for elem in i]) 
-                    dictData[x] = list(dictData[x].split("•"))
+            # Set dictData at the key to n.
+            dictData[key] = n
+            # Set the dictData value at the key to be of type list.
+            dictData[key] = " ".join(str(v) for v in dictData[key])
+            dictData[key] = list(dictData[key].split("•"))
+            
+            # For each value in valDict.
+            for val in valDict.values():
+                # If value is of type list.
+                if type(val) == list:
+                    # Set the dictData value at the key to be of type list.
+                    dictData[key] = ' '.join([str(elem) for elem in val]) 
+                    dictData[key] = list(dictData[key].split("•"))
             
         # If valDict is of type list.
         if (type(valDict) == list):
@@ -151,14 +163,14 @@ def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
     for key in dictData.keys():
         # Create a temporary list.
         tempList = []
-        # If the dictData value at the key is not empty.
+        # If the dictData value at the key is not of type None.
         if (dictData[key] != None):
-            # For each value dictData at the key.
-            for i in dictData[key]:
+            # For each value of dictData at the key.
+            for val in dictData[key]:
                 # Run the remove_non_ASCII method.
-                i = remove_non_ASCII(str(i))
+                val = remove_non_ASCII(str(val))
                 # Store the value in the temporary list.
-                tempList.append(i)
+                tempList.append(val)
                 # Set the dictData value at the key to the the temporary list.
                 dictData[key] = tempList
     

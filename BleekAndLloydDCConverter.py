@@ -275,7 +275,7 @@ def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
     except:
         dictData["contributor"] = "The New Digital Bleek and Lloyd Archive"
     
-    # Format the data types of dictData to lists of str values.
+    # Format the data types of dictData from str to single list values.
     # For each key in dictData.
     for key in dictData:
         # If the dictData value at the key is of type str or None.
@@ -294,22 +294,21 @@ def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
             n = valDict.values()
             # Set dictData at the key to n.
             dictData[key] = n 
-            # Convert the dictData value at the key to be of type list.
+            # Set the dictData value at the key to be of type list.
             dictData[key] = " ".join(str(v) for v in dictData[key])
             dictData[key] = list(dictData[key].split("•"))
             
-            # For values in valDict.
-            for i in valDict.values():
+            # For each value in valDict.
+            for val in valDict.values():
                 # If value is of type list.
-                if type(i) == list:
-                    # Join elements of list.
-                    dictData[key] = ' '.join([str(elem) for elem in i])
-                    # 
+                if type(val) == list:
+                    # Set the dictData value at the key to be of type list.
+                    dictData[key] = ' '.join([str(elem) for elem in val])
                     dictData[key] = list(dictData[key].split("•"))
         
         # If valDict is of type list and contains a dict value.
         if (type(valDict) == list and type(valDict[0]) == dict):
-            # For values in valDict.
+            # For each value in valDict.
             for i in range(0, len(valDict)):
                 # Set valDictNew to valDict value.
                 valDictNew = valDict[i]
@@ -329,14 +328,14 @@ def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
     for key in dictData.keys():
         # Create a temporary list.
         tempList = []
-        # If the dictData value at the key is not empty.
+        # If the dictData value at the key is not of type None.
         if (dictData[key] != None):
-            # For each value dictData at the key.
-            for i in dictData[key]:
+            # For each value of dictData at the key.
+            for val in dictData[key]:
                 # Run the remove_non_ASCII method.
-                i = remove_non_ASCII(str(i))
+                val = remove_non_ASCII(str(val))
                 # Store the value in the temporary list.
-                tempList.append(i)
+                tempList.append(val)
                 # Set the dictData value at the key to the the temporary list.
                 dictData[key] = tempList
     

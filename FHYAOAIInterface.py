@@ -90,7 +90,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
             
             # Set verbRequest.
@@ -110,7 +110,7 @@ try:
             responseEnd = "\n</OAI-PMH>"
             # Append responseEnd.
             response.append(responseEnd)
-            # Convert response to be of type str.
+            # Convert list response to be of type str.
             strResp = ''.join([str(elem) for elem in response])
             # Print response.
             print(strResp)
@@ -136,7 +136,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.
@@ -157,7 +157,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -177,7 +177,7 @@ try:
                     
                     # Set verbResponseDate.
                     verbResponseDate = "\n  <responseDate>"
-                    verbResponseDate += str(datetime.now())
+                    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                     verbResponseDate += "</responseDate>"
                     
                     # Set verbRequest.
@@ -198,7 +198,7 @@ try:
                     responseEnd = "\n</OAI-PMH>"
                     # Append responseEnd.
                     response.append(responseEnd)
-                    # Convert response to be of type str.
+                    # Convert list response to be of type str.
                     strResp = ''.join([str(elem) for elem in response])
                     # Print response.
                     print(strResp)
@@ -210,7 +210,7 @@ try:
                     
                     # Set verbResponseDate.
                     verbResponseDate = "\n  <responseDate>"
-                    verbResponseDate += str(datetime.now())
+                    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                     verbResponseDate += "</responseDate>"
                     
                     # Set verbRequest.
@@ -226,6 +226,14 @@ try:
                     response.append(verbResponseDate)
                     # Append verbRequest.
                     response.append(verbRequest)
+                    
+                    # Get record date.
+                    splitString = "<dc:date>"
+                    split = data.split(splitString)
+                    splitString = "</dc:date>"
+                    split = split[1].split(splitString)
+                    split = split[0].split(" ")
+                    recordDate = split[0]
                     
                     # Split data to remove <dc:identifier>.
                     splitString = "<dc:identifier>"+identifier+"</dc:identifier>"
@@ -247,7 +255,7 @@ try:
                     # Set headerIdentifier.
                     headerIdentifier = "\n    <header>\n      <identifier>"+identifier+"</identifier>"
                     # Set headerDatestamp.
-                    headerDatestamp = "\n      <datestamp>"+str(datetime.now())+"</datestamp>"
+                    headerDatestamp = "\n      <datestamp>"+recordDate+"</datestamp>"
                     # Set headerSet.
                     headerSet = "\n      <setSpec>"+set+"</setSpec>\n    </header>\n"
                     
@@ -259,7 +267,7 @@ try:
                     header.append(headerDatestamp)
                     # Append headerSet.
                     header.append(headerSet)
-                    # Convert header to be of type str.
+                    # Convert list header to be of type str.
                     strHead = ''.join([str(elem) for elem in header])
                     
                     # Generate record.
@@ -268,7 +276,7 @@ try:
                     record.append(strHead)
                     # Append data.
                     record.append(data)
-                    # Convert record to be of type str.
+                    # Convert list record to be of type str.
                     strRec = ''.join([str(elem) for elem in record])
                     # Set responseEnd.
                     responseEnd = "\n  </record>\n </GetRecord>\n</OAI-PMH>"
@@ -276,7 +284,7 @@ try:
                     response.append(strRec)
                     # Append responseEnd.
                     response.append(responseEnd)
-                    # Convert response to be of type str.
+                    # Convert list response to be of type str.
                     strResp = ''.join([str(elem) for elem in response])
                     # Print response.
                     print(strResp)
@@ -296,7 +304,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
         
         # Generate badArgument XML response.
@@ -306,7 +314,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
             
             # Set verbRequest.
@@ -326,7 +334,7 @@ try:
             responseEnd = "\n</OAI-PMH>"
             # Append responseEnd.
             response.append(responseEnd)
-            # Convert response to be of type str.
+            # Convert list response to be of type str.
             strResp = ''.join([str(elem) for elem in response])
             # Print response.
             print(strResp)
@@ -380,7 +388,7 @@ try:
                     recordDate = split[0]
                     
                     # If recordDate earlier than earliestDatestamp.
-                    if((recordDate <= earliestDatestamp)):
+                    if ((recordDate <= earliestDatestamp)):
                         # Set earliestDatestamp to recordDate.
                         earliestDatestamp = recordDate
                 # Break from for loop after all files have been read.   
@@ -414,7 +422,7 @@ try:
             record = []
             # Append data.
             record.append(data)
-            # Convert record to be of type str.
+            # Convert list record to be of type str.
             strRec = ''.join([str(elem) for elem in record])
             # Set responseEnd.
             responseEnd = "\n  </Identify>\n</OAI-PMH>"
@@ -422,7 +430,7 @@ try:
             response.append(strRec)
             # Append responseEnd.
             response.append(responseEnd)
-            # Convert response to be of type str.
+            # Convert list response to be of type str.
             strResp = ''.join([str(elem) for elem in response])
             # Print response.
             print(strResp)
@@ -452,7 +460,7 @@ try:
                     # Raise badArgument error.
                     raise
             
-            # Check if metadataPrefix and/or resumptionToken entered.
+            # Check if fields entered.
             for field in form:
                 # If metadataPrefix entered.
                 if (field == "metadataPrefix"):
@@ -463,12 +471,27 @@ try:
                 if (field == "resumptionToken"):
                     # Set flag.
                     resumptionTokenFlag = True
-            
-            # If metadataPrefix and/or resumptionToken entered.
-            if (metadataPrefixFlag and resumptionTokenFlag):
+                
+                # If from entered.
+                if (field == "from"):
+                    # Set flag.
+                    fromFlag = True
+                
+                # If until entered.
+                if (field == "until"):
+                    # Set flag.
+                    untilFlag = True
+                
+                # If set entered.
+                if (field == "set"):
+                    # Set flag.
+                    setFlag = True
+                
+            # If exclusive arguments entered together.
+            if ((metadataPrefixFlag or fromFlag or untilFlag or setFlag) and resumptionTokenFlag):
                 # Raise badArgument error.
                 raise
-            
+                
             # If resumptionToken entered.
             if (resumptionTokenFlag):
                 
@@ -482,8 +505,8 @@ try:
                 resumptionTokenUntilFlag = False
                 
                 # Set resumptionToken frm and until values.
-                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
-                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
+                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
+                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 
                 # Set resumptionToken set flag.
                 resumptionTokenSetFlag = False
@@ -594,7 +617,7 @@ try:
                     raise
                 
                 # If resumptionTokenExpirationDate does not have a date format.
-                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')):
+                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%dT%H:%M:%SZ')):
                     # Raise badResumptionToken error.
                     raise
                 
@@ -623,9 +646,9 @@ try:
                         raise
                 
                 # Get resumptionToken expiration date object and current date object.
-                resumptionTokenExpirationDateObject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S')
-                currentDate = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
-                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%dT%H:%M:%S')
+                resumptionTokenExpirationDateObject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%SZ')
+                currentDate = datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
+                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%dT%H:%M:%SZ')
                 
                 # If resumptionToken expiration date object is less than current date object.
                 if (resumptionTokenExpirationDateObject <= currentDateObject):
@@ -790,7 +813,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.
@@ -811,7 +834,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -823,7 +846,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.
@@ -843,7 +866,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -863,7 +886,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.     
@@ -909,7 +932,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -927,7 +950,7 @@ try:
                     
                     # Set verbResponseDate.
                     verbResponseDate = "\n  <responseDate>"
-                    verbResponseDate += str(datetime.now())
+                    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                     verbResponseDate += "</responseDate>"
                     
                     # Set verbRequest.
@@ -1054,18 +1077,18 @@ try:
                                 header.append(headerDatestamp)
                                 # Append headerSetSpec.
                                 header.append(headerSetSpec)
-                                # Convert header to be of type str.
+                                # Convert list header to be of type str.
                                 strHead = ''.join([str(elem) for elem in header]) 
                                 
                                 # Generate record.
                                 record = []
                                 # Append strHead.
                                 record.append(strHead)
-                                # Convert record to be of type str.
+                                # Convert list record to be of type str.
                                 strRec = ''.join([str(elem) for elem in record]) 
                                 # Append strRec.
                                 response.append(strRec)
-                                # Convert response to be of type str.
+                                # Convert list response to be of type str.
                                 strResp = ''.join([str(elem) for elem in response])
                                 # Print response.
                                 print(strResp)
@@ -1093,7 +1116,7 @@ try:
                         resumptionToken = "<resumptionToken"
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\""
                         resumptionToken = "<resumptionToken"
-                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')+"\""
+                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%dT%H:%M:%SZ')+"\""
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\">"
                         
                         # If response list is not complete.
@@ -1101,7 +1124,7 @@ try:
                             
                             # Set tokenString.
                             tokenString = str(nextIndex)
-                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')
+                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%dT%H:%M:%SZ')
                             tokenString += ","+metadataPrefix
                             
                             # If frm field entered.
@@ -1139,7 +1162,7 @@ try:
                     
                     # Set verbResponseDate.
                     verbResponseDate = "\n  <responseDate>"
-                    verbResponseDate += str(datetime.now())
+                    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                     verbResponseDate += "</responseDate>"
                             
                     # Set verbRequest.
@@ -1186,7 +1209,7 @@ try:
                     responseEnd = "\n</OAI-PMH>"
                     # Append responseEnd.
                     response.append(responseEnd)
-                    # Convert response to be of type str.
+                    # Convert list response to be of type str.
                     strResp = ''.join([str(elem) for elem in response])
                     # Print response.
                     print(strResp)
@@ -1221,7 +1244,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
         
         # Generate badArgument XML response.
@@ -1231,7 +1254,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
             
             # Set verbRequest.
@@ -1251,7 +1274,7 @@ try:
             responseEnd = "\n</OAI-PMH>"
             # Append responseEnd.
             response.append(responseEnd)
-            # Convert response to be of type str.
+            # Convert list response to be of type str.
             strResp = ''.join([str(elem) for elem in response])
             # Print response.
             print(strResp)
@@ -1287,7 +1310,7 @@ try:
                 record = []
                 # Append data.
                 record.append(data)
-                # Convert record to be of type str.
+                # Convert list record to be of type str.
                 strRec = ''.join([str(elem) for elem in record])
                 # Set responseEnd.
                 responseEnd = "\n  </ListMetadataFormats>\n</OAI-PMH>"
@@ -1295,7 +1318,7 @@ try:
                 response.append(strRec)
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)  
@@ -1334,7 +1357,7 @@ try:
                     responseEnd = "\n</OAI-PMH>"
                     # Append responseEnd.
                     response.append(responseEnd)
-                    # Convert response to be of type str.
+                    # Convert list response to be of type str.
                     strResp = ''.join([str(elem) for elem in response])
                     # Print response.
                     print(strResp)
@@ -1363,7 +1386,7 @@ try:
                     record = []
                     # Append data.
                     record.append(data)
-                    # Convert record to be of type str.
+                    # Convert list record to be of type str.
                     strRec = ''.join([str(elem) for elem in record])
                     # Set responseEnd.
                     responseEnd = "\n </ListMetadataFormats>\n</OAI-PMH>"
@@ -1371,7 +1394,7 @@ try:
                     response.append(strRec)
                     # Append responseEnd.
                     response.append(responseEnd)
-                    # Convert response to be of type str.
+                    # Convert list response to be of type str.
                     strResp = ''.join([str(elem) for elem in response])
                     # Print response.
                     print(strResp)         
@@ -1401,7 +1424,7 @@ try:
                     # Raise badArgument error.
                     raise
             
-            # Check if metadataPrefix and/or resumptionToken entered.
+            # Check if fields entered.
             for field in form:
                 # If metadataPrefix entered.
                 if (field == "metadataPrefix"):
@@ -1412,12 +1435,27 @@ try:
                 if (field == "resumptionToken"):
                     # Set flag.
                     resumptionTokenFlag = True
-            
-            # If metadataPrefix and/or resumptionToken entered.
-            if (metadataPrefixFlag and resumptionTokenFlag):
+                
+                # If from entered.
+                if (field == "from"):
+                    # Set flag.
+                    fromFlag = True
+                
+                # If until entered.
+                if (field == "until"):
+                    # Set flag.
+                    untilFlag = True
+                
+                # If set entered.
+                if (field == "set"):
+                    # Set flag.
+                    setFlag = True
+                
+            # If exclusive arguments entered together.
+            if ((metadataPrefixFlag or fromFlag or untilFlag or setFlag) and resumptionTokenFlag):
                 # Raise badArgument error.
                 raise
-            
+                        
             # If resumptionToken entered.
             if (resumptionTokenFlag):
                 
@@ -1431,8 +1469,8 @@ try:
                 resumptionTokenUntilFlag = False
                 
                 # Set resumptionToken frm and until values.
-                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
-                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
+                resumptionTokenFrom = datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
+                resumptionTokenUntil = datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 
                 # Set resumptionToken set flag.
                 resumptionTokenSetFlag = False
@@ -1543,7 +1581,7 @@ try:
                     raise
                 
                 # If resumptionTokenExpirationDate does not have a date format.
-                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')):
+                if (resumptionTokenExpirationDate != datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%dT%H:%M:%SZ')):
                     # Raise badResumptionToken error.
                     raise
                 
@@ -1572,9 +1610,9 @@ try:
                         raise
                 
                 # Get resumptionToken expiration date object and current date object.
-                resumptionTokenExpirationDateObject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%S')
-                currentDate = datetime.today().strftime('%Y-%m-%dT%H:%M:%S')
-                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%dT%H:%M:%S')
+                resumptionTokenExpirationDateObject = datetime.strptime(resumptionTokenExpirationDate, '%Y-%m-%dT%H:%M:%SZ')
+                currentDate = datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
+                currentDateObject = datetime.strptime(currentDate, '%Y-%m-%dT%H:%M:%SZ')
                 
                 # If resumptionToken expiration date object is less than current date object.
                 if (resumptionTokenExpirationDateObject <= currentDateObject):
@@ -1730,6 +1768,7 @@ try:
                         if (ch in set):
                             # Raise badArgument error.
                             raise
+        
         # Generate XML response.
         except:
             # If only resumptionToken entered.
@@ -1739,7 +1778,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.
@@ -1760,7 +1799,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -1772,7 +1811,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.
@@ -1792,7 +1831,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -1813,7 +1852,7 @@ try:
                 
                 # Set verbResponseDate.
                 verbResponseDate = "\n  <responseDate>"
-                verbResponseDate += str(datetime.now())
+                verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                 verbResponseDate += "</responseDate>"
                 
                 # Set verbRequest.
@@ -1859,7 +1898,7 @@ try:
                 responseEnd = "\n</OAI-PMH>"
                 # Append responseEnd.
                 response.append(responseEnd)
-                # Convert response to be of type str.
+                # Convert list response to be of type str.
                 strResp = ''.join([str(elem) for elem in response])
                 # Print response.
                 print(strResp)
@@ -1877,7 +1916,7 @@ try:
                     
                     # Set verbResponseDate
                     verbResponseDate = "\n  <responseDate>"
-                    verbResponseDate += str(datetime.now())
+                    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                     verbResponseDate += "</responseDate>"
                     
                     # Set verbRequest. 
@@ -1985,7 +2024,7 @@ try:
                             untilDateObject = datetime.strptime(until, "%Y-%m-%d")
                             
                             # If recordDateObject is greater than frmDateObject and less than untilDateObject.
-                            if((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
+                            if ((recordDateObject >= frmDateObject) and (recordDateObject <= untilDateObject)):
                                 # Increment count.
                                 count += 1
                                 
@@ -2016,7 +2055,7 @@ try:
                                 header.append(headerDatestamp)
                                 # Append headerSetSpec.
                                 header.append(headerSetSpec)
-                                # Convert header to be of type str.
+                                # Convert list header to be of type str.
                                 strHead = ''.join([str(elem) for elem in header])
 
                                 # Generate record.
@@ -2028,11 +2067,11 @@ try:
                                 # Append about.
                                 record.append(about)
                                 record.append("\n   </record>")
-                                # Convert record to be of type str.
+                                # Convert list record to be of type str.
                                 strRec = ''.join([str(elem) for elem in record])
                                 # Append strRec.
                                 response.append(strRec)
-                                # Convert response to be of type str.
+                                # Convert list response to be of type str.
                                 strResp = ''.join([str(elem) for elem in response])
                                 # Print response.
                                 print(strResp)
@@ -2046,7 +2085,7 @@ try:
                         
                         # If count is zero.
                         if (count == 0):
-                            # Raise noRecordsMatch error
+                            # Raise noRecordsMatch error.
                             raise
                         
                         # Set estimated completeListSize.
@@ -2060,14 +2099,15 @@ try:
                         resumptionToken = "<resumptionToken"
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\""
                         resumptionToken = "<resumptionToken"
-                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')+"\""
+                        resumptionToken += " expirationDate="+"\""+expirationDate.strftime('%Y-%m-%dT%H:%M:%SZ')+"\""
                         resumptionToken += " completeListSize="+"\""+str(completeListSize)+"\">"
                         
                         # If response list is not complete.
                         if (complete == False):
+                            
                             # Set tokenString.
                             tokenString = str(nextIndex)
-                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%dT%H:%M:%S')
+                            tokenString += ",e"+expirationDate.strftime('%Y-%m-%dT%H:%M:%SZ')
                             tokenString += ","+metadataPrefix
                             
                             # If frm field entered.
@@ -2105,7 +2145,7 @@ try:
                     
                     # Set verbResponseDate.
                     verbResponseDate = "\n  <responseDate>"
-                    verbResponseDate += str(datetime.now())
+                    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
                     verbResponseDate += "</responseDate>"
                     
                     # Set verbRequest.
@@ -2150,7 +2190,7 @@ try:
                     responseEnd = "\n</OAI-PMH>"
                     # Append responseEnd.
                     response.append(responseEnd)
-                    # Convert response to be of type str.
+                    # Convert list response to be of type str.
                     strResp = ''.join([str(elem) for elem in response])
                     # Print response.
                     print(strResp)
@@ -2172,7 +2212,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
             
             # Set verbRequest.
@@ -2192,7 +2232,7 @@ try:
             responseEnd = "\n</OAI-PMH>"
             # Append responseEnd.
             response.append(responseEnd)
-            # Convert response to be of type str.
+            # Convert list response to be of type str.
             strResp = ''.join([str(elem) for elem in response])
             # Print response.
             print(strResp)
@@ -2204,7 +2244,7 @@ try:
             
             # Set verbResponseDate.
             verbResponseDate = "\n  <responseDate>"
-            verbResponseDate += str(datetime.now())
+            verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
             verbResponseDate += "</responseDate>"
             
             # Set verbRequest.
@@ -2233,7 +2273,7 @@ try:
             record = []
             # Append data.
             record.append(data)
-            # Convert record to be of type str.
+            # Convert list record to be of type str.
             strRec = ''.join([str(elem) for elem in record])
             # Set responseEnd.
             responseEnd = "\n </ListSets>\n</OAI-PMH>"
@@ -2241,7 +2281,7 @@ try:
             response.append(strRec)
             # Append responseEnd.
             response.append(responseEnd)
-            # Convert response to be of type str.
+            # Convert list response to be of type str.
             strResp = ''.join([str(elem) for elem in response])
             # Print response.
             print(strResp)
@@ -2257,7 +2297,7 @@ except:
     
     # Set verbResponseDate.
     verbResponseDate = "\n  <responseDate>"
-    verbResponseDate += str(datetime.now())
+    verbResponseDate += datetime.today().strftime('%Y-%m-%dT%H:%M:%SZ')
     verbResponseDate += "</responseDate>"
     
     # Set verbRequest.
@@ -2276,7 +2316,7 @@ except:
     responseEnd = "\n</OAI-PMH>"
     # Append responseEnd.
     response.append(responseEnd)
-    # Convert response to be of type str.
+    # Convert list response to be of type str.
     strResp = ''.join([str(elem) for elem in response])
     # Print response.
     print(strResp)
