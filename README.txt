@@ -112,9 +112,9 @@ resumptionToken
 Example:
 http://rafiki1.cs.uct.ac.za/~alex/cgi-bin/FHYAOAIInterface.py?verb=ListIdentifiers&metadataPrefix=oai_dc
 
-To request ListMetadataformats:
-2.4 Enter the server URL concatenated with the name of the Data Provider Interface and ListMetadataformats request by typing:
-http://rafiki1.cs.uct.ac.za/~alex/cgi-bin/<Data Provider Name>OAIInterface.py.py?verb=ListMetadataformats
+To request ListMetadataFormats:
+2.4 Enter the server URL concatenated with the name of the Data Provider Interface and ListMetadataFormats request by typing:
+http://rafiki1.cs.uct.ac.za/~alex/cgi-bin/<Data Provider Name>OAIInterface.py.py?verb=ListMetadataFormats
 
 With Argument:
 identifier
@@ -166,7 +166,7 @@ All three scripts are able to receive OAI-PMH requests and output OAI-PMH respon
 
 * [Visual Studio Code] - Used to write code.
 * [Mac OSX Terminal] - Used to manage git repo and run files.
-* [Ubunutu Web Server] - Used to host the Data Provider Interfaces that received and outputted OAI-PMH requests and responses. 
+* [Ubuntu Web Server] - Used to host the Data Provider Interfaces that received and outputted OAI-PMH requests and responses. 
 
 ######## Versioning
 

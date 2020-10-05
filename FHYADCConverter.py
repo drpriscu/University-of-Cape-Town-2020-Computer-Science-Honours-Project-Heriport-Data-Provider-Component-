@@ -190,8 +190,6 @@ def convert_to_DC(directoryPath, dcFileName, dictData, serverURL, idNum):
     for key in dictData:
         # Set valDict to the dictData value at the key.
         valDict = dictData[key]
-        print("Before: ")
-        print(valDict)
         
         # If valDict is of type dict.
         if (type(valDict) == dict):
