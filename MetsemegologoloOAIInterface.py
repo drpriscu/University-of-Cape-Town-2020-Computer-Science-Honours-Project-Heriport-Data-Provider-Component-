@@ -918,7 +918,7 @@ try:
             else:
                 try:
                     # If set not valid.
-                    if (set != "Metsemegologolo/"):
+                    if (set != "Metsemegologolo"):
                         # Raise noRecordsMatch error.
                         raise
                     
@@ -1003,7 +1003,7 @@ try:
                                 #Append verbRequest.
                                 response.append(verbRequest)
                 
-                            "Metsemegologolo/"
+                            splitString= "Metsemegologolo/"
                             split = identifier.split(splitString)
                             # Set dcFilePath to the Data Provider sub-folder directory path concatenated with the (unqualified) Dublin Core file name.
                             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
@@ -1303,7 +1303,7 @@ try:
             # Else try to get the record file.
             else:
                 try:
-                    "Metsemegologolo/"
+                    splitString = "Metsemegologolo/"
                     split = identifier.split(splitString)
                     # Set dcFilePath to the Data Provider sub-folder directory path concatenated with the (unqualified) Dublin Core file name.
                     dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
@@ -1954,7 +1954,7 @@ try:
                                 #Append verbRequest.
                                 response.append(verbRequest)
                             
-                            "Metsemegologolo/"
+                            splitString= "Metsemegologolo/"
                             split = identifier.split(splitString)
                             # Set dcFilePath to the Data Provider sub-folder directory path concatenated with the (unqualified) Dublin Core file name.
                             dcFilePath = splitString+split[1]+"/metadata-"+split[1]+"-dc.xml"
